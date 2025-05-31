@@ -1,0 +1,302 @@
+/* Barre supérieure globale (Top-bar indépendante) */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
+  padding: 10px 40px;
+  z-index: 100;
+}
+
+/* Conteneur central de la top-bar */
+.top-bar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permet de passer en colonne sur des écrans étroits */
+}
+
+/* Styles pour la partie contact */
+.contact-info {
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+}
+
+/* Styles pour les icônes sociales */
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Pour que toutes les icônes aient la même taille */
+.social-icon,
+.lang-icon {
+  font-size: 30px; /* Pour Font Awesome, c'est géré par font-size. Pour l'image, on définit sa largeur. */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Pour l'image du drapeau anglais */
+.lang-icon {
+  width: 30px;
+  height: auto;
+}
+
+/* Effet hover sur les icônes Font Awesome */
+.social-icon:hover {
+  color: #007a5e; /* Vert du drapeau Camerounais */
+}
+
+.contact-info span {
+  margin-right: 15px;
+  font-size: 17px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.lang-icon {
+  width: 30px;
+  height: 20px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* navbar */
+
+.navbar-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80px;
+  background-color: #007a5e; /* Fond vert comme le drapeau camerounais */
+  color: #fcd116; /* Texte jaune */
+  padding: 10px 0;
+  border: solid 1px #fcd116;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
+  margin-bottom: -50px; /* Pour chevaucher la section supérieure */
+  position: relative;
+  z-index: 50;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  /* margin: 0 auto; */
+  padding: 0 40px;
+}
+
+.navbar-container img {
+  width: 30%; /* Ajustez la taille de l'image du logo */
+  height: auto;
+  border-radius: 10px; /* Pour un effet arrondi */
+}
+
+/* ✅ Logo à gauche */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li a {
+  color: #fcd116; /* Jaune du drapeau Camerounais*/
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-list li a:hover {
+  color: #ce1126; /* Rouge du drapeau au survol */
+}
+
+/* ✅ Drapeaux à droite */
+.flag-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-right: 30px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.flag-icon {
+  width: 20px;
+  height: auto;
+}
+
+/* ✅ Au survol, les drapeaux passent en blanc */
+.flag-icon:hover {
+  color: white;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 90vh;
+  background-color: #007a5e; /* 🌿 Vert du drapeau Camerounais*/
+  padding: 20px;
+  padding-top: 40px; /* Pour laisser de l'espace pour le texte */
+  text-align: center;
+  background-image: url("/assets/banner.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 90vh;
+  background-color: rgba(
+    147,
+    218,
+    201,
+    0.5
+  ); /* ✅ Voile vert semi-transparent */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    127,
+    245,
+    220,
+    0.5
+  ); /* 🌿 Vert du drapeau avec opacité */
+  z-index: 1;
+}
+
+.header-subtitle {
+  font-size: 22px;
+  color: #fcd116; /* 🌟 Jaune du drapeau */
+  font-weight: bold;
+}
+
+.header-title {
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.header-text {
+  font-size: 16px;
+  color: white;
+  max-width: 600px;
+  margin-top: 10px;
+}
+
+.bible-card {
+  background-color: #007a5e; /* 🌿 Fond vert du drapeau */
+  padding: 15px;
+  color: #fcd116; /* 🌟 Texte jaune */
+  font-size: 14px;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 20px;
+  border: solid 1px #fcd116;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
+}
+
+.title {
+  color: #fcd116; /* ✨ Jaune du drapeau */
+  font-size: 24px;
+  font-weight: bold;
+}
+.nav-list {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+}
+.nav-list a {
+  color: #fcd116;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.nav-list a:hover {
+  color: #ce1126;
+}
+
+/* Pour la réactivité sur petits écrans */
+@media (max-width: 600px) {
+  .top-bar-container {
+    flex-direction: column;
+  }
+  .social-icons {
+    margin-top: 10px;
+  }
+}

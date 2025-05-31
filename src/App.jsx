@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
+import Pages from "./pages/Blog";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header /> {/* ✅ Affichage du Header */}
       <Home /> {/* ✅ Affichage de la page d'accueil */}
       <About /> {/* ✅ Affichage de la page "À propos" */}
-      {/* <Blog /> ✅ Affichage du Blog */}
+      <Pages /> {/* ✅ Affichage des autres pages du site */}
       <Footer /> {/* ✅ Affichage du Footer */}
     </div>
   );

@@ -52,6 +52,8 @@ function Header() {
               </li>
             </ul>
           </div>
+          <button className="don-button">Faire un Don</button>{" "}
+          {/* bouton don */}
           <div className="flag-icons">
             <img
               src="/assets/flags/CM.svg"

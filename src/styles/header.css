@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; /* Permet de passer en colonne sur des écrans étroits */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -83,6 +83,12 @@
 
 /* navbar */
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .navbar-card {
   display: flex;
   justify-content: center;
@@ -133,18 +139,14 @@
   height: auto;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-}
-
 .nav-list {
-  list-style: none;
   display: flex;
   justify-content: center;
   gap: 30px;
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-transform: uppercase;
 }
 
 .nav-list li a {
@@ -157,6 +159,26 @@
 
 .nav-list li a:hover {
   color: #ce1126; /* Rouge du drapeau au survol */
+}
+
+/* Bouton "Don" */
+.don-button {
+  text-transform: uppercase;
+  background-color: white;
+  color: #007a5e;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 15px;
+}
+
+.don-button:hover {
+  background-color: #007a5e;
+  border: 1px solid #fcd116;
+  color: white;
 }
 
 /* ✅ Drapeaux à droite */

@@ -12,11 +12,6 @@ function Home() {
         <h3>Qui sommes-nous ?</h3>
         <p>Découvrez notre mission et nos actions.</p>
       </section>
-
-      {/* <section style={styles.blog}>
-        <h3>Nos actualités</h3>
-        <p>Explorez les derniers articles.</p>
-      </section> */}
     </main>
   );
 }

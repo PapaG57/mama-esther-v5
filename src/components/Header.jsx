@@ -21,9 +21,10 @@ function Header() {
           </div>
           <div className="social-icons">
             <img
-              src="/assets/uk-flag.png"
-              alt="Version anglaise"
-              className="lang-icon"
+              src="/assets/flags/GB.svg"
+              alt="Drapeau anglais"
+              title="English version"
+              className="flag-icon"
             />
             <FontAwesomeIcon icon={faFacebookF} className="social-icon" />
             <FontAwesomeIcon icon={faWhatsapp} className="social-icon" />

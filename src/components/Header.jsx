@@ -42,13 +42,16 @@ function Header() {
             <img src="/assets/logo-long.png" alt="Logo Association" />
             <ul className="nav-list">
               <li>
-                <a href="/">Accueil</a>
+                <a href="/">accueil</a>
               </li>
               <li>
-                <a href="/blog">Blog</a>
+                <a href="/pages">pages</a>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <a href="/à propos">à propos</a>
+              </li>
+              <li>
+                <a href="/contact">contact</a>
               </li>
             </ul>
           </div>

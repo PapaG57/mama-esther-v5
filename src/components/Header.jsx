@@ -87,17 +87,27 @@ function Header() {
         </div>
       </nav>
 
-      {/* Le header proncipal (Le contenu sous la navbar) */}
+      {/* Le header principal (Le contenu sous la navbar) */}
       <header className="header">
-        <div className="header-overlay">
-          <h2 className="header-subtitle">Commencez dès aujourd'hui</h2>
-          <h1 className="header-title">
-            Aidez-nous à donner une chance aux orphelins
-          </h1>
-          <p className="header-text">
-            Nous avons beaucoup de projets pour l'avenir des enfants et des
-            personnes en difficulté. Soutenez-nous pour aider à les réaliser.
-          </p>
+        <div className="header-overlay"></div> {/* Overlay en fond */}
+        {/* Conteneur principal divisé en deux colonnes */}
+        <div className="header-content">
+          {/* Bloc texte à gauche */}
+          <div className="header-text-block">
+            <h2 className="header-subtitle">
+              Soyez les bienvenus à notre association
+            </h2>
+            <h1 className="header-title">
+              Aidez-nous à donner une chance aux orphelins
+            </h1>
+            <p className="header-text">
+              Nous avons beaucoup de projets pour l'avenir des enfants et des
+              personnes en difficulté. Soutenez-nous dès maintenant pour aider à
+              les réaliser.
+            </p>
+          </div>
+
+          {/* Bible-card à droite */}
           <div className="bible-card">
             <p className="bible-verse">
               "... Je vous le dis en vérité, toutes les fois que vous avez fait

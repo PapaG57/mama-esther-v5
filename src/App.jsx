@@ -8,11 +8,11 @@ import Pages from "./pages/Blog";
 function App() {
   return (
     <div>
-      <Header /> {/* ✅ Affichage du Header */}
-      <Home /> {/* ✅ Affichage de la page d'accueil */}
-      <About /> {/* ✅ Affichage de la page "À propos" */}
-      <Pages /> {/* ✅ Affichage des autres pages du site */}
-      <Footer /> {/* ✅ Affichage du Footer */}
+      <Header /> {/* Affichage du Header */}
+      <Home /> {/* Affichage de la page d'accueil */}
+      <About /> {/* Affichage de la page "À propos" */}
+      <Pages /> {/* Affichage des autres pages du site */}
+      <Footer /> {/* Affichage du Footer */}
     </div>
   );
 }

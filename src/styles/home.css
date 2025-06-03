@@ -1,56 +1,6 @@
-/* Global */
-.section-padding {
-  padding: 60px 0;
-}
-
-/* Container centralisé */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-/* Flex grid et disposition des lignes */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.d-flex {
-  display: flex;
-}
-
-/* Utilitaires de texte */
-.text-center {
-  text-align: center;
-}
-
-.text-uppercase {
-  text-transform: uppercase;
-}
-
-.mb-55 {
-  margin-bottom: 55px;
-}
-
-/* Colonnes (exemple pour col-lg-6) */
-.col-lg-6 {
-  width: 50%;
-  padding: 0 15px;
-}
+/* ======================== */
+/*   Styles Personnalisés   */
+/* ======================== */
 
 /* Titre de section */
 .section_title h3 {
@@ -59,45 +9,9 @@
   margin: 0;
 }
 
-/* Comment List */
-.comment-list {
-  width: 100%;
-}
-
-/* Padding additionnel pour la section commentaires */
-.section_padding_2 {
-  padding: 30px 0;
-}
-
-/* Chaque engagement (article) */
-.single-comment {
-  margin-bottom: 40px;
-}
-
-/* Bloc utilisateur */
-.user {
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-/* Style de la vignette d'image */
-.thumbnail {
-  margin-right: 20px;
-  flex-shrink: 0;
-}
-
-.thumbnail img {
-  max-width: 100%;
-  border-radius: 5px;
-  /* Tu peux fixer une largeur maximale, ex : */
-  max-width: 150px;
-}
-
-/* Bloc description à côté de la vignette */
-.desc {
-  flex: 1;
+/* (Optionnel) Pour un margin-bottom personnalisé */
+.mb-55 {
+  margin-bottom: 55px;
 }
 
 /* Texte de commentaire */
@@ -107,32 +21,32 @@
   line-height: 1.6;
 }
 
-/* Alignement du texte */
+/* Alignement du texte si besoin (Bootstrap ne contient plus text-justify) */
 .text-justify {
   text-align: justify;
 }
 
-/* Couleurs */
-.text-dark {
-  color: #333;
-}
-
+/* Override de .text-primary pour utiliser le vert du drapeau Camerounais */
 .text-primary {
-  color: #007a5e; /* Couleur primaire - ajuste en fonction de ta charte */
+  color: #007a5e !important;
 }
 
-/* Responsive */
-@media (max-width: 767px) {
-  .d-flex {
-    flex-direction: column;
-  }
+/* Bloc de description (texte) avec border et padding */
+.desc {
+  flex: 1;
+  border: 1px solid #fcd116; /* Jaune du drapeau Camerounais */
+  padding: 15px;
+  border-radius: 5px;
+}
 
-  .thumbnail {
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
+/* Style de la vignette d'image */
+.thumbnail {
+  margin-bottom: 15px; /* Pour espacer l'image du bloc texte */
+  flex-shrink: 0;
+}
 
-  .col-lg-6 {
-    width: 100%;
-  }
+.thumbnail img {
+  width: 150px; /* Largeur fixe pour l'image */
+  max-width: 100%; /* Pour s'assurer de la responsivité */
+  border-radius: 5px;
 }

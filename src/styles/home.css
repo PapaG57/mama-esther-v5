@@ -1,0 +1,138 @@
+/* Global */
+.section-padding {
+  padding: 60px 0;
+}
+
+/* Container centralisé */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Flex grid et disposition des lignes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+/* Utilitaires de texte */
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.mb-55 {
+  margin-bottom: 55px;
+}
+
+/* Colonnes (exemple pour col-lg-6) */
+.col-lg-6 {
+  width: 50%;
+  padding: 0 15px;
+}
+
+/* Titre de section */
+.section_title h3 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Comment List */
+.comment-list {
+  width: 100%;
+}
+
+/* Padding additionnel pour la section commentaires */
+.section_padding_2 {
+  padding: 30px 0;
+}
+
+/* Chaque engagement (article) */
+.single-comment {
+  margin-bottom: 40px;
+}
+
+/* Bloc utilisateur */
+.user {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Style de la vignette d'image */
+.thumbnail {
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.thumbnail img {
+  max-width: 100%;
+  border-radius: 5px;
+  /* Tu peux fixer une largeur maximale, ex : */
+  max-width: 150px;
+}
+
+/* Bloc description à côté de la vignette */
+.desc {
+  flex: 1;
+}
+
+/* Texte de commentaire */
+.comment {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Alignement du texte */
+.text-justify {
+  text-align: justify;
+}
+
+/* Couleurs */
+.text-dark {
+  color: #333;
+}
+
+.text-primary {
+  color: #007a5e; /* Couleur primaire - ajuste en fonction de ta charte */
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .thumbnail {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .col-lg-6 {
+    width: 100%;
+  }
+}

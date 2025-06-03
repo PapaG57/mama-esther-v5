@@ -2,7 +2,7 @@
 .top-bar {
   width: auto;
   background-color: #ffffff;
-  color: #6a6363;
+  color: #323333;
   padding: 10px 20px;
 }
 
@@ -39,7 +39,7 @@
 
 .social-icon {
   font-size: 24px;
-  color: black;
+  color: #323333;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -82,7 +82,6 @@
 }
 
 /* navbar */
-
 .navbar {
   display: flex;
   justify-content: center;
@@ -95,10 +94,10 @@
   align-items: center;
   width: 80%;
   height: 80px;
-  background-color: #007a5e; /* Fond vert comme le drapeau camerounais */
-  color: #fcd116; /* Texte jaune comme le drapeau camerounais */
+  background-color: #007a5e; /* Vert du drapeau Camerounais */
+  color: #fcd116; /* jaune du drapeau Camerounais */
   padding: 10px 0;
-  border: solid 1px #fcd116;
+  border: solid 1px #fcd116; /* jaune du drapeau Camerounais */
   border-radius: 10px;
   box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
   margin-bottom: -50px; /* Pour chevaucher la section supérieure */
@@ -163,8 +162,9 @@
 /* Bouton "Don" */
 .don-button {
   text-transform: uppercase;
-  background-color: white;
-  color: #007a5e;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
+  color: #fcd116; /* Jaune du drapeau Cameroun */
   font-size: 16px;
   font-weight: bold;
   padding: 10px 20px;
@@ -175,18 +175,20 @@
 }
 
 .don-button:hover {
-  background-color: #007a5e;
-  border: 1px solid #fcd116;
-  color: white;
+  background-color: #007a5e; /* vert du drapeau Camerounais */
+  border: 1px solid #fcd116; /* Jaune du drapeau Cameroun */
+  color: #ce1126; /* Rouge du drapeau au survol */
 }
 
 /*  Drapeaux à droite */
 .flag-icons {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: center;
   padding-right: 30px;
-  overflow: hidden;
+  margin: 10px;
+  background-color: #ffffff;
   max-width: 100%;
 }
 
@@ -271,8 +273,8 @@
   letter-spacing: 2px;
   margin-bottom: 25px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-  -webkit-text-stroke: 1px #fcd116;
-  color: white;
+  -webkit-text-stroke: 1px #fcd116; /* Jaune du drapeau Cameroun */
+  color: ffffff;
 }
 
 /* Paragraphe du header */
@@ -307,7 +309,7 @@
   font-size: 1rem;
   font-style: italic;
   line-height: 1.4;
-  color: #fcd116;
+  color: #fcd116; /* Jaune du drapeau Cameroun */
   font-weight: bold;
 }
 

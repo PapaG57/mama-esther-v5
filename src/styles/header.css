@@ -1,37 +1,38 @@
-/* Barre supérieure globale (Top-bar indépendante) */
+/* ========================
+  Top-Bar (Barre supérieure)
+   ======================== */
 .top-bar {
+  position: relative;
+  z-index: 950;
   width: auto;
   background-color: #ffffff;
   color: #323333;
   padding: 10px 20px;
 }
 
-/* Conteneur central de la top-bar */
 .top-bar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap; /* Permet de passer en colonne sur des écrans étroits */
+  flex-wrap: nowrap; /* Pour passer en colonne sur écrans étroits */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Styles pour la partie contact */
+/* =======================
+    Informations et icônes
+     ======================= */
 .contact-info {
   display: flex;
-  justify-content: flex-start;
   gap: 15px;
   font-size: 17px;
 }
 
-/* Styles pour les icônes sociales */
 .social-icons {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 10px;
-  width: auto;
   padding: 5px 10px;
   border-radius: 10px;
   background-color: #ffffff;
@@ -44,23 +45,8 @@
   transition: color 0.3s ease;
 }
 
-/* Pour que toutes les icônes aient la même taille */
-.social-icon,
-.lang-icon {
-  font-size: 30px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-/* Pour l'image du drapeau anglais */
-.lang-icon {
-  width: 30px;
-  height: auto;
-}
-
-/* Effet hover sur les icônes Font Awesome */
 .social-icon:hover {
-  color: #007a5e; /* Vert du drapeau Camerounais */
+  color: #007a5e; /* Vert du drapeau Cameroun */
 }
 
 .contact-info span {
@@ -81,31 +67,34 @@
   cursor: pointer;
 }
 
-/* navbar */
-.navbar {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.navbar-card {
+/* ================================
+    Custom Navbar (Barre de navigation)
+     ================================ */
+.custom-navbar {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 80%;
   height: 80px;
-  background-color: #007a5e; /* Vert du drapeau Camerounais */
-  color: #fcd116; /* jaune du drapeau Camerounais */
-  padding: 10px 0;
-  border: solid 1px #fcd116; /* jaune du drapeau Camerounais */
-  border-radius: 10px;
+  background-color: rgba(
+    0,
+    122,
+    94,
+    0.95
+  ); /* Légère transparence Vert du drapeau Cameroun */
+  color: #fcd116; /* Jaune du drapeau Cameroun */
   box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
-  margin-bottom: -50px; /* Pour chevaucher la section supérieure */
-  position: relative;
-  z-index: 50;
+  border: solid 1px #fcd116; /* Jaune du drapeau Cameroun */
+  border-radius: 10px;
+  z-index: 900;
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.navbar-container {
+.custom-navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,43 +103,34 @@
   padding: 0 40px;
 }
 
-.navbar-container img {
-  width: 30%;
+.custom-navbar-logo img {
+  width: 250px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
-  border: solid 1px #fcd116; /* jaune du drapeau Camerounais */
+  border: solid 1px #fcd116;
 }
 
-/* Logo à gauche */
-.logo-container {
+/* Optionnel – pour le bouton toggle (mobile) */
+.custom-navbar-toggle {
+  display: none;
+}
+
+.custom-navbar-links {
   display: flex;
-  align-items: center;
 }
 
-.logo-container img {
-  width: 50%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.logo {
-  width: 60px;
-  height: auto;
-}
-
-.nav-list {
+.custom-nav-list {
   display: flex;
-  justify-content: center;
   gap: 30px;
-  margin: 0;
-  padding: 0;
   list-style: none;
   text-transform: uppercase;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-list li a {
-  color: #fcd116; /* Jaune du drapeau Camerounais*/
+.custom-nav-link {
+  color: #fcd116; /* Jaune du drapeau Cameroun */
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
@@ -158,15 +138,15 @@
   text-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
 }
 
-.nav-list li a:hover {
-  color: #ce1126; /* Rouge du drapeau au survol */
+.custom-nav-link:hover {
+  color: #ce1126; /* Rouge au survol rouge du drapeau Cameroun */
 }
 
-/* Bouton "Don" */
+/* Bouton "Don" – vous pouvez garder vos styles existants */
 .don-button {
   text-transform: uppercase;
   background-color: #ffffff;
-  border: solid 1px #fcd116; /* jaune du drapeau Camerounais */
+  border: solid 1px #fcd116; /* Jaune du drapeau Cameroun */
   box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
   color: #fcd116; /* Jaune du drapeau Cameroun */
   font-size: 16px;
@@ -179,12 +159,12 @@
 }
 
 .don-button:hover {
-  background-color: #007a5e; /* vert du drapeau Camerounais */
+  background-color: #007a5e; /* Vert du drapeau Cameroun */
   border: 1px solid #fcd116; /* Jaune du drapeau Cameroun */
-  color: #ce1126; /* Rouge du drapeau au survol */
+  color: #ce1126; /* Rouge du drapeau Cameroun */
 }
 
-/* Drapeaux à droite */
+/* Drapeaux (Flag icons) */
 .flag-icons {
   display: flex;
   gap: 10px;
@@ -193,7 +173,7 @@
   padding: 5px 10px;
   margin-right: 30px;
   background-color: #f5f5f5;
-  border: solid 1px #fcd116; /* jaune du drapeau Camerounais */
+  border: solid 1px #fcd116; /* Jaune du drapeau Cameroun */
   border-radius: 10px;
   box-shadow: 0 10px 20px #333333, 0 6px 6px #0000003b;
 }
@@ -208,20 +188,22 @@
   transform: scale(1.1);
 }
 
-/* Style global du header */
-.header {
+/* =====================================
+    Partie principale du Header (Header Main)
+     ===================================== */
+.header-main {
   position: relative;
-  z-index: 1;
+  z-index: 800;
   width: 100vw;
-  height: 90vh;
-  padding: 20px;
-  padding-top: 40px;
+  height: 85vh;
+  margin-top: -40px;
   text-align: center;
   background-image: url("/assets/banner.png");
   background-size: cover;
   background-position: center;
 }
 
+/* Overlay du Header */
 .header-overlay {
   position: absolute;
   top: 0;
@@ -233,7 +215,7 @@
     245,
     220,
     0.3
-  ); /* Vert du drapeau Camerounais avec opacité */
+  ); /* Vert du drapeau Cameroun avec opacité */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,7 +224,7 @@
   z-index: 1;
 }
 
-/* Conteneur principal du contenu textuel en deux colonnes */
+/* (Optionnel) Conteneur du contenu textuel */
 .header-content {
   position: relative;
   z-index: 2;
@@ -257,7 +239,7 @@
   gap: 40px;
 }
 
-/* Bloc contenant le texte du header (à gauche) */
+/* Bloc contenant le texte (colonne de gauche) */
 .header-text-block {
   flex: 1;
   text-align: left;
@@ -272,7 +254,7 @@
   margin-bottom: 20px;
 }
 
-/* Titre principal avec effet de relief */
+/* Titre Principal */
 .header-title {
   font-size: 3.5rem;
   font-weight: 700;
@@ -281,25 +263,20 @@
   margin-bottom: 25px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   -webkit-text-stroke: 1px #fcd116; /* Jaune du drapeau Cameroun */
-  color: ffffff;
+  color: #ffffff;
 }
 
-/* Paragraphe du header */
+/* Texte descriptif */
 .header-text {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 40px;
 }
 
-/* Bible-card à droite, façon presque carrée */
+/* Bible Card (colonne de droite) */
 .bible-card {
-  background: rgba(
-    0,
-    122,
-    94,
-    0.3
-  ); /* Vert du drapeau Camerounais avec opacité */
-  border: solid 1px #fcd116; /* jaune du drapeau Camerounais */
+  background: rgba(0, 122, 94, 0.3); /* Vert du drapeau Cameroun avec opacité */
+  border: solid 1px #fcd116; /* Jaune du drapeau Cameroun */
   padding: 20px;
   border-radius: 10px;
   width: 300px;
@@ -311,7 +288,7 @@
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Style du texte biblique */
+/* Texte biblique */
 .bible-verse {
   font-size: 1rem;
   font-style: italic;
@@ -320,7 +297,9 @@
   font-weight: bold;
 }
 
-/* Pour la réactivité sur petits écrans */
+/* =====================================
+    Réactivité sur petits écrans (Responsive)
+     ===================================== */
 @media (max-width: 600px) {
   .top-bar-container {
     flex-direction: column;

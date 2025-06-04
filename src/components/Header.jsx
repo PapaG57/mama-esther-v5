@@ -8,116 +8,145 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import "../styles/header.css";
+import useScrollNavbar from "../utils/navbar";
 
 function Header() {
+  useScrollNavbar();
+
   return (
-    <div>
-      {/* Barre supérieure (Top-bar indépendante) */}
-      <div className="top-bar">
-        <div className="top-bar-container">
-          <div className="contact-info">
-            <span>📞 +33 6 12 34 56 78</span>
-            <span>✉️ contact@mamaesther.org</span>
+    <header id="header">
+      <div className="header-wrapper">
+        {/* Top-Bar */}
+        <div className="top-bar py-2">
+          <div className="top-bar-container">
+            <div className="contact-info">
+              <span>📞 +33 6 12 34 56 78</span>
+              <span>✉️ contact@mamaesther.org</span>
+            </div>
+            <div className="social-icons">
+              <img
+                src="/assets/flags/GB.svg"
+                alt="Drapeau anglais"
+                title="English version"
+                className="flag-icon me-2"
+              />
+              <FontAwesomeIcon
+                icon={faFacebookF}
+                className="social-icon me-2"
+              />
+              <FontAwesomeIcon icon={faWhatsapp} className="social-icon me-2" />
+              <FontAwesomeIcon icon={faLinkedin} className="social-icon me-2" />
+              <FontAwesomeIcon
+                icon={faInstagram}
+                className="social-icon me-2"
+              />
+              <FontAwesomeIcon icon={faYoutube} className="social-icon" />
+            </div>
           </div>
-          <div className="social-icons">
-            <img
-              src="/assets/flags/GB.svg"
-              alt="Drapeau anglais"
-              title="English version"
-              className="flag-icon"
-            />
-            <FontAwesomeIcon icon={faFacebookF} className="social-icon" />
-            <FontAwesomeIcon icon={faWhatsapp} className="social-icon" />
-            <FontAwesomeIcon icon={faLinkedin} className="social-icon" />
-            <FontAwesomeIcon icon={faInstagram} className="social-icon" />
-            <FontAwesomeIcon icon={faYoutube} className="social-icon" />
+        </div>
+
+        {/* Navbar – classes personnalisées pour éviter Bootstrap */}
+        <nav className="custom-navbar custom-navbar-card">
+          <div className="custom-navbar-container">
+            {/* Logo à gauche */}
+            <a className="custom-navbar-logo" href="/">
+              <img src="/assets/logo-long.png" alt="Logo Association" />
+            </a>
+            {/* Bouton de menu pour mobile (si besoin) */}
+            <button className="custom-navbar-toggle" type="button">
+              <span className="custom-navbar-icon"></span>
+            </button>
+            {/* Liens de navigation */}
+            <div className="custom-navbar-links">
+              <ul className="custom-nav-list">
+                <li className="custom-nav-item">
+                  <a className="custom-nav-link" href="/">
+                    Accueil
+                  </a>
+                </li>
+                <li className="custom-nav-item">
+                  <a className="custom-nav-link" href="/pages">
+                    Pages
+                  </a>
+                </li>
+                <li className="custom-nav-item">
+                  <a className="custom-nav-link" href="/à-propos">
+                    À propos
+                  </a>
+                </li>
+                <li className="custom-nav-item">
+                  <a className="custom-nav-link" href="/contact">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* Bouton "Don" */}
+            <button className="btn don-button text-uppercase">
+              Faire un Don
+            </button>
+            {/* Drapeaux à droite */}
+            <div className="flag-icons">
+              <img
+                src="/assets/flags/CM.svg"
+                alt="Drapeau Cameroun"
+                className="flag-icon me-2"
+              />
+              <img
+                src="/assets/flags/FR.svg"
+                alt="Drapeau France"
+                className="flag-icon me-2"
+              />
+              <img
+                src="/assets/flags/LU.svg"
+                alt="Drapeau Luxembourg"
+                className="flag-icon me-2"
+              />
+              <img
+                src="/assets/flags/BE.svg"
+                alt="Drapeau Belgique"
+                className="flag-icon me-2"
+              />
+              <img
+                src="/assets/flags/DE.svg"
+                alt="Drapeau Allemagne"
+                className="flag-icon"
+              />
+            </div>
+          </div>
+        </nav>
+
+        {/* Zone principale du header */}
+        <div className="header-main position-relative">
+          <div className="header-overlay"></div>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-7 header-text-block">
+                <h2 className="header-subtitle">
+                  Soyez les bienvenus à notre association
+                </h2>
+                <h1 className="header-title">
+                  Aidez-nous à donner une chance aux orphelins
+                </h1>
+                <p className="header-text">
+                  Nous avons beaucoup de projets pour l’avenir des enfants et
+                  des personnes en difficulté. Soutenez-nous dès maintenant pour
+                  aider à les réaliser.
+                </p>
+              </div>
+              <div className="col-md-5 bible-card">
+                <p className="bible-verse">
+                  "... Je vous le dis en vérité, toutes les fois que vous avez
+                  fait ces choses à l’un de ces plus petits de mes frères, c’est
+                  à moi que vous l’avez faites. Matthieu 25 v. 40 (Bible Segond
+                  1910)."
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Carte de navigation (Nav-bar indépendante) */}
-      <nav className="navbar">
-        <div className="navbar-card">
-          <div className="navbar-container">
-            <img src="/assets/logo-long.png" alt="Logo Association" />
-            <ul className="nav-list">
-              <li>
-                <a href="/">accueil</a>
-              </li>
-              <li>
-                <a href="/pages">pages</a>
-              </li>
-              <li>
-                <a href="/à propos">à propos</a>
-              </li>
-              <li>
-                <a href="/contact">contact</a>
-              </li>
-            </ul>
-          </div>
-          <button className="don-button">Faire un Don</button>{" "}
-          {/* bouton don */}
-          <div className="flag-icons">
-            <img
-              src="/assets/flags/CM.svg"
-              alt="Drapeau Cameroun"
-              className="flag-icon"
-            />
-            <img
-              src="/assets/flags/FR.svg"
-              alt="Drapeau France"
-              className="flag-icon"
-            />
-            <img
-              src="/assets/flags/LU.svg"
-              alt="Drapeau Luxembourg"
-              className="flag-icon"
-            />
-            <img
-              src="/assets/flags/BE.svg"
-              alt="Drapeau Belgique"
-              className="flag-icon"
-            />
-            <img
-              src="/assets/flags/DE.svg"
-              alt="Drapeau Allemagne"
-              className="flag-icon"
-            />
-          </div>
-        </div>
-      </nav>
-
-      {/* Le header principal (Le contenu sous la navbar) */}
-      <header className="header">
-        <div className="header-overlay"></div> {/* Overlay en fond */}
-        {/* Conteneur principal divisé en deux colonnes */}
-        <div className="header-content">
-          {/* Bloc texte à gauche */}
-          <div className="header-text-block">
-            <h2 className="header-subtitle">
-              Soyez les bienvenus à notre association
-            </h2>
-            <h1 className="header-title">
-              Aidez-nous à donner une chance aux orphelins
-            </h1>
-            <p className="header-text">
-              Nous avons beaucoup de projets pour l'avenir des enfants et des
-              personnes en difficulté. Soutenez-nous dès maintenant pour aider à
-              les réaliser.
-            </p>
-          </div>
-
-          {/* Bible-card à droite */}
-          <div className="bible-card">
-            <p className="bible-verse">
-              "... Je vous le dis en vérité, toutes les fois que vous avez fait
-              ces choses à l’un de ces plus petits de mes frères, c’est à moi
-              que vous l’avez faites. Matthieu 25 v. 40 (Bible Segond 1910)."
-            </p>
-          </div>
-        </div>
-      </header>
-    </div>
+    </header>
   );
 }
 

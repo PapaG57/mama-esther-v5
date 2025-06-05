@@ -1,30 +1,31 @@
 import { useEffect } from "react";
 
-const useScrollNavbar = () => {
+const useScrollNavbar = (navbarRef) => {
   useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.querySelector(".custom-navbar");
-
-      if (!navbar) {
-        console.warn("⚠️ La navbar n'a pas été trouvée !");
+      if (!navbarRef.current) {
+        console.warn("⚠️ La navbar n'a pas été trouvée via le ref !");
         return;
       }
 
       let scrollY = window.scrollY;
-      let opacity = Math.max(0.5, 1 - scrollY / 300);
-      navbar.style.backgroundColor = `rgba(0, 122, 94, ${opacity})`;
+
+      let opacity = scrollY < 100 ? 1 - (scrollY / 300) * 0.1 : 0.7;
+
+      navbarRef.current.style.setProperty(
+        "background-color",
+        `rgba(0, 122, 94, ${opacity})`,
+        "important"
+      );
     };
 
-    // Attendre le chargement complet du DOM avant d'ajouter l'événement
-    document.addEventListener("DOMContentLoaded", () => {
-      window.addEventListener("scroll", handleScroll);
-    });
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
-    // Nettoyage de l'écouteur au démontage du composant
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [navbarRef]);
 };
 
 export default useScrollNavbar;

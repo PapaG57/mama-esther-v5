@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -11,7 +11,11 @@ import "../styles/header.css";
 import useScrollNavbar from "../utils/navbar";
 
 function Header() {
-  useScrollNavbar();
+  // Créez un ref que nous passerons à useScrollNavbar
+  const navbarRef = useRef(null);
+
+  // Passez la référence au hook
+  useScrollNavbar(navbarRef);
 
   return (
     <header id="header">
@@ -45,8 +49,8 @@ function Header() {
           </div>
         </div>
 
-        {/* Navbar – classes personnalisées pour éviter Bootstrap */}
-        <nav className="custom-navbar custom-navbar-card">
+        {/* Navbar – on ajoute le ref ici */}
+        <nav className="custom-navbar" ref={navbarRef}>
           <div className="custom-navbar-container">
             {/* Logo à gauche */}
             <a className="custom-navbar-logo" href="/">
@@ -82,35 +86,38 @@ function Header() {
               </ul>
             </div>
             {/* Bouton "Don" */}
-            <button className="btn don-button text-uppercase">
-              Faire un Don
-            </button>
+            <button className="don-button text-uppercase">Faire un Don</button>
             {/* Drapeaux à droite */}
             <div className="flag-icons">
               <img
                 src="/assets/flags/CM.svg"
                 alt="Drapeau Cameroun"
                 className="flag-icon me-2"
+                title="Cameroun"
               />
               <img
                 src="/assets/flags/FR.svg"
                 alt="Drapeau France"
                 className="flag-icon me-2"
+                title="France"
               />
               <img
                 src="/assets/flags/LU.svg"
                 alt="Drapeau Luxembourg"
                 className="flag-icon me-2"
+                title="Luxembourg"
               />
               <img
                 src="/assets/flags/BE.svg"
                 alt="Drapeau Belgique"
                 className="flag-icon me-2"
+                title="Belgique"
               />
               <img
                 src="/assets/flags/DE.svg"
                 alt="Drapeau Allemagne"
                 className="flag-icon"
+                title="Allemagne"
               />
             </div>
           </div>

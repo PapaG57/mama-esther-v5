@@ -1,25 +1,26 @@
 import React from "react";
+import "../styles/about.css";
 
 function About() {
   return (
-    <section style={styles.container}>
-      <h2>À propos de Mama Esther</h2>
-      <p>
-        Mama Esther est une initiative engagée qui œuvre pour le bien-être des
-        communautés. Notre mission est d'accompagner, soutenir et inspirer !
-      </p>
+    <section id="about" className="about-container">
+      {/* Bloc principal */}
+      <div className="about-content">
+        <div className="about-text">
+          <h2 className="about-title">Qui sommes-nous ?</h2>
+          <p className="about-description">
+            L’Association Mama Esther œuvre pour le bien-être des orphelins et
+            des personnes en difficulté. Nous mettons en place des projets
+            solidaires et nous engageons à apporter un soutien humain et
+            matériel aux plus vulnérables.
+          </p>
+        </div>
+        <div className="about-image">
+          <img src="/assets/about-image.jpg" alt="Solidarité et engagement" />
+        </div>
+      </div>
     </section>
   );
 }
-
-// ✅ Styles légers pour rester sobre
-const styles = {
-  container: {
-    padding: "30px",
-    textAlign: "center",
-    backgroundColor: "#fff", // 🔘 Fond blanc neutre
-    color: "#333", // 🔘 Texte classique gris foncé
-  },
-};
 
 export default About;

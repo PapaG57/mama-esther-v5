@@ -1,48 +1,66 @@
+/* Conteneur principal */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
 /* Titre de section */
-.section_title h3 {
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h3 {
   font-size: 28px;
   font-weight: bold;
-  margin: 0;
 }
 
-/* (Optionnel) Pour un margin-bottom personnalisé */
-.mb-55 {
-  margin-bottom: 55px;
+/* Liste des engagements */
+.engagement-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
-/* Texte de commentaire */
-.comment {
-  margin-top: 10px;
-  font-size: 16px;
-  line-height: 1.6;
+/* Article engagement */
+.engagement-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 300px;
+  text-align: center;
 }
 
-/* Alignement du texte si besoin (Bootstrap ne contient plus text-justify) */
-.text-justify {
-  text-align: justify;
+/* Images */
+.thumbnail img {
+  width: 150px;
+  max-width: 100%;
+  border-radius: 5px;
 }
 
-/* Override de .text-primary pour utiliser le vert du drapeau Camerounais */
-.text-primary {
-  color: #007a5e !important;
-}
-
-/* Bloc de description (texte) avec border et padding */
+/* Bloc de description */
 .desc {
-  flex: 1;
-  border: 1px solid #fcd116; /* Jaune du drapeau Camerounais */
+  border: 1px solid #fcd116;
   padding: 15px;
   border-radius: 5px;
+  background-color: rgba(252, 209, 22, 0.1);
 }
 
-/* Style de la vignette d'image */
-.thumbnail {
-  margin-bottom: 15px; /* Pour espacer l'image du bloc texte */
-  flex-shrink: 0;
-}
+/* Responsive : ajustement pour petits écrans */
+@media (max-width: 768px) {
+  .engagement-list {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.thumbnail img {
-  width: 150px; /* Largeur fixe pour l'image */
-  max-width: 100%; /* Pour s'assurer de la responsivité */
-  border-radius: 5px;
+  .engagement-item {
+    width: 90%;
+  }
+
+  .thumbnail img {
+    width: 120px;
+  }
 }

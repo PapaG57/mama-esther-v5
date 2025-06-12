@@ -1,3 +1,13 @@
+.container,
+.row,
+.col-md-6 {
+  all: unset !important; /* ✅ Supprime les styles Bootstrap */
+}
+
+* {
+  box-sizing: border-box; /* ✅ Assure un bon affichage */
+}
+
 /* ========================
   Top-Bar (Barre supérieure)
    ======================== */
@@ -185,6 +195,16 @@
 /* =====================================
     Partie principale du Header (Header Main)
      ===================================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
 .header-main {
   position: relative;
   z-index: 800;
@@ -199,6 +219,11 @@
 
 /* Overlay du Header */
 .header-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
   position: absolute;
   top: 0;
   left: 0;
@@ -209,28 +234,23 @@
     245,
     220,
     0.3
-  ); /* Vert du drapeau Cameroun avec opacité */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
+  ); /* vert avec opacité du drapeau Cameroun */
   z-index: 1;
 }
 
 /* (Optionnel) Conteneur du contenu textuel */
-.header-content {
-  position: relative;
-  z-index: 2;
+.header-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  padding: 100px 20px;
-  color: #ffffff;
+  text-align: left;
   max-width: 1200px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   gap: 40px;
+  color: #ffffff;
 }
 
 /* Bloc contenant le texte (colonne de gauche) */
@@ -242,6 +262,7 @@
 /* Sous-titre */
 .header-subtitle {
   font-size: 2rem;
+  color: #ffffff;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -251,54 +272,65 @@
 /* Titre Principal */
 .header-title {
   font-size: 3.5rem;
+  color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 25px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   -webkit-text-stroke: 1px #fcd116; /* Jaune du drapeau Cameroun */
-  color: #ffffff;
 }
 
 /* Texte descriptif */
 .header-text {
   font-size: 1.2rem;
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 40px;
 }
 
 /* Bible Card (colonne de droite) */
 .bible-card {
-  background: rgba(0, 122, 94, 0.3); /* Vert du drapeau Cameroun avec opacité */
-  border: solid 1px #fcd116; /* Jaune du drapeau Cameroun */
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  aspect-ratio: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: rgba(0, 122, 94, 0.3); /* Vert du drapeau Cameroun */
+  border: solid 1px #fcd116; /* Jaune du drapeau Cameroun */
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  height: 250px;
+  aspect-ratio: 1;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Texte biblique */
 .bible-verse {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-style: italic;
   line-height: 1.4;
-  color: #fcd116; /* Jaune du drapeau Cameroun */
-  font-weight: bold;
+  color: #fcd116;
+  font-weight: 300;
+}
+
+.bible-verse-strong {
+  font-weight: 900; /* "Matthieu 25 v. 40 (Bible Segond 1910)" en gras */
 }
 
 /* =====================================
     Réactivité sur petits écrans (Responsive)
      ===================================== */
-@media (max-width: 600px) {
-  .top-bar-container {
-    flex-direction: column;
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column !important; /* ✅ Passe en colonne sur mobile */
+    align-items: center !important;
+    text-align: center !important;
   }
-  .social-icons {
-    margin-top: 10px;
+
+  .bible-card {
+    width: 180px;
+    height: 180px;
   }
 }

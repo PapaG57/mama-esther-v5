@@ -11,10 +11,7 @@ import "../styles/header.css";
 import useScrollNavbar from "../utils/navbar";
 
 function Header() {
-  // Créez un ref que nous passerons à useScrollNavbar
   const navbarRef = useRef(null);
-
-  // Passez la référence au hook
   useScrollNavbar(navbarRef);
 
   return (
@@ -49,17 +46,13 @@ function Header() {
           </div>
         </div>
 
-        {/* Navbar – on ajoute le ref ici */}
+        {/* Navbar */}
         <nav className="custom-navbar" ref={navbarRef}>
           <div className="custom-navbar-container">
-            {/* Logo à gauche */}
+            {/* Logo */}
             <a className="custom-navbar-logo" href="/">
               <img src="/assets/logo-long.png" alt="Logo Association" />
             </a>
-            {/* Bouton de menu pour mobile (si besoin) */}
-            <button className="custom-navbar-toggle" type="button">
-              <span className="custom-navbar-icon"></span>
-            </button>
             {/* Liens de navigation */}
             <div className="custom-navbar-links">
               <ul className="custom-nav-list">
@@ -86,69 +79,35 @@ function Header() {
               </ul>
             </div>
             {/* Bouton "Don" */}
-            <button className="don-button text-uppercase">Faire un Don</button>
-            {/* Drapeaux à droite */}
-            <div className="flag-icons">
-              <img
-                src="/assets/flags/CM.svg"
-                alt="Drapeau Cameroun"
-                className="flag-icon me-2"
-                title="Cameroun"
-              />
-              <img
-                src="/assets/flags/FR.svg"
-                alt="Drapeau France"
-                className="flag-icon me-2"
-                title="France"
-              />
-              <img
-                src="/assets/flags/LU.svg"
-                alt="Drapeau Luxembourg"
-                className="flag-icon me-2"
-                title="Luxembourg"
-              />
-              <img
-                src="/assets/flags/BE.svg"
-                alt="Drapeau Belgique"
-                className="flag-icon me-2"
-                title="Belgique"
-              />
-              <img
-                src="/assets/flags/DE.svg"
-                alt="Drapeau Allemagne"
-                className="flag-icon"
-                title="Allemagne"
-              />
-            </div>
+            <button className="don-button">Faire un Don</button>
           </div>
         </nav>
 
-        {/* Zone principale du header */}
-        <div className="header-main position-relative">
+        {/* Header Principal */}
+        <div className="header-main">
           <div className="header-overlay"></div>
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-7 header-text-block">
-                <h2 className="header-subtitle">
-                  Soyez les bienvenus à notre association
-                </h2>
-                <h1 className="header-title">
-                  Aidez-nous à donner une chance aux orphelins
-                </h1>
-                <p className="header-text">
-                  Nous avons beaucoup de projets pour l’avenir des enfants et
-                  des personnes en difficulté. Soutenez-nous dès maintenant pour
-                  aider à les réaliser.
+          <div className="header-container">
+            <div className="header-text-block">
+              <h2 className="header-subtitle">
+                Soyez les bienvenus dans notre association
+              </h2>
+              <h1 className="header-title">
+                Aidez-nous à donner une chance aux orphelins
+              </h1>
+              <p className="header-text">
+                Nous avons beaucoup de projets pour l’avenir des enfants et des
+                personnes en difficulté.
+              </p>
+            </div>
+            <div className="bible-card">
+              <p className="bible-verse">
+                "... Je vous le dis en vérité, toutes les fois que vous avez
+                fait ces choses à l’un de ces plus petits de mes frères, c’est à
+                moi que vous l’avez faites."
+                <p className="bible-verse-strong">
+                  Matthieu 25 v. 40 (Bible Segond 1910)
                 </p>
-              </div>
-              <div className="col-md-5 bible-card">
-                <p className="bible-verse">
-                  "... Je vous le dis en vérité, toutes les fois que vous avez
-                  fait ces choses à l’un de ces plus petits de mes frères, c’est
-                  à moi que vous l’avez faites. Matthieu 25 v. 40 (Bible Segond
-                  1910)."
-                </p>
-              </div>
+              </p>
             </div>
           </div>
         </div>

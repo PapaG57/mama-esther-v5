@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "../styles/header.css";
 import useScrollNavbar from "../utils/navbar";
+import { scrollToSection } from "../utils/smoothScroll";
 
 function Header() {
   const navbarRef = useRef(null);
@@ -67,10 +68,15 @@ function Header() {
                   </a>
                 </li>
                 <li className="custom-nav-item">
-                  <a className="custom-nav-link" href="/à-propos">
+                  <a
+                    className="custom-nav-link"
+                    href="#about"
+                    onClick={(e) => scrollToSection(e, "#about")}
+                  >
                     À propos
                   </a>
                 </li>
+
                 <li className="custom-nav-item">
                   <a className="custom-nav-link" href="/contact">
                     Contact

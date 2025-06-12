@@ -1,3 +1,7 @@
+* {
+  font-family: "Bahnschrift", sans-serif;
+}
+
 #about {
   padding-top: 80px; /* ✅ Décalage pour éviter que la navbar cache le titre */
 }
@@ -17,6 +21,54 @@
   gap: 40px;
 }
 
+.about-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1s ease-in-out forwards;
+
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff; /* ✅ Texte blanc pour le contraste */
+  background: linear-gradient(
+    135deg,
+    #006644,
+    #00ab84
+  ); /* ✅ Dégradé élégant */
+  padding: 20px;
+  border-radius: 8px; /* ✅ Légèrement arrondi */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title-divider {
+  width: 80px;
+  height: 5px;
+  background-color: #00ab84; /* ✅ Couleur accent */
+  margin: 10px auto;
+  border-radius: 3px;
+}
+
+.green-box {
+  border: 2px solid #ffcc00; /* ✅ Jaune du drapeau du Cameroun */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.green-box:hover {
+  border-color: #ffd700; /* ✅ Jaune doré plus lumineux */
+  transition: border-color 0.3s ease-in-out;
+}
+
 .about-text {
   flex: 1;
   text-align: left;
@@ -28,6 +80,7 @@
 }
 
 .about-description {
+  text-align: justify;
   font-size: 18px;
   line-height: 1.6;
 }

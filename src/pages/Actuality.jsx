@@ -1,45 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/actuality.css";
+
+const newsData = [
+  {
+    id: 1,
+    title: "Événement caritatif 2025",
+    img: "https://i.pravatar.cc/150?img=1",
+    link: "/actualite/1",
+  },
+  {
+    id: 2,
+    title: "Projet éducatif pour les enfants",
+    img: "https://i.pravatar.cc/150?img=2",
+    link: "/actualite/2",
+  },
+  {
+    id: 3,
+    title: "Campagne de dons alimentaires",
+    img: "https://i.pravatar.cc/150?img=3",
+    link: "/actualite/3",
+  },
+  {
+    id: 4,
+    title: "Journée mondiale de la solidarité",
+    img: "https://i.pravatar.cc/150?img=4",
+    link: "/actualite/4",
+  },
+  {
+    id: 5,
+    title: "Programme d’aide aux familles",
+    img: "https://i.pravatar.cc/150?img=5",
+    link: "/actualite/5",
+  },
+];
 
 function Actuality() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
-    <section style={styles.container}>
-      <h2>Nos dernières actualités</h2>
-      <p>Découvrez les derniers articles et mises à jour.</p>
-      <div style={styles.posts}>
-        <div style={styles.post}>
-          <h3>Événement caritatif 2025</h3>
-          <p>Une journée solidaire pour soutenir les plus démunis.</p>
-        </div>
-        <div style={styles.post}>
-          <h3>Projet éducatif pour les enfants</h3>
-          <p>Accès à l’éducation pour tous grâce à nos actions.</p>
-        </div>
+    <section id="actuality" className="actuality-container">
+      <h2>📰 Nos dernières actualités</h2>
+      <p>
+        🌍 Découvrez les événements et projets qui font avancer notre mission !
+      </p>
+
+      <div
+        className={`actuality-carousel ${isPaused ? "paused" : ""}`}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {[...newsData, ...newsData].map(
+          (
+            news,
+            index // ✅ Duplication des éléments
+          ) => (
+            <a key={index} href={news.link} className="actuality-item">
+              <img src={news.img} alt={news.title} />
+              <h3>{news.title}</h3>
+            </a>
+          )
+        )}
       </div>
     </section>
   );
 }
-
-// ✅ Styles sobres et épurés
-const styles = {
-  container: {
-    padding: "30px",
-    textAlign: "center",
-    backgroundColor: "#fff",
-    color: "#333",
-  },
-  posts: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px",
-    marginTop: "20px",
-  },
-  post: {
-    backgroundColor: "#d9d9d9", // Gris clair pour les cartes
-    padding: "20px",
-    borderRadius: "5px",
-    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-    width: "300px",
-  },
-};
 
 export default Actuality;

@@ -21,7 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 100px;
 }
 
 /* Article engagement */
@@ -29,13 +29,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 30px; /* écarte les images des textes (verticalement) */
   width: 300px;
   text-align: center;
 }
 
 .home-card-text {
   text-align: justify;
+}
+
+.home-link {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00ab84;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.home-link:hover {
+  color: #ffcc00; /* ✅ Jaune Cameroun au survol */
 }
 
 /* Images */
@@ -47,10 +62,14 @@
 
 /* Bloc de description */
 .desc {
-  border: 1px solid #fcd116;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Chaque carte prend la même hauteur */
+  border: 2px solid #fcd116;
   padding: 15px;
   border-radius: 5px;
-  background-color: rgba(252, 209, 22, 0.1);
+  background-color: rgba(255, 234, 143, 0.1);
 }
 
 .desc p {

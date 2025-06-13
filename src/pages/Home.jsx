@@ -40,6 +40,9 @@ function Home() {
                 chaque contribution est utilisée pour maximiser l'impact de nos
                 actions.
               </p>
+              <a href="/contact" className="home-link">
+                Vous avez des questions ? Cliquez ici
+              </a>
             </div>
           </article>
 
@@ -68,6 +71,9 @@ function Home() {
                 soutenant les adultes qui jouent un rôle crucial dans leur
                 épanouissement.
               </p>
+              <a href="/contact" className="home-link">
+                Vous avez des questions ? Cliquez ici
+              </a>
             </div>
           </article>
 
@@ -96,6 +102,9 @@ function Home() {
                 communauté. Leur altruisme et leur générosité témoignent de leur
                 esprit véritable.
               </p>
+              <a href="/contact" className="home-link">
+                Vous avez des questions ? Cliquez ici
+              </a>
             </div>
           </article>
         </div>

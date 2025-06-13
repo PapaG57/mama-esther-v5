@@ -25,7 +25,7 @@ function Home() {
             </div>
             <div className="desc">
               <h4>Comptabilité sans faille</h4>
-              <p>
+              <p className="home-card-text">
                 L'association Mama Esther veille à maintenir une comptabilité
                 rigoureuse et transparente. Nous utilisons des systèmes de
                 gestion financière avancés pour assurer que toutes les
@@ -53,7 +53,7 @@ function Home() {
             </div>
             <div className="desc">
               <h4>Soutien aux enfants, mais pas que...</h4>
-              <p>
+              <p className="home-card-text">
                 L'association Mama Esther s'engage à apporter un soutien global
                 à la communauté, en commençant par les enfants mais sans s'y
                 limiter. Nous offrons des services incluant : le soutien
@@ -81,7 +81,7 @@ function Home() {
             </div>
             <div className="desc">
               <h4>Un volontariat désintéressé</h4>
-              <p>
+              <p className="home-card-text">
                 L'association Mama Esther repose sur l'engagement indéfectible
                 de ses bénévoles, dont le volontariat désintéressé est la clé de
                 notre succès. Chaque jour, ils offrent de leur temps et de leur

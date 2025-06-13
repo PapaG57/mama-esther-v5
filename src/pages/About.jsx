@@ -1,9 +1,11 @@
 import React from "react";
 import "../styles/about.css";
+import Divider from "../components/Divider";
 
 function About() {
   return (
     <section id="about" className="about-container">
+      <Divider /> {/* ligne de séparation */}
       {/* Bloc principal */}
       <div className="about-content">
         <div className="about-text">
@@ -23,9 +25,9 @@ function About() {
             travaillons pour un monde plus juste et bienveillant.
           </p>
 
-          {/* ✅ Lien vers la page de présentation */}
-          <a href="/notre-histoire" className="about-link">
-            ➤ Découvrez qui nous sommes et comment nous agissons au quotidien
+          {/* Lien vers la page de présentation */}
+          <a href="/notre-histoire" className="about-button">
+            En savoir plus
           </a>
         </div>
         <div className="about-image">

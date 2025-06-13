@@ -1,9 +1,11 @@
 import React from "react";
 import "../styles/home.css";
+import Divider from "../components/Divider";
 
 function Home() {
   return (
     <main className="home-container">
+      <Divider /> {/* ligne de séparation */}
       {/* Engagement Area Section */}
       <section className="engagement-area">
         {/* Titre centré */}

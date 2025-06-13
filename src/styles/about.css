@@ -25,7 +25,6 @@
   opacity: 0;
   transform: translateY(-20px);
   animation: fadeIn 1s ease-in-out forwards;
-
   font-size: 36px;
   font-weight: bold;
   text-transform: uppercase;
@@ -80,9 +79,44 @@
 }
 
 .about-description {
+  font-family: "Bahnschrift Light", sans-serif;
   text-align: justify;
   font-size: 18px;
   line-height: 1.6;
+}
+
+.about-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(
+    90deg,
+    #007a32,
+    #ffcc00,
+    #d30000
+  ); /* Rouge, Jaune, Vert du drapeau Camerounais */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.about-button:hover {
+  color: #000000; /* Texte blanc au survol */
+  transform: scale(1.05);
+  background: linear-gradient(
+    90deg,
+    #d30000,
+    #ffcc00,
+    #007a32
+  ); /* Inversion au survol */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Image */

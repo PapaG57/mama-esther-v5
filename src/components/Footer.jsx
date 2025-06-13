@@ -52,10 +52,10 @@ function Footer() {
               <a href="#">Volontariat</a>
             </li>
             <li>
-              <a href="#">Partenaires</a>
+              <a href="#">Emploi</a>
             </li>
             <li>
-              <a href="#">Emploi</a>
+              <a href="#">Partenaires</a>
             </li>
             <li>
               <a href="#">Mentions Légales</a>

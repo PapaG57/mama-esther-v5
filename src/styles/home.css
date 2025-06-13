@@ -49,6 +49,10 @@
   background-color: rgba(252, 209, 22, 0.1);
 }
 
+.desc p {
+  font-family: "Bahnschrift Light", sans-serif;
+}
+
 /* Responsive : ajustement pour petits écrans */
 @media (max-width: 768px) {
   .engagement-list {

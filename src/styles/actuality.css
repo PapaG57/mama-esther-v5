@@ -5,6 +5,20 @@
   color: #333;
 }
 
+.news-carousel h2 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news-carousel p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
 /* Track contenant les éléments */
 .news-carousel-track {
   display: flex;

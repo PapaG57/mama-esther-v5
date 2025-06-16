@@ -5,33 +5,21 @@ import Divider from "../components/Divider";
 const newsData = [
   {
     id: 1,
-    title: "Événement caritatif 2025",
-    img: "https://i.pravatar.cc/150?img=1",
+    title: "Lassociation est née !",
+    img: "../assets/actualities/actuality1.png",
     link: "/actualite/1",
   },
   {
     id: 2,
-    title: "Projet éducatif pour les enfants",
-    img: "https://i.pravatar.cc/150?img=2",
+    title: "Le terrain est acquis !",
+    img: "../assets/actualities/actuality2.png",
     link: "/actualite/2",
   },
   {
     id: 3,
-    title: "Campagne de dons alimentaires",
-    img: "https://i.pravatar.cc/150?img=3",
+    title: "Les newsletter sont ici !",
+    img: "../assets/actualities/pdf.png",
     link: "/actualite/3",
-  },
-  {
-    id: 4,
-    title: "Journée mondiale de la solidarité",
-    img: "https://i.pravatar.cc/150?img=4",
-    link: "/actualite/4",
-  },
-  {
-    id: 5,
-    title: "Programme d’aide aux familles",
-    img: "https://i.pravatar.cc/150?img=5",
-    link: "/actualite/5",
   },
 ];
 

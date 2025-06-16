@@ -1,18 +1,18 @@
 .container,
 .row,
 .col-md-6 {
-  all: unset !important; /* ✅ Supprime les styles Bootstrap */
-}
-
-* {
-  box-sizing: border-box; /* ✅ Assure un bon affichage */
+  all: unset !important;
 }
 
 /* ========================
   Top-Bar (Barre supérieure)
    ======================== */
 .top-bar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
   width: 100%;
   background-color: #ffffff;
   padding: 10px 20px;
@@ -195,7 +195,7 @@
 /* =====================================
     Partie principale du Header (Header Main)
      ===================================== */
-.container {
+.header-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -209,12 +209,13 @@
   position: relative;
   z-index: 800;
   width: 100vw;
-  height: 85vh;
-  margin-top: 130px;
+  height: 100vh;
+  padding-top: var(--header-offset);
   text-align: center;
   background-image: url("/assets/banner.png");
   background-size: cover;
   background-position: center;
+  box-sizing: border-box;
 }
 
 /* Overlay du Header */
@@ -228,7 +229,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 85vh;
+  height: 100vh;
   background-color: rgba(
     127,
     245,

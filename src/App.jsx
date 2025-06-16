@@ -11,7 +11,7 @@ function App() {
       <Header /> {/* Affichage du Header */}
       <About /> {/* Affichage de la page "À propos" */}
       <Engagement /> {/* Affichage de la page des engagements */}
-      <Actuality /> {/* Affichage des actualités de l'association */}
+      <Actuality /> {/* Affichage de la page des actualités */}
       <Footer /> {/* Affichage du Footer */}
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/actuality.css";
+import "../styles/actuality.css"; // ✅ Mise à jour du fichier CSS
 
 const newsData = [
   {
@@ -38,23 +38,23 @@ function Actuality() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section id="actuality" className="actuality-container">
+    <section className="news-carousel">
       <h2>📰 Nos dernières actualités</h2>
       <p>
         🌍 Découvrez les événements et projets qui font avancer notre mission !
       </p>
 
       <div
-        className={`actuality-carousel ${isPaused ? "paused" : ""}`}
+        className={`news-carousel-track ${isPaused ? "paused" : ""}`}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         {[...newsData, ...newsData].map(
           (
             news,
-            index // ✅ Duplication des éléments
+            index // ✅ Duplication pour défilement fluide
           ) => (
-            <a key={index} href={news.link} className="actuality-item">
+            <a key={index} href={news.link} className="news-item">
               <img src={news.img} alt={news.title} />
               <h3>{news.title}</h3>
             </a>

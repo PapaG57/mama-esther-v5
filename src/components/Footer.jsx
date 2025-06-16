@@ -71,6 +71,7 @@ function Footer() {
           <p>57700 HAYANGE St-NICOLAS EN FORÊT</p>
           <p>FRANCE</p>
           <p>📞 +33 6 86 74 29 11</p>
+          <p>📞 +33 6 45 65 65 17</p>
           <p>
             ✉️{" "}
             <a href="mailto:association@mamaesther.org">

@@ -3,7 +3,7 @@
 }
 
 #about {
-  padding-top: 80px; /* ✅ Décalage pour éviter que la navbar cache le titre */
+  padding-top: 80px; /* Décalage pour éviter que la navbar cache le titre */
 }
 
 /* Conteneur principal */
@@ -29,14 +29,10 @@
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  color: #ffffff; /* ✅ Texte blanc pour le contraste */
-  background: linear-gradient(
-    135deg,
-    #006644,
-    #00ab84
-  ); /* ✅ Dégradé élégant */
+  color: #ffffff;
+  background: linear-gradient(135deg, #006644, #00ab84); /* Dégradé élégant */
   padding: 20px;
-  border-radius: 8px; /* ✅ Légèrement arrondi */
+  border-radius: 8px;
 }
 
 @keyframes fadeIn {
@@ -53,18 +49,18 @@
 .title-divider {
   width: 80px;
   height: 5px;
-  background-color: #00ab84; /* ✅ Couleur accent */
+  background-color: #00ab84; /* Couleur accent */
   margin: 10px auto;
   border-radius: 3px;
 }
 
 .green-box {
-  border: 2px solid #ffcc00; /* ✅ Jaune du drapeau du Cameroun */
+  border: 2px solid #ffcc00; /* Jaune du drapeau du Cameroun */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .green-box:hover {
-  border-color: #ffd700; /* ✅ Jaune doré plus lumineux */
+  border-color: #ffd700; /* Jaune doré plus lumineux */
   transition: border-color 0.3s ease-in-out;
 }
 
@@ -104,6 +100,7 @@
   border: none;
   border-radius: 5px;
   text-decoration: none;
+  text-transform: uppercase;
   transition: transform 0.2s ease-in-out;
 }
 

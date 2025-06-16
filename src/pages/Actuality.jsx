@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../styles/actuality.css"; // ✅ Mise à jour du fichier CSS
+import "../styles/actuality.css";
+import Divider from "../components/Divider";
 
 const newsData = [
   {
@@ -39,27 +40,31 @@ function Actuality() {
 
   return (
     <section className="news-carousel">
+      <Divider /> {/* ligne de séparation */}
       <h2>📰 Nos dernières actualités</h2>
       <p>
         🌍 Découvrez les événements et projets qui font avancer notre mission !
       </p>
-
       <div
         className={`news-carousel-track ${isPaused ? "paused" : ""}`}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {[...newsData, ...newsData].map(
-          (
-            news,
-            index // ✅ Duplication pour défilement fluide
-          ) => (
-            <a key={index} href={news.link} className="news-item">
+        {[...newsData, ...newsData].map((news, index) => (
+          <a key={index} href={news.link} className="news-item">
+            <div className="news-visual">
               <img src={news.img} alt={news.title} />
-              <h3>{news.title}</h3>
-            </a>
-          )
-        )}
+            </div>
+            <h3 className="news-title">{news.title}</h3>
+          </a>
+        ))}
+      </div>
+      <div className="btn-wrapper">
+        <div className="actuality-button-wrapper">
+          <a href="/actualites" className="about-button">
+            Voir toutes les actualités
+          </a>
+        </div>
       </div>
     </section>
   );

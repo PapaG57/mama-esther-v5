@@ -1,49 +1,95 @@
-/* ✅ Nouveau nom de classe pour éviter les conflits */
 .news-carousel {
   padding: 40px;
   text-align: center;
   background: linear-gradient(180deg, #fff, #f8f8f8);
   color: #333;
-  overflow: hidden;
-  position: relative;
 }
 
-/* ✅ Assure un carrousel bien centré */
+/* Track contenant les éléments */
 .news-carousel-track {
   display: flex;
-  width: 70%;
-  margin: auto;
+  flex-direction: row;
+  align-items: center;
+  width: 70vw;
+  margin: 0 auto;
   overflow: hidden;
-  justify-content: center;
-  position: relative;
+  position: relative; /* Pour que les flous se positionnent dessus */
 }
 
-/* ✅ Activation du défilement fluide */
-.news-carousel-track .news-item {
+/* Flou latéral correctement positionné aux extrémités visibles */
+.news-carousel-track::before,
+.news-carousel-track::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.news-carousel-track::before {
+  left: 0;
+  background: linear-gradient(to right, #f8f8f8 0%, transparent 100%);
+}
+
+.news-carousel-track::after {
+  right: 0;
+  background: linear-gradient(to left, #f8f8f8 0%, transparent 100%);
+}
+
+/* Cartes d'actualité */
+.news-item {
   flex: 0 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  background: #fff padding-box;
-  border-inline: 10px solid transparent;
-  animation: scroll 15s linear infinite;
+  padding: 15px;
+  text-decoration: none;
+  animation: scroll 10s linear infinite;
 }
 
-/* ✅ Correction des images */
+.news-item:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.news-carousel-track.paused .news-item {
+  animation-play-state: paused;
+}
+
 .news-item img {
-  width: 120px;
+  width: 180px;
   height: auto;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* ✅ Animation fluide et infinie */
+.news-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Titre sous chaque carte */
+.news-title {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* Animation fluide du carrousel */
 @keyframes scroll {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-100%);
   }
 }
 
-/* ✅ Suppression de la classe body pour éviter le conflit */
+.actuality-button-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}

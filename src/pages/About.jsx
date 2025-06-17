@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/about.css";
 import Divider from "../components/Divider";
+import CamerounButton from "../components/CamerounButton";
 
 function About() {
   return (
@@ -26,9 +27,9 @@ function About() {
           </p>
 
           {/* Lien vers la page de présentation */}
-          <a href="/notre-histoire" className="about-button">
+          <CamerounButton to="/notre-histoire" className="about-button">
             En savoir plus
-          </a>
+          </CamerounButton>
         </div>
         <div className="about-image">
           <img

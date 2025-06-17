@@ -19,7 +19,7 @@ function Home() {
           <article className="engagement-item">
             <div className="thumbnail">
               <img
-                src="assets/comptabilite.png"
+                src="/assets/comptabilite.png"
                 alt="Pièces de monnaie empilées"
               />
             </div>
@@ -50,7 +50,7 @@ function Home() {
           <article className="engagement-item">
             <div className="thumbnail">
               <img
-                src="assets/soutien.png"
+                src="/assets/soutien.png"
                 alt="Portrait de cinq jeunes enfants Africains"
               />
             </div>
@@ -81,7 +81,7 @@ function Home() {
           <article className="engagement-item">
             <div className="thumbnail">
               <img
-                src="assets/volontariat.png"
+                src="/assets/volontariat.png"
                 alt="Rassemblement de mains et de pieds en cercle"
               />
             </div>

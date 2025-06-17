@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/actuality.css";
 import Divider from "../components/Divider";
+import CamerounButton from "../components/CamerounButton";
 
 const newsData = [
   {
@@ -49,11 +50,12 @@ function Actuality() {
       </div>
       <div className="btn-wrapper">
         <div className="actuality-button-wrapper">
-          <a href="/actualites" className="about-button">
+          <CamerounButton to="/actualites">
             Voir toutes les actualités
-          </a>
+          </CamerounButton>
         </div>
       </div>
+      <Divider /> {/* ligne de séparation */}
     </section>
   );
 }

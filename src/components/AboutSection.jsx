@@ -24,6 +24,8 @@ export default function AboutSection() {
             des projets de soutien humain et matériel. Ensemble, nous
             travaillons pour un monde plus juste et bienveillant.
           </p>
+          <br />
+          <br />
 
           {/* Lien vers la page de présentation */}
           <CamerounButton to="/about">En savoir plus</CamerounButton>

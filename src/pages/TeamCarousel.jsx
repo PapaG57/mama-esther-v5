@@ -1,38 +1,54 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import TopBar from "../components/TopBar";
-import Navbar from "../components/Navbar";
+import CamerounButton from "../components/CamerounButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import "../styles/team-carousel.css";
 
 const teamMembers = [
   {
-    name: "Emily Kim",
-    role: "Founder",
-    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
+    name: "Eshter GERARD",
+    role: "Présidente",
+    img: "/assets/team/esther.png",
   },
   {
-    name: "Michael Steward",
-    role: "Creative Director",
-    img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5",
+    name: "Florent GERARD",
+    role: "Vice-Président",
+    img: "/assets/team/florent.png",
   },
   {
-    name: "Emma Rodriguez",
-    role: "Lead Developer",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    name: "Maeva DAHER-KHATER",
+    role: "Trésorière",
+    img: "/assets/team/maeva.png",
   },
   {
-    name: "Julia Gimmel",
-    role: "UX Designer",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    name: "Aziz DAHER-KHATER",
+    role: "Logistique",
+    img: "/assets/team/aziz.png",
   },
   {
-    name: "Lisa Anderson",
-    role: "Marketing Manager",
-    img: "https://images.unsplash.com/photo-1655249481446-25d575f1c054",
+    name: "Margault WILLEMS",
+    role: "Infirmière",
+    img: "/assets/team/marie.png",
   },
   {
-    name: "James Wilson",
-    role: "Product Manager",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
+    name: "Melanie LOPES",
+    role: "Infirmière",
+    img: "/assets/team/melanie.png",
+  },
+  {
+    name: "Jane DOE",
+    role: "Social Media Manager",
+    img: "/assets/team/jane-doe.png",
+  },
+  {
+    name: "Jules BILLONG",
+    role: "Administrateur",
+    img: "/assets/team/jules.png",
+  },
+  {
+    name: "Odette NGO BIHAÏ",
+    role: "Maître d'Oeuvre",
+    img: "/assets/team/odette.png",
   },
 ];
 
@@ -85,9 +101,7 @@ export default function TeamCarousel() {
   return (
     <>
       <main className="team-page">
-        <TopBar />
-        <Navbar />
-        <h1 className="about-title">NOTRE ÉQUIPE</h1>
+        <h1 className="about-title green-box">NOTRE ÉQUIPE</h1>
 
         <div
           className="carousel-container"
@@ -128,6 +142,12 @@ export default function TeamCarousel() {
               onClick={() => goTo(i - index)}
             />
           ))}
+        </div>
+        <div className="floating-contact">
+          <CamerounButton to="/">
+            <FontAwesomeIcon icon={faHouse} style={{ marginRight: "8px" }} />
+            Accueil
+          </CamerounButton>
         </div>
       </main>
     </>

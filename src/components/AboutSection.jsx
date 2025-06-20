@@ -7,11 +7,10 @@ export default function AboutSection() {
   return (
     <section id="about" className="about-container">
       <Divider /> {/* ligne de séparation */}
+      <h2 className="about-title green-box">Qui sommes-nous ?</h2>
       {/* Bloc principal */}
       <div className="about-content">
         <div className="about-text">
-          <h2 className="about-title green-box">Qui sommes-nous ?</h2>
-          <div className="title-divider green-box"></div>
           <p className="about-description">
             L’Association Mama Esther œuvre pour le bien-être des orphelins et
             des personnes en difficulté. Notre mission est de venir en aide aux

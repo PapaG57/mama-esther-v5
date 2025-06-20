@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faWhatsapp,
@@ -69,8 +70,10 @@ function Footer() {
             <p>1, Rue des Troènes</p>
             <p>57700 HAYANGE St-NICOLAS EN FORÊT</p>
             <p>FRANCE</p>
-            <p>📞 +33 6 86 74 29 11</p>
-            <p>📞 +33 6 45 65 65 17</p>
+            <FontAwesomeIcon icon={faPhoneVolume} className="phone-icon" />
+            <p className="phone-text">+33 6 86 74 29 11</p>
+            <FontAwesomeIcon icon={faPhoneVolume} className="phone-icon" />
+            <p className="phone-text">+33 6 45 65 65 17</p>
             <p>
               ✉️{" "}
               <a href="mailto:association@mamaesther.org">

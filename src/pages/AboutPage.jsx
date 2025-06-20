@@ -7,8 +7,6 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <TeamCarousel />
-
-      <CamerounButton to="/contact">Nous contacter</CamerounButton>
     </main>
   );
 }

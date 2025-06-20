@@ -1,29 +1,64 @@
 .footer {
   position: relative;
-  margin: 0;
-  padding: 40px 20px;
   width: 100vw;
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #ce1126; /* Rouge drapeau Cameroun */
-  color: #fcd116; /* Jaune du drapeau Cameroun */
+  background-color: #ce1126; /* couleur rouge du drapeau du Cameroun */
+  color: #fcd116; /* couleur jaune du drapeau du Cameroun */
   font-family: "Bahnschrift", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Centrage vertical et hauteur adaptée */
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: center; */
+  height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  padding: 60px 0;
+  box-sizing: border-box;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: flex-start;
   flex-wrap: wrap;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  gap: 40px;
+  margin-top: 100px;
 }
 
 .footer-logo {
-  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo,
+.footer-services,
+.footer-contact {
+  flex: 1 1 30%;
+  min-width: 280px;
+}
+
+.footer-bottom {
   text-align: center;
-  padding: 10px;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  width: 100%;
+  margin-top: 150px;
 }
 
 .footer-logo img {
@@ -33,31 +68,30 @@
 }
 
 .slogan {
-  font-style: italic;
+  font-style: normal;
+  transform: skewX(-10deg);
+  display: inline-block;
   font-size: 1.2rem;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .social-icons {
   display: flex;
   gap: 10px;
   justify-content: center;
+  margin-top: 10px;
+  padding: 10px 60px 10px 60px;
 }
 
 .social-icon {
-  font-size: 24px;
+  font-size: 28px;
   color: #323333;
   transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-  color: #007a5e; /* Vert du drapeau Cameroun */
-}
-
-.footer-services,
-.footer-contact {
-  flex: 1;
-  padding: 10px;
+  color: #007a5e;
 }
 
 .footer-services h3,
@@ -65,16 +99,19 @@
   font-size: 1.4rem;
   margin-bottom: 15px;
   text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
 }
 
 .footer-contact p a {
-  color: #fcd116; /* Jaune du drapeau Cameroun */
+  color: #fcd116;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-contact p a:hover {
-  color: #007a5e; /* Vert du drapeau Cameroun */
+  color: #007a5e;
 }
 
 .footer-services ul {
@@ -84,10 +121,11 @@
 
 .footer-services ul li {
   margin-bottom: 10px;
+  line-height: 1.8;
 }
 
 .footer-services ul li a {
-  color: #fcd116; /* Jaune du drapeau Cameroun */
+  color: #fcd116;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -96,23 +134,7 @@
   color: #ffffff;
 }
 
-.footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.footer-bottom p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Bahnschrift Light", sans-serif;
-}
-
-/* #######################
-          RESPONSIVE
-   ####################### */
+/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -120,6 +142,7 @@
     text-align: center;
   }
 
+  .footer-logo,
   .footer-services,
   .footer-contact {
     width: 100%;

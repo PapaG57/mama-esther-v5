@@ -7,7 +7,7 @@ function Home() {
     <main className="home-container">
       <Divider /> {/* ligne de séparation */}
       {/* Engagement Area Section */}
-      <section className="engagement-area">
+      <section id="Engagement" className="engagement-area">
         {/* Titre centré */}
         <div className="section-title">
           <h3>Engagements de l'association</h3>

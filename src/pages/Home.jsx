@@ -1,14 +1,26 @@
 // src/pages/Home.jsx
+import React from "react";
+import TopBar from "../components/TopBar";
+import Navbar from "../components/Navbar";
 import Header from "../components/Header";
+import AboutSection from "../components/AboutSection";
 import Engagement from "./Engagement";
-import Actuality from "./Actuality";
+import ActualitySection from "../components/ActualitySection";
+
+import "../styles/home.css";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <Engagement />
-      <Actuality />
+      <TopBar />
+      <Navbar />
+
+      <main className="home-content">
+        <Header />
+        <AboutSection />
+        <Engagement />
+        <ActualitySection />
+      </main>
     </>
   );
 }

@@ -9,6 +9,7 @@
   background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  --navbar-height: 70px;
   --header-offset: 140px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,10 +20,13 @@
   :root {
     color: #213547;
     background-color: #ffffff;
+    --navbar-height: 70px;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -41,14 +45,6 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Bahnschrift", system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-/* Si tu veux un cadre global centré pour toute l'app */
-#root {
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem; */
-  min-height: 100vh;
 }
 
 /* ========= TYPO, LIENS, TITRES ========= */

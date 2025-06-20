@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/about.css";
-import Divider from "../components/Divider";
-import CamerounButton from "../components/CamerounButton";
+import "../styles/about-section.css";
+import CamerounButton from "./CamerounButton";
+import Divider from "./Divider";
 
-function About() {
+export default function AboutSection() {
   return (
     <section id="about" className="about-container">
       <Divider /> {/* ligne de séparation */}
@@ -27,9 +27,7 @@ function About() {
           </p>
 
           {/* Lien vers la page de présentation */}
-          <CamerounButton to="/notre-histoire" className="about-button">
-            En savoir plus
-          </CamerounButton>
+          <CamerounButton to="/about">En savoir plus</CamerounButton>
         </div>
         <div className="about-image">
           <img
@@ -41,5 +39,3 @@ function About() {
     </section>
   );
 }
-
-export default About;

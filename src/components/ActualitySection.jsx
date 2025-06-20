@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/actuality.css";
-import Divider from "../components/Divider";
-import CamerounButton from "../components/CamerounButton";
+import Divider from "./Divider";
+import CamerounButton from "./CamerounButton";
 
 const newsData = [
   {
@@ -24,11 +24,11 @@ const newsData = [
   },
 ];
 
-function Actuality() {
+function ActualitySection() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="news-carousel">
+    <section id="AboutPage" className="news-carousel">
       <Divider /> {/* ligne de séparation */}
       <h2>📰 Nos dernières actualités</h2>
       <p>
@@ -60,4 +60,4 @@ function Actuality() {
   );
 }
 
-export default Actuality;
+export default ActualitySection;

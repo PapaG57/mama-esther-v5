@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
+import { faAt } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faWhatsapp,
@@ -19,7 +20,8 @@ export default function TopBar() {
           <span className="phone-text">+33 6 86 74 29 11</span>
           <FontAwesomeIcon icon={faPhoneVolume} className="phone-icon" />
           <span className="phone-text">+33 6 45 65 65 17</span>
-          <span>✉️ contact@mamaesther.org</span>
+          <FontAwesomeIcon icon={faAt} />
+          <span>contact@mamaesther.org</span>
         </div>
         <div className="social-icons">
           <img

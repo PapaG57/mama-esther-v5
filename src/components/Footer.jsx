@@ -1,6 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
+import { faAt } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faWhatsapp,
@@ -66,6 +68,7 @@ function Footer() {
           {/* Contacts */}
           <div className="footer-contact">
             <h3>Contacts</h3>
+            <FontAwesomeIcon icon={faEnvelopeOpenText} />
             <p>Association Mama-Esther</p>
             <p>1, Rue des Troènes</p>
             <p>57700 HAYANGE St-NICOLAS EN FORÊT</p>
@@ -74,9 +77,10 @@ function Footer() {
             <p className="phone-text">+33 6 86 74 29 11</p>
             <FontAwesomeIcon icon={faPhoneVolume} className="phone-icon" />
             <p className="phone-text">+33 6 45 65 65 17</p>
+            <FontAwesomeIcon icon={faAt} />
             <p>
-              ✉️{" "}
-              <a href="mailto:association@mamaesther.org">
+              {" "}
+              <a href="mailto:association@mamaesther.org" title="Nous écrire">
                 association@mamaesther.org
               </a>
             </p>

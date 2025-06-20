@@ -43,15 +43,6 @@ export default function Navbar() {
           <li>
             <a
               className="custom-nav-link"
-              href="#about"
-              onClick={(e) => scrollToSection(e, "#about")}
-            >
-              À propos
-            </a>
-          </li>
-          <li>
-            <a
-              className="custom-nav-link"
               href="#engagement"
               onClick={(e) => scrollToSection(e, "#engagement")}
             >
@@ -64,7 +55,25 @@ export default function Navbar() {
               href="#actuality"
               onClick={(e) => scrollToSection(e, "#actuality")}
             >
-              Actualité
+              Actualités
+            </a>
+          </li>
+          <li>
+            <a
+              className="custom-nav-link"
+              href="#about"
+              onClick={(e) => scrollToSection(e, "#about")}
+            >
+              À propos
+            </a>
+          </li>
+          <li>
+            <a
+              className="custom-nav-link"
+              href="#about"
+              onClick={(e) => scrollToSection(e, "#about")}
+            >
+              Contact
             </a>
           </li>
         </ul>

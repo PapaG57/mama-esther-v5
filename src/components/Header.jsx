@@ -3,7 +3,7 @@ import "../styles/header.css";
 
 function Header() {
   return (
-    <header id="header">
+    <header>
       <div className="header-wrapper">
         <div className="header-main">
           <div className="header-overlay"></div>

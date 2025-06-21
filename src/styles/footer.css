@@ -1,18 +1,18 @@
 .footer {
   position: relative;
-  width: 100vw;
   max-width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
   background-color: #ce1126; /* couleur rouge du drapeau du Cameroun */
   color: #fcd116; /* couleur jaune du drapeau du Cameroun */
   font-family: "Bahnschrift", system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   /* Centrage vertical et hauteur adaptée */
-  min-height: calc(100vh - var(--navbar-height));
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  min-height: calc(100vh - var(--navbar-height));
+  /* height: 100vw; */
+  overflow: hidden;
   padding: 0 20px;
 }
 
@@ -20,22 +20,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-items: center; */
   height: 100%;
   width: 100%;
   max-width: 1440px;
-  padding: 60px 0;
   box-sizing: border-box;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
   gap: 40px;
-  margin-top: 100px;
+  margin: 20px 0 0 80px;
 }
 
 .footer-logo {
@@ -54,11 +52,10 @@
 
 .footer-bottom {
   text-align: center;
-  padding: 20px 0;
+  margin: 10px 20px;
   font-size: 0.9rem;
-  opacity: 0.8;
   width: 100%;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 .footer-logo img {
@@ -132,6 +129,42 @@
 
 .footer-services ul li a:hover {
   color: #ffffff;
+}
+
+.flag-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  margin: 40px 0 0 400px;
+  max-width: 800px;
+  border-radius: 10px;
+  background-color: #f5f5dc;
+  color: #323333;
+}
+
+.flag-container p {
+  margin-right: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.flag-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.flag-icon {
+  width: 50px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.flag-blur {
+  filter: blur(2px);
+  transition: filter 0.3s ease;
 }
 
 /* Responsive */

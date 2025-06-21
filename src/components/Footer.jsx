@@ -68,22 +68,70 @@ function Footer() {
           {/* Contacts */}
           <div className="footer-contact">
             <h3>Contacts</h3>
-            <FontAwesomeIcon icon={faEnvelopeOpenText} />
-            <p>Association Mama-Esther</p>
-            <p>1, Rue des Troènes</p>
-            <p>57700 HAYANGE St-NICOLAS EN FORÊT</p>
-            <p>FRANCE</p>
-            <FontAwesomeIcon icon={faPhoneVolume} className="phone-icon" />
+            <FontAwesomeIcon icon={faEnvelopeOpenText} title="Nous écrire" />
+            <p title="Nous écrire">Association Mama-Esther</p>
+            <p title="Nous écrire">1, Rue des Troènes</p>
+            <p title="Nous écrire">57700 HAYANGE St-NICOLAS EN FORÊT</p>
+            <p title="Nous écrire">FRANCE</p>
+            <FontAwesomeIcon
+              icon={faPhoneVolume}
+              className="phone-icon"
+              title="Nous appeler"
+            />
             <p className="phone-text">+33 6 86 74 29 11</p>
-            <FontAwesomeIcon icon={faPhoneVolume} className="phone-icon" />
+            <FontAwesomeIcon
+              icon={faPhoneVolume}
+              className="phone-icon"
+              title="Nous appeler"
+            />
             <p className="phone-text">+33 6 45 65 65 17</p>
             <FontAwesomeIcon icon={faAt} />
             <p>
               {" "}
-              <a href="mailto:association@mamaesther.org" title="Nous écrire">
+              <a
+                href="mailto:association@mamaesther.org"
+                title="Nous envoyer un email"
+              >
                 association@mamaesther.org
               </a>
             </p>
+          </div>
+        </div>
+
+        {/* Flags */}
+        <div className="flag-container">
+          <p>Nous agissons dans ces pays :</p>
+          <div className="flag-icons">
+            <img
+              className="flag-icon"
+              src="/assets/flags/FR.svg"
+              alt="Drapeau de la France"
+              title="France"
+            />
+            <img
+              className="flag-icon"
+              src="/assets/flags/CM.svg"
+              alt="Drapeau du Cameroun"
+              title="Cameroun"
+            />
+            <img
+              className="flag-icon"
+              src="/assets/flags/LU.svg"
+              alt="Drapeau du Luxembourg"
+              title="Luxembourg"
+            />
+            <img
+              className="flag-icon flag-blur"
+              src="/assets/flags/BE.svg"
+              alt="Drapeau de la Belgique"
+              title="Bientôt en Belgique"
+            />
+            <img
+              className="flag-icon flag-blur"
+              src="/assets/flags/DE.svg"
+              alt="Drapeau de l'Allemagne"
+              title="Bientôt en Allemagne"
+            />
           </div>
         </div>
 

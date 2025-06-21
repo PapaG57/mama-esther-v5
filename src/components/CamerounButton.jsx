@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/cameroun-button.css";
+import "../styles/camerounButton.css";
 
 function CamerounButton({ children, to = "#", style = {} }) {
   return (

@@ -21,23 +21,30 @@ export default function Navbar() {
     <nav className="custom-navbar" ref={navbarRef}>
       <div className="custom-navbar-container">
         {/* Logo (scroll vers #header) */}
-        <Link
+        <img
           className="custom-navbar-logo"
-          to="#header"
-          onClick={(e) => scrollToSection(e, "#header")}
-        >
-          <img src="/assets/logo-long.png" alt="Logo Association" />
-        </Link>
+          src="/assets/logo-long.png"
+          alt="Logo Association"
+        />
 
         {/* Liens de navigation */}
         <ul className="custom-nav-list">
           <li>
             <a
               className="custom-nav-link"
-              href="#header"
-              onClick={(e) => scrollToSection(e, "#header")}
+              href="#root"
+              onClick={(e) => scrollToSection(e, "#root")}
             >
               accueil
+            </a>
+          </li>
+          <li>
+            <a
+              className="custom-nav-link"
+              href="#aboutSection"
+              onClick={(e) => scrollToSection(e, "#aboutSection")}
+            >
+              à propos
             </a>
           </li>
           <li>
@@ -61,15 +68,6 @@ export default function Navbar() {
           <li>
             <a
               className="custom-nav-link"
-              href="#aboutSection"
-              onClick={(e) => scrollToSection(e, "#aboutSection")}
-            >
-              à propos
-            </a>
-          </li>
-          <li>
-            <a
-              className="custom-nav-link"
               href="#contact"
               onClick={(e) => scrollToSection(e, "#about")}
             >
@@ -78,10 +76,10 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Bouton Don (scroll vers #footer ou #donate) */}
+        {/* Bouton Don (scroll vers #donate) */}
         <button
           className="don-button"
-          onClick={(e) => scrollToSection(e, "#footer")}
+          onClick={(e) => scrollToSection(e, "#donate")}
         >
           Faire un Don
         </button>

@@ -28,7 +28,7 @@ export default function AboutSection() {
           <br />
 
           {/* Lien vers la page de présentation */}
-          <CamerounButton to="/about">En savoir plus</CamerounButton>
+          <CamerounButton to="/about">mieux nous connaître</CamerounButton>
         </div>
         <div className="about-image">
           <img

@@ -5,7 +5,7 @@ import Divider from "./Divider";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="about-container">
+    <section id="aboutSection" className="about-container">
       <Divider /> {/* ligne de séparation */}
       <h2 className="about-title green-box">Qui sommes-nous ?</h2>
       {/* Bloc principal */}

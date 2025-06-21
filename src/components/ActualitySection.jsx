@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/actuality.css";
+import "../styles/actualitySection.css";
 import Divider from "./Divider";
 import CamerounButton from "./CamerounButton";
 
@@ -28,7 +28,7 @@ function ActualitySection() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section id="AboutPage" className="news-carousel">
+    <section id="actualitySection" className="news-carousel acutality-section">
       <Divider /> {/* ligne de séparation */}
       <h2>📰 Nos dernières actualités</h2>
       <p>

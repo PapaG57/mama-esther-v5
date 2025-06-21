@@ -37,7 +37,7 @@ export default function Navbar() {
               href="#header"
               onClick={(e) => scrollToSection(e, "#header")}
             >
-              Accueil
+              accueil
             </a>
           </li>
           <li>
@@ -46,34 +46,34 @@ export default function Navbar() {
               href="#engagement"
               onClick={(e) => scrollToSection(e, "#engagement")}
             >
-              Engagement
+              engagement
             </a>
           </li>
           <li>
             <a
               className="custom-nav-link"
-              href="#actuality"
-              onClick={(e) => scrollToSection(e, "#actuality")}
+              href="#actualitySection"
+              onClick={(e) => scrollToSection(e, "#actualitySection")}
             >
-              Actualités
+              actualités
             </a>
           </li>
           <li>
             <a
               className="custom-nav-link"
-              href="#about"
+              href="#aboutSection"
+              onClick={(e) => scrollToSection(e, "#aboutSection")}
+            >
+              à propos
+            </a>
+          </li>
+          <li>
+            <a
+              className="custom-nav-link"
+              href="#contact"
               onClick={(e) => scrollToSection(e, "#about")}
             >
-              À propos
-            </a>
-          </li>
-          <li>
-            <a
-              className="custom-nav-link"
-              href="#about"
-              onClick={(e) => scrollToSection(e, "#about")}
-            >
-              Contact
+              contact
             </a>
           </li>
         </ul>

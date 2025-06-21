@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import CamerounButton from "../components/CamerounButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import "../styles/team-carousel.css";
+import "../styles/teamCarousel.css";
 
 const teamMembers = [
   {

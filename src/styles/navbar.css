@@ -3,8 +3,8 @@
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
-  width: 80%;
+  z-index: 2000;
+  width: 90%;
   height: 80px;
   display: flex;
   align-items: center;
@@ -23,15 +23,14 @@
 }
 
 .custom-navbar-container {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 0 20px;
 }
 
-.custom-navbar-logo img {
+.custom-navbar-logo {
   width: 250px;
   border-radius: 10px;
   border: 1px solid #fcd116; /* jaune comme le drapeau du Cameroun */
@@ -60,7 +59,7 @@
 }
 
 .don-button {
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;

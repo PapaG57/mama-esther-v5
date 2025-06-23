@@ -1,0 +1,402 @@
+.actuality-header {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+/* Si on veut que le titre se voit même si une image est trop claire */
+/* .actuality-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        border-radius: 12px;
+      } */
+
+.actuality-banner {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.actuality-title-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.actuality-page {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+/* Layout principal : actualités + aside */
+.actuality-content-row {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* News pleinement centrées */
+.news-list {
+  flex: 1;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0 auto;
+}
+
+/* Cartes d’actualité */
+.news-card {
+  max-width: 700px;
+  margin: auto;
+  cursor: pointer;
+  animation: fadeIn 0.5s ease;
+}
+
+.news-image-wrapper {
+  position: relative;
+  overflow: visible;
+  border-radius: 12px;
+}
+
+.news-image-wrapper img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.news-date-box {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  background-color: #00ab84; /* vert comme le drapeau du Cameroun */
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.news-day {
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.news-month {
+  font-size: 1.1rem;
+  text-transform: lowercase;
+  line-height: 1.1;
+}
+
+.news-year {
+  font-size: 1.2rem;
+  color: #000;
+  margin-top: 4px;
+}
+
+.news-title {
+  position: absolute;
+  bottom: 20px;
+  margin: 0;
+  left: 50%;
+  transform: translateX(-45%);
+  width: 90%;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.news-description {
+  margin-top: 25px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000;
+  text-align: justify;
+  padding: 0 6px;
+  font-family: "Bahnschrift light", system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+}
+
+/* Cartes jaunes positionnées à droite sans décentrer les news */
+.aside-inline {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Contenu des cartes jaunes */
+.aside-card-text {
+  background-color: #ffd84b;
+  border-radius: 8px;
+  padding: 18px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: #082a7b;
+  line-height: 1.4;
+}
+
+.aside-card-text h2 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.aside-card-text h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.aside-card-text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.aside-card-text h2::after,
+.aside-card-text h3::after,
+.aside-card-text p::after {
+  content: "";
+  display: block;
+  padding-top: 15px;
+  border-bottom: 2px solid #f0e9ff;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 22px;
+  background-color: #082a7b;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056a3;
+}
+
+/* Pagination */
+.pagination {
+  margin: 60px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #082a7b;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pagination button:hover {
+  transform: scale(1.1);
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tablette : max-width 1024px */
+@media screen and (max-width: 1024px) {
+  .actuality-title-overlay {
+    font-size: 2rem;
+    left: 24px;
+    bottom: 18px;
+  }
+
+  .actuality-content-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .aside-inline {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .aside-card-text {
+    flex: 1 1 45%;
+    max-width: 300px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Newsletter et pdf */
+.newsletter-section {
+  max-width: 1000px;
+  margin: 60px auto 40px;
+  padding: 0 16px;
+  color: #000000;
+}
+
+.newsletter-section h2 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.newsletter-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.newsletter-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.newsletter-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.newsletter-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.newsletter-list li {
+  margin-bottom: 12px;
+}
+
+.newsletter-list a {
+  color: #007a32; /* vert du drapeau Camerounais */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.newsletter-list a:hover {
+  text-decoration: underline;
+}
+
+.newsletter-link {
+  font-weight: bold;
+  color: #007a32;
+  text-decoration: none;
+}
+
+.newsletter-link:hover {
+  text-decoration: underline;
+}
+
+.newsletter-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.pdf-icon-link {
+  margin-left: 10px;
+}
+
+.pdf-icon-awesome {
+  color: #d30000; /* rouge du drapeau Camerounais */
+  transition: transform 0.2s ease;
+}
+
+.pdf-icon-awesome:hover {
+  transform: scale(1.2);
+  color: #007a32; /* vert du drapeau Camerounais */
+}
+
+/* Responsive mobile : max-width 768px */
+@media screen and (max-width: 768px) {
+  .actuality-header {
+    margin-bottom: 40px;
+  }
+
+  .actuality-title-overlay {
+    font-size: 1.8rem;
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .news-list {
+    margin: 0;
+  }
+
+  .aside-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aside-card-text {
+    font-size: 0.95rem;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+}

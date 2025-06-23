@@ -1,0 +1,208 @@
+import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Divider from "../components/Divider";
+import CamerounButton from "../components/CamerounButton";
+import "../styles/actuality.css";
+
+export default function Actuality() {
+  const newsData = [
+    {
+      id: 1,
+      image: "/assets/actualities/actuality1.png",
+      date: "2024-09-01",
+      title: "Signature des documents en vue de l'agrément",
+      description:
+        "Le soleil brillait doucement sur le vaste terrain, soulignant l'enthousiasme et l'espoir qui imprégnaient l'air. Aujourd'hui, une étape cruciale dans le projet de l'association Mama Esther allait prendre forme. La présidente de l'association, Madame Esther GERARD, était sur place pour visiter le terrain destiné à accueillir le futur bâtiment de l'orphelinat, un projet qui promet de transformer de nombreuses vies. Le terrain, actuellement une étendue de terre vaste et ouverte, était en passe de devenir un havre pour les enfants dans le besoin. L'association Mama Esther, connue pour son engagement envers le bien-être des enfants orphelins et les personnes vulnérables, avait travaillé sans relâche pour commencer la construction de ce nouvel établissement. \n\nTout en marchant à travers le terrain, la présidente prit le temps de discuter avec les membres de la communauté locale, écoutant leurs idées et leurs suggestions avec une attention bienveillante. 'Ce projet n'est pas seulement celui de l'association 'Mama Esther' déclara-t-elle. Il appartient à chacun de nous. Ensemble, nous bâtissons un avenir meilleur pour ces enfants, en leur offrant non seulement un toit, mais aussi un foyer où ils pourront s'épanouir. \n\nLa présidente de l'association 'Mama Esther' quitta le terrain avec le cœur rempli d'espoir et d'enthousiasme, prête à continuer de travailler sans relâche pour que ce rêve devienne réalité. La visite d'aujourd'hui était bien plus qu'une simple inspection ; elle symbolisait la concrétisation d'une vision, portée par une communauté unie par un même objectif : offrir un foyer sûr et aimant aux enfants qui en ont le plus besoin. \n\nLe Webmaster",
+    },
+    {
+      id: 2,
+      image: "/assets/actualities/actuality2.png",
+      date: "20 octobre 2024",
+      title: "Visite du terrain de l'association",
+      description:
+        "C'est un jour mémorable pour l'association Mama Esther. Aujourd'hui, la création de l'association a été officiellement reconnue par le tribunal de Thionville en Moselle, marquant le début d'un nouveau chapitre dans la mission de cette organisation philanthropique.\n\n Les membres de l'association et les sympathisants attendaient avec impatience cette nouvelle depuis des mois. Lorsque les documents officiels sont arrivés par courrier, une onde de joie et de soulagement a parcouru l'équipe. La présidente de l'association, Esther Gérard, a tenu à annoncer la bonne nouvelle à tous les membres et bénévoles. \n\nNous avons travaillé sans relâche pour atteindre ce moment,déclara Esther Gérard, visiblement émue. Recevoir ces documents officiels est une reconnaissance de notre engagement et de nos efforts. C'est le début d'une aventure pleine de promesses pour les enfants que nous soutenons. \n\nLa signature des documents par le tribunal de Thionville symbolise bien plus qu'une simple formalité juridique. C'est le fruit d'années de travail acharné, de dévouement et de soutien inconditionnel de la part de nombreux bénévoles et sympathisants. Chaque membre de l'association a contribué à sa manière à cette réalisation. \n\nLa réception des documents officiels marque le début d'un nouveau voyage pour l'association Mama Esther, un voyage empreint de compassion, de détermination et d'espoir. Chaque membre de l'association est désormais prêt à se retrousser les manches et à transformer cette vision en réalité, offrant un avenir meilleur aux enfants et aux personnes vulnérables. \n\nle Webmaster",
+    },
+    {
+      id: 3,
+      image: "/assets/actualities/actuality3.png",
+      date: "1er avril 2025",
+      title: "Premier coup de pelle !",
+    },
+  ];
+
+  const itemsPerPage = 2;
+  const [page, setPage] = useState(1);
+  const totalPages = Math.ceil(newsData.length / itemsPerPage);
+
+  const visibleNews = newsData.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
+
+  const goToPage = (p) => setPage(Math.max(1, Math.min(totalPages, p)));
+
+  const newsletters = [
+    {
+      id: 1,
+      title: "Newsletter – Février 2025",
+      htmlPath: "/newsletter-pdf/news1/news1.htm",
+      pdfPath: "/newsletter-pdf/pdf/newsletter1-fevrier-2025.pdf",
+    },
+    {
+      id: 2,
+      title: "Newsletter – Mai 2025",
+      htmlPath: "/assets/newsletter-pdf/news2/news2.html",
+      pdfPath: "/assets/newsletter-pdf/pdf/newsletter2-mai-2025.pdf",
+    },
+    // Ajouter ici les prochaines newsletters
+  ];
+
+  const formatDateParts = (dateString) => {
+    if (!dateString) return { day: "", month: "", year: "" };
+
+    const date = new Date(dateString);
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    const [day, month, year] = date
+      .toLocaleDateString("fr-FR", options)
+      .replace(",", "")
+      .split(" ");
+
+    return {
+      day: day === "1" ? "1er" : day.padStart(2, "0"),
+      month,
+      year,
+    };
+  };
+
+  return (
+    <main className="actuality-page">
+      <div className="actuality-header">
+        <img
+          src="/assets/actualities/news.png"
+          alt="Bannière Actualités"
+          className="actuality-banner"
+        />
+        <h1 className="actuality-title-overlay">Nos actualités en images</h1>
+      </div>
+
+      <Divider />
+
+      <div className="actuality-content-row">
+        <section className="news-list">
+          {visibleNews.map((news) => {
+            const { day, month, year } = formatDateParts(news.date);
+
+            return (
+              <div
+                key={news.id}
+                className="news-card"
+                onClick={() => (window.location.href = "/actualites")}
+              >
+                <div className="news-image-wrapper">
+                  <img src={news.image} alt={news.title} />
+                  <div className="news-date-box">
+                    <div className="news-day">{day}</div>
+                    <div className="news-month">{month}</div>
+                    <div className="news-year">{year}</div>
+                  </div>
+                  <h3 className="news-title">{news.title}</h3>
+                </div>
+                <div className="news-description">
+                  {(news.description || "").split("\n\n").map((para, index) => (
+                    <p key={index}>{para}</p>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </section>
+
+        <aside className="aside-inline">
+          <div className="aside-card-text">
+            <h2>inscrivez-vous</h2>
+            <p>
+              Inscrivez-vous à notre newsletter pour rester informé des
+              dernières nouvelles et événements de l'association. Elle est, pour
+              le moment, quadrimestrielle. Nous vous enverrons régulièrement des
+              mises à jour sur nos activités, nos projets et les moyens de nous
+              soutenir. Merci de votre intérêt pour l'association Mama Esther !
+            </p>
+            <br />
+            <CamerounButton to="/newsFormulaire">je m'inscris</CamerounButton>
+          </div>
+          <div className="aside-card-text">
+            <h2>newsletter</h2>
+            <p>
+              Les liens pour lire les newsletter sont à la fin de cette page. Si
+              vous avez des difficultés d'affichage, vous pouvez cliquer sur les
+              logos format PDF 😉!
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <div className="pagination">
+        <button onClick={() => goToPage(1)} disabled={page === 1}>
+          &laquo;
+        </button>
+        <button onClick={() => goToPage(page - 1)} disabled={page === 1}>
+          &lsaquo;
+        </button>
+        <span>
+          Page {page} sur {totalPages}
+        </span>
+        <button
+          onClick={() => goToPage(page + 1)}
+          disabled={page === totalPages}
+        >
+          &rsaquo;
+        </button>
+        <button
+          onClick={() => goToPage(totalPages)}
+          disabled={page === totalPages}
+        >
+          &raquo;
+        </button>
+      </div>
+
+      <Divider />
+
+      {/* Newsletter et pdf */}
+      <section className="newsletter-section">
+        <h2>Les temps forts de l’association</h2>
+        <p>
+          Retrouvez ici nos newsletters passées. Vous pouvez les consulter en
+          ligne ou les télécharger directement au format PDF.
+        </p>
+
+        <ul className="newsletter-list">
+          {newsletters.map((n) => (
+            <li key={n.id} className="newsletter-line">
+              <a
+                href={n.htmlPath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="newsletter-link"
+              >
+                {n.title}
+              </a>
+              <a
+                href={n.pdfPath}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Ouvrir le PDF de ${n.title}`}
+                className="pdf-icon-link"
+              >
+                <i
+                  className="fa-solid fa-file-pdf fa-2x pdf-icon-awesome"
+                  aria-hidden="true"
+                ></i>
+                <span className="visually-hidden">Télécharger le PDF</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  );
+}

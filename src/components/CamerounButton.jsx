@@ -1,11 +1,11 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/camerounButton.css";
 
 function CamerounButton({ children, to = "#", style = {} }) {
   return (
-    <a href={to} className="about-button" style={style}>
+    <Link to={to} className="about-button" style={style}>
       {children}
-    </a>
+    </Link>
   );
 }
 

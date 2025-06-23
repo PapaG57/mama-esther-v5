@@ -7,9 +7,10 @@
   background: linear-gradient(
     90deg,
     #007a32,
-    #ffcc00,
-    #d30000
-  ); /* Rouge, Jaune, Vert du drapeau Camerounais */
+    /* vert du drapeau Camerounais */ #ffcc00,
+    /* jaune du drapeau Camerounais */ #d30000
+      /* rouge du drapeau Camerounais */
+  );
   border: none;
   border-radius: 5px;
   text-decoration: none;

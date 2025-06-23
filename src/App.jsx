@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import TeamCarousel from "./pages/TeamCarousel";
 import Actuality from "./pages/Actuality";
 import Footer from "./components/Footer";
+import NewsletterReader from "./pages/newsletters/Reader";
 
 export default function App() {
   return (
@@ -15,6 +16,8 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/equipe" element={<TeamCarousel />} />
         <Route path="/actuality" element={<Actuality />} />
+        {/* ... autres routes */}
+        <Route path="/newsletter/:id" element={<NewsletterReader />} />
       </Routes>
       <Footer />
     </Router>

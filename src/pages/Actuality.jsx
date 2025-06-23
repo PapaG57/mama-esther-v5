@@ -45,8 +45,8 @@ export default function Actuality() {
     {
       id: 1,
       title: "Newsletter – Février 2025",
-      htmlPath: "/newsletter-pdf/news1/news1.htm",
-      pdfPath: "/newsletter-pdf/pdf/newsletter1-fevrier-2025.pdf",
+      htmlPath: "/assets/newsletter/news1/news1.html",
+      pdfPath: "/assets/newsletter-pdf/pdf/newsletter1-fevrier-2025.pdf",
     },
     {
       id: 2,

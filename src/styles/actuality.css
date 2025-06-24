@@ -291,11 +291,13 @@
   font-size: 3rem;
   margin-bottom: 16px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .newsletter-section p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .newsletter-flex {

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Divider from "../components/Divider";
 import CamerounButton from "../components/CamerounButton";
+import { newsletters } from "../data/newsletters";
+import NewsList from "../components/NewsList";
 import "../styles/actuality.css";
 
 export default function Actuality() {
@@ -40,22 +42,6 @@ export default function Actuality() {
   );
 
   const goToPage = (p) => setPage(Math.max(1, Math.min(totalPages, p)));
-
-  const newsletters = [
-    {
-      id: 1,
-      title: "Newsletter – Février 2025",
-      htmlPath: "/assets/newsletter/news1/news1.html",
-      pdfPath: "/assets/newsletter-pdf/pdf/newsletter1-fevrier-2025.pdf",
-    },
-    {
-      id: 2,
-      title: "Newsletter – Mai 2025",
-      htmlPath: "/assets/newsletter-pdf/news2/news2.html",
-      pdfPath: "/assets/newsletter-pdf/pdf/newsletter2-mai-2025.pdf",
-    },
-    // Ajouter ici les prochaines newsletters
-  ];
 
   const formatDateParts = (dateString) => {
     if (!dateString) return { day: "", month: "", year: "" };

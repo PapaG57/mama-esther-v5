@@ -116,6 +116,12 @@ function Footer() {
             />
             <img
               className="flag-icon"
+              src="/assets/flags/RCA.svg"
+              alt="Drapeau de la République Centrafricaine"
+              title="Centrafrique"
+            />
+            <img
+              className="flag-icon"
               src="/assets/flags/LU.svg"
               alt="Drapeau du Luxembourg"
               title="Luxembourg"

@@ -21,6 +21,29 @@ echo  Nettoyage et generation en cours...
 :: On utilise 'call' pour éviter l’ouverture d’une 2e fenêtre
 call node "%~dp0clean-newsletters.cjs"
 
+:: ==============================================
+:: Étape 2 bis : Copie des images et du CSS
+:: ==============================================
+
+echo.
+echo Copie des images et du fichier CSS du dossier sélectionne...
+
+:: Récupération dynamique du nom du dossier source depuis le fichier sélectionné
+set "sourceDir=public\assets\newsletter-pdf\News%id%"
+
+:: Création dossier img dans /clean si nécessaire
+if not exist "public\assets\newsletter-pdf\clean\img" (
+    mkdir "public\assets\newsletter-pdf\clean\img"
+)
+
+:: Copie des images du dossier source vers clean\img
+xcopy /E /Y "%sourceDir%\img" "public\assets\newsletter-pdf\clean\img" >nul
+
+:: Copie de reader.css si présent
+if exist "%sourceDir%\reader.css" (
+    copy /Y "%sourceDir%\reader.css" "public\assets\newsletter-pdf\clean\reader.css" >nul
+)
+
 :: Étape 3 : Menu interactif
 echo.
 
@@ -66,6 +89,11 @@ for %%p in (%pdfPath%) do (
     )
 )
 echo Aucun PDF trouve pour cette newsletter.
+
+:: Suppression préalable du dossier img (s’il existe)
+if exist "public\assets\newsletter-pdf\clean\img" (
+    rmdir /S /Q "public\assets\newsletter-pdf\clean\img"
+)
 
 :: Bip final joyeux (note musicale via PowerShell)
 :son

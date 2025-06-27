@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
 
-// 📁 Dossiers de base
+// Dossiers de base
 const newslettersPath = path.join(
   __dirname,
   "public",
@@ -20,7 +20,7 @@ if (!fs.existsSync(outputPath)) {
   console.log("🔧 Dossier clean/ créé");
   fs.mkdirSync(outputPath);
 } else {
-  console.log("📁 Dossier clean/ déjà présent");
+  console.log(" Dossier clean/ déjà présent");
 }
 
 /**
@@ -29,7 +29,7 @@ if (!fs.existsSync(outputPath)) {
 function cleanHTML(content, folder) {
   const $ = cheerio.load(content);
 
-  // 🔗 Corriger les liens CSS relatifs
+  // Corriger les liens CSS relatifs
   $('link[rel="stylesheet"]').each((_, el) => {
     const href = $(el).attr("href");
     if (href && !href.startsWith("http") && !href.startsWith("/")) {
@@ -42,29 +42,29 @@ function cleanHTML(content, folder) {
   $("img").each((_, el) => {
     const src = $(el).attr("src");
     if (src && !src.startsWith("http") && !src.startsWith("/")) {
-      const correctedSrc = `/assets/newsletter-pdf/${folder}/${src}`;
+      const correctedSrc = `img/${src.split("/").pop()}`;
       $(el).attr("src", correctedSrc);
     }
   });
 
-  // 📦 Réinjecte les styles dans le haut du fichier
+  // Réinjecte les styles dans le haut du fichier
   const styles = $("link[rel='stylesheet']")
     .toArray()
     .map((el) => $.html(el))
     .join("\n");
 
-  // 🧠 Récupère le contenu uniquement dans <body>
+  // Récupère le contenu uniquement dans <body>
   const body = $("body").html();
 
-  // ✍️ Ajoute une signature à la fin du fichier
+  // Ajoute une signature à la fin du fichier
   const signature =
     "\n<!-- Généré avec 💚 par Florent et Copilot - https://mama-esther.org -->";
 
   return `${styles}\n${body}${signature}`;
 }
 
-// 🔁 Parcours de tous les dossiers
-console.log("\n🔍 Début du traitement des newsletters...\n");
+// Parcours de tous les dossiers
+console.log("\n Début du traitement des newsletters...\n");
 
 fs.readdirSync(newslettersPath, { withFileTypes: true })
   .filter(
@@ -74,16 +74,16 @@ fs.readdirSync(newslettersPath, { withFileTypes: true })
     const folder = folderEntry.name.toLowerCase();
     const folderPath = path.join(newslettersPath, folder);
 
-    console.log(`📂 Dossier détecté : ${folder}`);
+    console.log(`Dossier détecté : ${folder}`);
 
-    // 🎯 Recherche d’un fichier HTML
+    // Recherche d’un fichier HTML
     const htmlFiles = fs
       .readdirSync(folderPath)
       .filter((f) => f.endsWith(".html"));
 
     if (htmlFiles.length === 0) {
       console.warn(
-        `   ⚠️ Aucun fichier HTML trouvé dans ${folder}. Passage au dossier suivant.\n`
+        `Aucun fichier HTML trouvé dans ${folder}. Passage au dossier suivant.\n`
       );
       return;
     }
@@ -93,7 +93,7 @@ fs.readdirSync(newslettersPath, { withFileTypes: true })
     const outputFileName = `${folder.toLowerCase()}.html`;
     const outputPathFinal = path.join(outputPath, outputFileName);
 
-    console.log(`   📄 Fichier HTML trouvé : ${htmlFileName}`);
+    console.log(`Fichier HTML trouvé : ${htmlFileName}`);
     console.log(`   🛠 Création de : ${outputFileName}`);
 
     const rawHTML = fs.readFileSync(htmlFilePath, "utf8");
@@ -101,9 +101,7 @@ fs.readdirSync(newslettersPath, { withFileTypes: true })
 
     fs.writeFileSync(outputPathFinal, cleaned, "utf8");
 
-    console.log(
-      `   ✅ Fichier nettoyé enregistré dans /clean : ${outputFileName}\n`
-    );
+    console.log(`Fichier nettoyé enregistré dans /clean : ${outputFileName}\n`);
   });
 
 console.log(

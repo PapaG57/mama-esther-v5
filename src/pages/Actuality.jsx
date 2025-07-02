@@ -3,26 +3,25 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import Divider from "../components/Divider";
 import CamerounButton from "../components/CamerounButton";
 import { newsletters } from "../data/newsletters";
-import NewsList from "../components/NewsList";
 import "../styles/actuality.css";
 
 export default function Actuality() {
   const newsData = [
     {
       id: 1,
-      image: "/assets/actualities/actuality1.png",
+      image: "/assets/actualities/actuality2.png",
       date: "2024-09-01",
       title: "Signature des documents en vue de l'agrément",
       description:
-        "Le soleil brillait doucement sur le vaste terrain, soulignant l'enthousiasme et l'espoir qui imprégnaient l'air. Aujourd'hui, une étape cruciale dans le projet de l'association Mama Esther allait prendre forme. La présidente de l'association, Madame Esther GERARD, était sur place pour visiter le terrain destiné à accueillir le futur bâtiment de l'orphelinat, un projet qui promet de transformer de nombreuses vies. Le terrain, actuellement une étendue de terre vaste et ouverte, était en passe de devenir un havre pour les enfants dans le besoin. L'association Mama Esther, connue pour son engagement envers le bien-être des enfants orphelins et les personnes vulnérables, avait travaillé sans relâche pour commencer la construction de ce nouvel établissement. \n\nTout en marchant à travers le terrain, la présidente prit le temps de discuter avec les membres de la communauté locale, écoutant leurs idées et leurs suggestions avec une attention bienveillante. 'Ce projet n'est pas seulement celui de l'association 'Mama Esther' déclara-t-elle. Il appartient à chacun de nous. Ensemble, nous bâtissons un avenir meilleur pour ces enfants, en leur offrant non seulement un toit, mais aussi un foyer où ils pourront s'épanouir. \n\nLa présidente de l'association 'Mama Esther' quitta le terrain avec le cœur rempli d'espoir et d'enthousiasme, prête à continuer de travailler sans relâche pour que ce rêve devienne réalité. La visite d'aujourd'hui était bien plus qu'une simple inspection ; elle symbolisait la concrétisation d'une vision, portée par une communauté unie par un même objectif : offrir un foyer sûr et aimant aux enfants qui en ont le plus besoin. \n\nLe Webmaster",
+        "C'est un jour mémorable pour l'association Mama Esther. Aujourd'hui, la création de l'association a été officiellement reconnue par le tribunal de Thionville en Moselle, marquant le début d'un nouveau chapitre dans la mission de cette organisation philanthropique.\n\n Les membres de l'association et les sympathisants attendaient avec impatience cette nouvelle depuis des mois. Lorsque les documents officiels sont arrivés par courrier, une onde de joie et de soulagement a parcouru l'équipe. La présidente de l'association, Esther Gérard, a tenu à annoncer la bonne nouvelle à tous les membres et bénévoles. \n\nNous avons travaillé sans relâche pour atteindre ce moment,déclara Esther Gérard, visiblement émue. Recevoir ces documents officiels est une reconnaissance de notre engagement et de nos efforts. C'est le début d'une aventure pleine de promesses pour les enfants que nous soutenons. \n\nLa signature des documents par le tribunal de Thionville symbolise bien plus qu'une simple formalité juridique. C'est le fruit d'années de travail acharné, de dévouement et de soutien inconditionnel de la part de nombreux bénévoles et sympathisants. Chaque membre de l'association a contribué à sa manière à cette réalisation. \n\nLa réception des documents officiels marque le début d'un nouveau voyage pour l'association Mama Esther, un voyage empreint de compassion, de détermination et d'espoir. Chaque membre de l'association est désormais prêt à se retrousser les manches et à transformer cette vision en réalité, offrant un avenir meilleur aux enfants et aux personnes vulnérables. \n\nle Webmaster",
     },
     {
       id: 2,
-      image: "/assets/actualities/actuality2.png",
+      image: "/assets/actualities/actuality1.png",
       date: "20 octobre 2024",
       title: "Visite du terrain de l'association",
       description:
-        "C'est un jour mémorable pour l'association Mama Esther. Aujourd'hui, la création de l'association a été officiellement reconnue par le tribunal de Thionville en Moselle, marquant le début d'un nouveau chapitre dans la mission de cette organisation philanthropique.\n\n Les membres de l'association et les sympathisants attendaient avec impatience cette nouvelle depuis des mois. Lorsque les documents officiels sont arrivés par courrier, une onde de joie et de soulagement a parcouru l'équipe. La présidente de l'association, Esther Gérard, a tenu à annoncer la bonne nouvelle à tous les membres et bénévoles. \n\nNous avons travaillé sans relâche pour atteindre ce moment,déclara Esther Gérard, visiblement émue. Recevoir ces documents officiels est une reconnaissance de notre engagement et de nos efforts. C'est le début d'une aventure pleine de promesses pour les enfants que nous soutenons. \n\nLa signature des documents par le tribunal de Thionville symbolise bien plus qu'une simple formalité juridique. C'est le fruit d'années de travail acharné, de dévouement et de soutien inconditionnel de la part de nombreux bénévoles et sympathisants. Chaque membre de l'association a contribué à sa manière à cette réalisation. \n\nLa réception des documents officiels marque le début d'un nouveau voyage pour l'association Mama Esther, un voyage empreint de compassion, de détermination et d'espoir. Chaque membre de l'association est désormais prêt à se retrousser les manches et à transformer cette vision en réalité, offrant un avenir meilleur aux enfants et aux personnes vulnérables. \n\nle Webmaster",
+        "Le soleil brillait doucement sur le vaste terrain, soulignant l'enthousiasme et l'espoir qui imprégnaient l'air. Aujourd'hui, une étape cruciale dans le projet de l'association Mama Esther allait prendre forme. La présidente de l'association, Madame Esther GERARD, était sur place pour visiter le terrain destiné à accueillir le futur bâtiment de l'orphelinat, un projet qui promet de transformer de nombreuses vies. Le terrain, actuellement une étendue de terre vaste et ouverte, était en passe de devenir un havre pour les enfants dans le besoin. L'association Mama Esther, connue pour son engagement envers le bien-être des enfants orphelins et les personnes vulnérables, avait travaillé sans relâche pour commencer la construction de ce nouvel établissement. \n\nTout en marchant à travers le terrain, la présidente prit le temps de discuter avec les membres de la communauté locale, écoutant leurs idées et leurs suggestions avec une attention bienveillante. 'Ce projet n'est pas seulement celui de l'association 'Mama Esther' déclara-t-elle. Il appartient à chacun de nous. Ensemble, nous bâtissons un avenir meilleur pour ces enfants, en leur offrant non seulement un toit, mais aussi un foyer où ils pourront s'épanouir. \n\nLa présidente de l'association 'Mama Esther' quitta le terrain avec le cœur rempli d'espoir et d'enthousiasme, prête à continuer de travailler sans relâche pour que ce rêve devienne réalité. La visite d'aujourd'hui était bien plus qu'une simple inspection ; elle symbolisait la concrétisation d'une vision, portée par une communauté unie par un même objectif : offrir un foyer sûr et aimant aux enfants qui en ont le plus besoin. \n\nLe Webmaster",
     },
     {
       id: 3,
@@ -119,9 +118,8 @@ export default function Actuality() {
           <div className="aside-card-text">
             <h2>newsletter</h2>
             <p>
-              Les liens pour lire les newsletter sont à la fin de cette page. Si
-              vous avez des difficultés d'affichage, vous pouvez cliquer sur les
-              logos format PDF 😉!
+              Les liens pour lire les newsletter sont à la fin de cette page.
+              Cliquer sur les logos format PDF 😉!
             </p>
           </div>
         </aside>
@@ -153,25 +151,18 @@ export default function Actuality() {
 
       <Divider />
 
-      {/* Newsletter et pdf */}
+      {/* Newsletters en pdf */}
       <section className="newsletter-section">
         <h2>Les temps forts de l’association</h2>
         <p>
           Retrouvez ici nos newsletters passées. Vous pouvez les consulter en
-          ligne ou les télécharger directement au format PDF.
+          cliquant sur le logo PDF.
         </p>
 
         <ul className="newsletter-list">
           {newsletters.map((n) => (
             <li key={n.id} className="newsletter-line">
-              <a
-                href={n.htmlPath}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="newsletter-link"
-              >
-                {n.title}
-              </a>
+              <span className="newsletter-title-only">{n.title}</span>
               <a
                 href={n.pdfPath}
                 target="_blank"

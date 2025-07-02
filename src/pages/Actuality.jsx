@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import Divider from "../components/Divider";
 import CamerounButton from "../components/CamerounButton";
 import { newsletters } from "../data/newsletters";
+import Registration from "../components/Registration";
 import "../styles/actuality.css";
 
 export default function Actuality() {
@@ -33,6 +34,7 @@ export default function Actuality() {
 
   const itemsPerPage = 2;
   const [page, setPage] = useState(1);
+  const [showModal, setShowModal] = useState(false);
   const totalPages = Math.ceil(newsData.length / itemsPerPage);
 
   const visibleNews = newsData.slice(
@@ -101,7 +103,6 @@ export default function Actuality() {
             );
           })}
         </section>
-
         <aside className="aside-inline">
           <div className="aside-card-text">
             <h2>inscrivez-vous</h2>
@@ -113,7 +114,13 @@ export default function Actuality() {
               soutenir. Merci de votre intérêt pour l'association Mama Esther !
             </p>
             <br />
-            <CamerounButton to="/newsFormulaire">je m'inscris</CamerounButton>
+            <CamerounButton
+              onClick={() => {
+                setShowModal(true);
+              }}
+            >
+              je m'inscris
+            </CamerounButton>
           </div>
           <div className="aside-card-text">
             <h2>newsletter</h2>
@@ -180,6 +187,7 @@ export default function Actuality() {
           ))}
         </ul>
       </section>
+      <Registration isOpen={showModal} onClose={() => setShowModal(false)} />
     </main>
   );
 }

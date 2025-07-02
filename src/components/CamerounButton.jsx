@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 import "../styles/camerounButton.css";
 
-function CamerounButton({ children, to = "#", style = {} }) {
+export default function CamerounButton({ children, to, onClick, style = {} }) {
+  if (to) {
+    return (
+      <Link to={to} className="about-button" style={style}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Link to={to} className="about-button" style={style}>
+    <button className="about-button" style={style} onClick={onClick}>
       {children}
-    </Link>
+    </button>
   );
 }
-
-export default CamerounButton;

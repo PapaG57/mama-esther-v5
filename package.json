@@ -17,8 +17,12 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "bootstrap": "^5.3.6",
     "cheerio": "^1.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
     "flag-icon-css": "^4.1.7",
     "flag-icons": "^7.5.0",
+    "mongoose": "^8.16.1",
     "open": "^10.1.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -34,5 +38,18 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "vite": "^6.3.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PapaG57/mama-esther-v5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PapaG57/mama-esther-v5/issues"
+  },
+  "homepage": "https://github.com/PapaG57/mama-esther-v5#readme"
 }

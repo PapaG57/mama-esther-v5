@@ -1,29 +1,20 @@
 import dotenv from "dotenv";
-import express, { json } from "express";
-import { connect } from "mongoose";
+import express from "express";
+import mongoose from "mongoose";
 import cors from "cors";
-import Subscriber, { findOne } from "./models/Subscriber";
-
-// Polyfill for process in case it's undefined (for non-Node environments)
-if (typeof process === "undefined") {
-  (typeof globalThis !== "undefined" ? globalThis : window).process = {
-    env: {},
-  };
-}
+import Subscriber from "./models/Subscriber.js";
 
 dotenv.config();
-
+console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
 const app = express();
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-// Connexion MongoDB
-connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// Connexion à MongoDB
+mongoose
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Connexion MongoDB OK"))
   .catch((err) => console.error("❌ Erreur MongoDB :", err));
 
@@ -36,7 +27,7 @@ app.post("/subscribe", async (req, res) => {
   }
 
   try {
-    const alreadyExists = await findOne({ email });
+    const alreadyExists = await Subscriber.findOne({ email });
     if (alreadyExists) {
       return res.status(409).json({ message: "Déjà inscrit" });
     }
@@ -45,7 +36,7 @@ app.post("/subscribe", async (req, res) => {
     await newSubscriber.save();
     res.status(201).json({ message: "Inscription réussie" });
   } catch (error) {
-    console.error(error);
+    console.error("Erreur lors de l'inscription :", error);
     res.status(500).json({ message: "Erreur serveur" });
   }
 });

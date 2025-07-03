@@ -83,6 +83,91 @@
   background-color: #1976d2;
 }
 
+/* chexkbox de confirmation de l'intervention d'un humain */
+.checkbox-wrapper {
+  text-align: center;
+  margin: 16px 0 10px 0;
+}
+
+.checkbox-wrapper label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f1f1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  font-size: 0.95rem;
+  color: #333333;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkbox-wrapper label:hover {
+  background: #e5e5e5;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #007a5e;
+  cursor: pointer;
+}
+
+/* on anime l'oubli de cocher la checkbox */
+.emoji-alert {
+  text-align: center;
+  color: #ce1126;
+  font-weight: 500;
+  animation: shake 0.4s ease-in-out;
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* on secoue la checkbox */
+.shake-checkbox {
+  animation: subtle-shake 0.4s ease-in-out;
+  outline: 2px solid #ce1126;
+  border-radius: 4px;
+}
+
+@keyframes subtle-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* bouton de fermeture de la modale */
 .btn-fermer {
   background-color: #007848; /* Vert drapeau du Cameroun */
   color: #ffffff;
@@ -104,10 +189,29 @@
   transform: scale(1.05);
 }
 
+/* flou après succès d'inscription */
 .blur-bg {
   backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.3); /* léger assombrissement */
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+/* effacement rapide du champ de formulaire */
+.btn-clear-email {
+  margin-left: 12px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  background-color: #007a5e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-clear-email:hover {
+  background-color: #005f49;
+  transform: scale(1.05); /* ✨ petit effet rebond */
 }
 
 /* Responsive si texte trop large */

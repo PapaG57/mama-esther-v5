@@ -1,9 +1,15 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const subscriberSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  subscribedAt: { type: Date, default: Date.now },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const Subscriber = mongoose.model("Subscriber", subscriberSchema);
-export default Subscriber;
+export default model("Subscriber", subscriberSchema);

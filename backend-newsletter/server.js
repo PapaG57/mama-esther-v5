@@ -1,11 +1,14 @@
 import dotenv from "dotenv";
+dotenv.config(); // ← déplacement en haut pour que les env soient dispo immédiatement
+
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import Subscriber from "./models/Subscriber.js";
+import nodemailer from "nodemailer";
 
-dotenv.config();
 console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -34,6 +37,29 @@ app.post("/subscribe", async (req, res) => {
 
     const newSubscriber = new Subscriber({ email });
     await newSubscriber.save();
+
+    // ✉️ Envoi de l'email de confirmation après l'inscription
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST, // ← adapté à LWS
+      port: Number(process.env.EMAIL_PORT),
+      secure: false, // true si SSL (port 465)
+      auth: {
+        user: process.env.EMAIL_SENDER,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"Mama Esther 👩🏾‍🦱" <${process.env.EMAIL_SENDER}>`,
+      to: email,
+      subject: "Confirmation d'inscription",
+      html: `
+        <h2>Merci 🙏</h2>
+        <p>Vous êtes bien inscrit à notre newsletter !</p>
+        <p style="font-size: 0.9em;">Nous vous tiendrons informé(e) de nos projets et actualités.</p>
+      `,
+    });
+
     res.status(201).json({ message: "Inscription réussie" });
   } catch (error) {
     console.error("Erreur lors de l'inscription :", error);

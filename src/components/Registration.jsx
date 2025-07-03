@@ -5,6 +5,7 @@ import "./Registration.css";
 export default function Registration({ isOpen, onClose }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null); // 'success', 'error', 'duplicate'
+  const [closing, setClosing] = useState(false); // ← animation fade-out
 
   if (!isOpen) return null;
 
@@ -28,10 +29,24 @@ export default function Registration({ isOpen, onClose }) {
     }
   };
 
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => {
+      onClose(); // déclenche la fermeture réelle
+      setClosing(false);
+    }, 300); // durée identique à l’animation fadeOut
+  };
+
   return (
-    <div className="registration-overlay">
-      <div className="registration-content">
-        <button className="registration-close" onClick={onClose}>
+    <div
+      className={`registration-overlay ${
+        status === "success" ? "blur-bg" : ""
+      }`}
+    >
+      <div
+        className={`registration-content ${closing ? "fade-out" : "fade-in"}`}
+      >
+        <button className="registration-close" onClick={handleClose}>
           &times;
         </button>
         <h2>Inscription à la newsletter</h2>
@@ -58,6 +73,11 @@ export default function Registration({ isOpen, onClose }) {
         {status === "error" && (
           <p className="form-feedback error">❌ Une erreur est survenue.</p>
         )}
+
+        {/* Nouveau bouton Fermer centré */}
+        <button className="btn-fermer" onClick={handleClose}>
+          Fermer
+        </button>
       </div>
     </div>
   );

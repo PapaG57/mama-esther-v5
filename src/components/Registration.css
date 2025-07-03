@@ -1,3 +1,27 @@
+.modal-overlay {
+  animation: fadeIn 0.4s ease-out;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
 .registration-overlay {
   position: fixed;
   top: 0;
@@ -57,4 +81,39 @@
 
 .registration-content button[type="submit"]:hover {
   background-color: #1976d2;
+}
+
+.btn-fermer {
+  background-color: #007848; /* Vert drapeau du Cameroun */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 20px auto 0; /* Marge au-dessus, centrage horizontal */
+  display: block;
+  max-width: 200px;
+}
+
+/* Animation au survol */
+.btn-fermer:hover {
+  background-color: #009256; /* Vert un peu plus lumineux */
+  transform: scale(1.05);
+}
+
+.blur-bg {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3); /* léger assombrissement */
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+/* Responsive si texte trop large */
+@media (max-width: 480px) {
+  .btn-fermer {
+    width: 80%;
+    font-size: 1rem;
+  }
 }

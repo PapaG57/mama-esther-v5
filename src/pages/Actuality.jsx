@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import Divider from "../components/Divider";
 import CamerounButton from "../components/CamerounButton";
 import { newsletters } from "../data/newsletters";
@@ -188,10 +190,12 @@ export default function Actuality() {
         </ul>
       </section>
       <Registration isOpen={showModal} onClose={() => setShowModal(false)} />
-      <a href="/" className="back-home-button" title="Retour à l’accueil">
-        <i className="fa-solid fa-house"></i>{" "}
-        <span className="back-home-text">Accueil</span>
-      </a>
+      <div className="floating-bottom-right">
+        <CamerounButton to="/" className="about-button">
+          <FontAwesomeIcon icon={faHouse} style={{ marginRight: "8px" }} />
+          Accueil
+        </CamerounButton>
+      </div>
     </main>
   );
 }

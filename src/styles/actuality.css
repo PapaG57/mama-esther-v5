@@ -371,38 +371,6 @@
   color: #007a32; /* vert du drapeau Camerounais */
 }
 
-/* Back Home Button */
-.back-home-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007a5e;
-  color: #ffffff;
-  padding: 12px 16px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.back-home-button:hover {
-  background-color: #fcd116; /* Jaune du drapeau Camerounais */
-  transform: scale(1.05);
-  border: 2px solid #007a5e; /* Vert du drapeau Camerounais */
-  color: #000000;
-}
-
-.back-home-button .fa-house {
-  font-size: 1.2rem;
-}
-
 /* Responsive tablette : max-width 1024px */
 @media screen and (max-width: 1024px) {
   .actuality-title-overlay {
@@ -436,6 +404,35 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+}
+
+/* Bouton flottant d'acceuil */
+.floating-bottom-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.about-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #007a32, #ffcc00, #d30000);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+}
+
+.about-button:hover {
+  color: #000000;
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #d30000, #ffcc00, #007a32);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive mobile : max-width 768px */

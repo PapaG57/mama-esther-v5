@@ -1,0 +1,67 @@
+.bible-card {
+  width: 250px;
+  aspect-ratio: 1;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(0, 122, 94, 0.3);
+  border: 1px solid #fcd116;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.bible-verse {
+  background: linear-gradient(135deg, #fff8dc, #fdf5e6);
+  border: 1px solid #e6d6ae;
+  padding: 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #3e3e3e;
+  max-width: 800px;
+  margin: 40px auto;
+  position: relative;
+  line-height: 1.8;
+  font-family: "Georgia", serif;
+}
+
+.bible-verse::before {
+  content: "📜";
+  font-size: 2.2rem;
+  position: absolute;
+  top: -18px;
+  left: -8px;
+}
+
+.bible-verse-strong {
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+  font-style: normal;
+  color: #b8860b;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Bahnschrift", sans-serif;
+  animation: inkFade 1.8s ease-out both;
+  animation-delay: 0.3s;
+}
+
+@keyframes inkFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

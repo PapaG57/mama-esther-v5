@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/header.css";
+import BibleVerse from "../components/BibleVerse";
 
 function Header() {
   return (
@@ -25,14 +26,10 @@ function Header() {
             </div>
 
             <div className="bible-card">
-              <p className="bible-verse">
-                "... Je vous le dis en vérité, toutes les fois que vous avez
-                fait ces choses à l’un de ces plus petits de mes frères, c’est à
-                moi que vous les avez faites."
-                <span className="bible-verse-strong">
-                  Matthieu 25 v. 40 (Bible Segond 1910)
-                </span>
-              </p>
+              <BibleVerse
+                text="... Je vous le dis en vérité, toutes les fois que vous avez fait ces choses à l’un de ces plus petits de mes frères, c’est à moi que vous les avez faites."
+                reference="Matthieu 25 v. 40 (Bible Segond 1910)"
+              />
             </div>
           </div>
         </div>

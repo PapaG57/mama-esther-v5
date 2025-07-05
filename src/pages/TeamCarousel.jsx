@@ -125,8 +125,10 @@ export default function TeamCarousel() {
   return (
     <>
       <main className="team-page">
-        <h1 className="about-title green-box">NOTRE ÉQUIPE</h1>
-
+        <h1 className="about-title green-box glow-outline">NOTRE ÉQUIPE</h1>
+        <p className="carousel-hint flashy">
+          Cliquez sur une image pour en savoir plus
+        </p>
         <div
           className="carousel-container"
           onTouchStart={onTouchStart}

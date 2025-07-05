@@ -188,6 +188,10 @@ export default function Actuality() {
         </ul>
       </section>
       <Registration isOpen={showModal} onClose={() => setShowModal(false)} />
+      <a href="/" className="back-home-button" title="Retour à l’accueil">
+        <i className="fa-solid fa-house"></i>{" "}
+        <span className="back-home-text">Accueil</span>
+      </a>
     </main>
   );
 }

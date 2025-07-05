@@ -2,25 +2,27 @@ import React, { useState } from "react";
 import "../styles/actualitySection.css";
 import Divider from "./Divider";
 import CamerounButton from "./CamerounButton";
+import { Link } from "react-router-dom"; // Pour gérer la navigation interne proprement
 
+// 👇 Données des actualités
 const newsData = [
   {
     id: 1,
-    title: "Lassociation est née !",
-    img: "../assets/actualities/actuality1.png",
-    link: "/actualite/1",
+    title: "Le terrain est acquis !",
+    img: "/assets/actualities/actuality1.png",
+    link: "/actualities#news2",
   },
   {
     id: 2,
-    title: "Le terrain est acquis !",
-    img: "../assets/actualities/actuality2.png",
-    link: "/actualite/2",
+    title: "L'association est née !",
+    img: "/assets/actualities/actuality2.png",
+    link: "/actualities#news1", // Redirection vers l’ancre id="news1"
   },
   {
     id: 3,
-    title: "Les newsletter sont ici !",
-    img: "../assets/actualities/pdf.png",
-    link: "/actualite/3",
+    title: "Les newsletters sont ici !",
+    img: "/assets/actualities/pdf.png",
+    link: "/actualities#pdf",
   },
 ];
 
@@ -40,12 +42,20 @@ function ActualitySection() {
         onMouseLeave={() => setIsPaused(false)}
       >
         {[...newsData, ...newsData].map((news, index) => (
-          <a key={index} href={news.link} className="news-item">
+          <Link
+            key={index}
+            to={{
+              pathname: news.link.split("#")[0], // "/actualities"
+              hash: `#${news.link.split("#")[1]}`, // "#news1"
+            }}
+            state={{ from: "actualitySection" }} // on envoie l'info d’origine
+            className="news-item"
+          >
             <div className="news-visual">
               <img src={news.img} alt={news.title} />
             </div>
             <h3 className="news-title">{news.title}</h3>
-          </a>
+          </Link>
         ))}
       </div>
       <div className="btn-wrapper">

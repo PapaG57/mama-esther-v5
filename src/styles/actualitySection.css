@@ -12,6 +12,25 @@
   color: #333;
 }
 
+.news-carousel .news-title {
+  font-size: 1rem; /* ou essaye 1.1rem ou 0.95rem selon ton goût */
+  line-height: 1.2;
+  padding: 8px 6px;
+  margin: 0;
+  color: #082a7b;
+  text-align: center;
+  text-shadow: none;
+  text-transform: none;
+  background-color: rgba(255, 255, 255, 0.85); /* Optionnel : lisibilité */
+  border-radius: 4px;
+}
+
+.news-visual {
+  position: relative;
+  height: 180px; /* adapte à ta taille d’image */
+  overflow: hidden;
+}
+
 .news-carousel h2 {
   text-transform: uppercase;
   font-size: 1.5rem;

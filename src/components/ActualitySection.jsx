@@ -50,7 +50,7 @@ function ActualitySection() {
       </div>
       <div className="btn-wrapper">
         <div className="actuality-button-wrapper">
-          <CamerounButton to="/actuality">
+          <CamerounButton to="/actualities">
             Voir toutes les actualités
           </CamerounButton>
         </div>

@@ -11,6 +11,7 @@ import path from "path";
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/assets", express.static("assets"));
 
 const PORT = process.env.PORT || 5000;
 
@@ -61,35 +62,35 @@ async function sendConfirmationEmail(email) {
   });
 
   await transporter.sendMail({
-    from: `"Mama Esther 👩🏾‍🦱" <${process.env.EMAIL_SENDER}>`,
+    from: `"Mama Esther" <${process.env.EMAIL_SENDER}>`,
     to: email,
-    subject: "Confirmation d'inscription",
+    subject: "✅ Confirmation d'inscription",
     html: `
-    <div style="font-family: Bahnschrift, Arial, sans-serif; background-color: #ffffff; padding-bottom: 20px;">
-      <div style="text-align: center; background-color: #007A5E; padding: 10px;">
-        <img src="cid:banniereHeader" alt="Bannière Mama Esther" style="max-width: 50%; height: auto;" />
-      </div>
-      <div style="text-align: center; margin-top: 20px;">
-        <img src="cid:photoIntro" alt="Photo Mama Esther" style="max-width: 10%; height: auto; border-radius: 8px; margin: 0 auto;" />
-      </div>
-      <div style="max-width: 600px; margin: 30px auto; background-color: white; padding: 20px; border-radius: 8px;">
-        <h2 style="color: #007A5E;">Merci pour votre inscription 💚.</h2>
-        <p style="color: #333;">Toute l’équipe de Mama Esther vous remercie chaleureusement pour l'intérêt que vous nous portez.</p>
-        <p style="color: #333;">Vous recevrez bientôt nos actualités et nos projets engagés.</p>
-      </div>
-      <div style="background-color: #CE1126; color: white; padding: 15px 20px 20px 20px; text-align: center;">
-        <img src="cid:logoFooter" alt="Logo" style="height: 60px; margin-top: 10px; margin-bottom: 10px;" />
-        <p style="font-size: 0.9rem;">© Association Mama Esther 2025</p>
-        <div style="margin-top: 15px;">
-          <a href="https://site-mama-esther.fr/desinscription" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Se désinscrire</a>
-          <a href="https://site-mama-esther.fr/mentions-legales" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Mentions légales</a>
-          <a href="mailto:contact@mama-esther.fr" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Des questions ? Contactez-nous !</a>
-          <a href="https://site-mama-esther.fr" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Visitez notre site</a>
-          <a href="https://site-mama-esther.fr/rejoignez-nous" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Rejoignez-nous</a>
+      <div style="font-family: Bahnschrift, Arial, sans-serif; background-color: #ffffff; padding-bottom: 20px;">
+        <div style="text-align: center; background-color: #007A5E; padding: 10px;">
+          <img src="cid:banniereHeader" alt="Bannière Mama Esther" style="max-width: 50%; height: auto;" />
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <img src="cid:photoIntro" alt="Photo Mama Esther" style="max-width: 10%; height: auto; border-radius: 8px; margin: 0 auto;" />
+        </div>
+        <div style="max-width: 600px; margin: 30px auto; background-color: white; padding: 20px; border-radius: 8px;">
+          <h2 style="color: #007A5E; margin-top: 30px;">Merci pour votre inscription 💚.</h2>
+          <p style="color: #333;">Toute l’équipe de Mama Esther vous remercie chaleureusement pour l'intérêt que vous nous portez.</p>
+          <p style="color: #333;">Vous recevrez bientôt nos actualités et nos projets engagés.</p>
+        </div>
+        <div style="background-color: #CE1126; color: white; padding: 15px 20px 20px 20px; text-align: center;">
+          <img src="cid:logoFooter" alt="Logo" style="height: 60px; margin-top: 10px; margin-bottom: 10px;" />
+          <p style="font-size: 0.9rem;">© Association Mama Esther 2025</p>
+          <div style="margin-top: 15px;">
+            <a href="https://site-mama-esther.fr/desinscription" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Se désinscrire</a>
+            <a href="https://site-mama-esther.fr/mentions-legales" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Mentions légales</a>
+            <a href="mailto:contact@mama-esther.fr" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Des questions ? Contactez-nous !</a>
+            <a href="https://site-mama-esther.fr" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Visitez notre site</a>
+            <a href="https://site-mama-esther.fr/rejoignez-nous" style="background:#007A5E; color:#fff; padding:10px 16px; border-radius:6px; text-decoration:none; margin:6px; display:inline-block;">Rejoignez-nous</a>
+          </div>
         </div>
       </div>
-    </div>
-  `,
+    `,
     attachments: [
       {
         filename: "banniere.png",
@@ -105,6 +106,11 @@ async function sendConfirmationEmail(email) {
         filename: "logoMama.png",
         path: path.resolve("assets/logoMama.png"),
         cid: "logoFooter",
+      },
+      {
+        filename: "favicon-mama-esther.ico",
+        path: path.resolve("assets/favicon-mama-esther.ico"),
+        cid: "logoFavicon",
       },
     ],
   });

@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Registration.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEraser } from "@fortawesome/free-solid-svg-icons";
+import confetti from "canvas-confetti"; // 🎊 Ajout confetti
 
 export default function Registration({ isOpen, onClose }) {
   const [email, setEmail] = useState("");
@@ -48,6 +49,12 @@ export default function Registration({ isOpen, onClose }) {
         setIsHuman(false);
         setShowEmojiAlert(false);
         setShowDuplicateAlert(false);
+        confetti({
+          // 🎉 Lancement de l'effet feu d'artifice
+          particleCount: 120,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
       }
     } catch (err) {
       if (err.response?.status === 409) {
@@ -68,11 +75,7 @@ export default function Registration({ isOpen, onClose }) {
   };
 
   return (
-    <div
-      className={`registration-overlay ${
-        status === "success" ? "blur-bg" : ""
-      }`}
-    >
+    <div className="registration-overlay">
       <div
         className={`registration-content ${closing ? "fade-out" : "fade-in"}`}
       >
@@ -148,7 +151,11 @@ export default function Registration({ isOpen, onClose }) {
         </form>
 
         {status === "success" && (
-          <p className="form-feedback success">✅ Inscription réussie !</p>
+          <>
+            {/* Animation de feux d'artifice */}
+            <div id="confetti-target"></div>
+            <p className="form-feedback success">✅ Inscription réussie !</p>
+          </>
         )}
         {status === "error" && (
           <p className="form-feedback error">❌ Une erreur est survenue.</p>

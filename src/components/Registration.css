@@ -28,7 +28,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,13 +189,6 @@
   transform: scale(1.05);
 }
 
-/* flou après succès d'inscription */
-.blur-bg {
-  backdrop-filter: blur(4px);
-  background-color: rgba(0, 0, 0, 0.3); /* léger assombrissement */
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
-}
-
 /* effacement rapide du champ de formulaire */
 .btn-clear-email {
   margin-left: 12px;
@@ -212,6 +205,17 @@
 .btn-clear-email:hover {
   background-color: #005f49;
   transform: scale(1.05); /* ✨ petit effet rebond */
+}
+
+/* feux d'artifice après rèussite de l'inscription à la newsletter */
+canvas.confetti-canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 10000 !important; /* bien au-dessus de ta modale */
+  pointer-events: none;
 }
 
 /* Responsive si texte trop large */

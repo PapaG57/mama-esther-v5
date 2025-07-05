@@ -20,7 +20,7 @@ function Footer() {
           {/* Logo & Slogan */}
           <div className="footer-logo">
             <img
-              src="/assets/footer_logoME.png"
+              src="/assets/logos/footer_logoME.png"
               alt="Association Mama-Esther"
               className="logo"
             />
@@ -152,7 +152,7 @@ function Footer() {
               rel="noreferrer"
             >
               <img
-                src="/assets/footer-logoFGDEV.png"
+                src="/assets/logos/footer-logoFGDEV.png"
                 alt="logo de la société FG Développement"
                 title="Cliquez pour visiter le site"
               />

@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* Logo (scroll vers #header) */}
         <img
           className="custom-navbar-logo"
-          src="/assets/logo-long.png"
+          src="/assets/logos/logo-long.png"
           alt="Logo Association"
         />
 

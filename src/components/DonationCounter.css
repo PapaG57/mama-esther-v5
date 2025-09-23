@@ -1,0 +1,78 @@
+.donation-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    45deg,
+    #e60026,
+    #ffcc00,
+    #007a3d
+  ); /* rouge, jaune, vert drapeau Cameroun */
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  color: #ffffff;
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  width: 75%;
+}
+
+.counter-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.counter-number {
+  font-size: 3rem;
+  background: #ffffff;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+}
+
+/* Couleurs spécifiques */
+/* 💙 Zéro en bleu */
+.counter-number.zero {
+  color: #007bff;
+}
+
+/* 💚 Chiffres > 0 en vert */
+.counter-number.positive {
+  color: #00a651;
+}
+
+.counter-label {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.counter-title span {
+  font-size: 3rem;
+  background: #ffffff;
+  color: #e60026; /* rouge drapeau Cameroun */
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+}
+
+.counter-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  display: block;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}

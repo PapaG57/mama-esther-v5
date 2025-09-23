@@ -1,0 +1,301 @@
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: #ce1126; /* rouge drapeau Cameroun */
+  color: #fcd116; /* jaune drapeau Cameroun */
+  font-family: "Bahnschrift", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Centrage vertical et hauteur adaptée */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 0 20px;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 20px 0 0;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+.footer-logo,
+.footer-services,
+.footer-contact {
+  flex: 1 1 30%;
+  min-width: 280px;
+}
+
+.slogan {
+  transform: skewX(-10deg);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon {
+  font-size: 28px;
+  color: #323333;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #007a5e; /* vert drapeau Cameroun */
+}
+
+.footer-services h3,
+.footer-contact h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.footer-services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-services ul li {
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+.footer-services ul li a {
+  color: #fcd116; /* jaune drapeau Cameroun */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-services ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-contact p a {
+  color: #fcd116; /* jaune drapeau Cameroun */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact p a:hover {
+  color: #007a5e; /* vert drapeau Cameroun */
+}
+
+.flag-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 40px auto 0;
+  max-width: 800px;
+  border-radius: 10px;
+  background-color: #f5f5dc;
+  color: #323333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  flex-direction: column;
+}
+
+.flag-container p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.flag-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.flag-icon {
+  width: 50px;
+  height: 36px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.flag-blur {
+  filter: blur(2px);
+  transition: filter 0.3s ease;
+}
+
+.footer-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 12px 16px;
+  border-left: 4px solid #007a5e; /* vert drapeau cameroun */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+.footer-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.footer-icon {
+  font-size: 1.5rem;
+  color: #fcd116; /* jaune drapeau cameroun */
+}
+
+.footer-text {
+  color: #fcd116; /* jaune drapeau cameroun */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-link {
+  color: #fcd116; /* jaune drapeau cameroun */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 50px 20px 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    padding: 30px 10px;
+    text-align: center;
+  }
+
+  .footer-main {
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    max-width: 120px;
+    margin-bottom: 12px;
+  }
+
+  .slogan {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .social-icons {
+    gap: 14px;
+    padding: 10px 0;
+  }
+
+  .flag-container {
+    padding: 16px;
+    margin-top: 20px;
+    max-width: 95%;
+  }
+
+  .flag-container p {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .flag-icon {
+    width: 40px;
+    height: 28px;
+  }
+
+  .footer-contact p {
+    font-size: 0.9rem;
+  }
+
+  .footer-services h3,
+  .footer-contact h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    padding: 0 10px;
+    margin-top: 30px;
+  }
+
+  .footer-services ul li {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .flag-icons {
+    gap: 10px;
+  }
+
+  .slogan {
+    font-size: 0.95rem;
+    padding: 0 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flag-icon {
+    width: 34px;
+    height: 24px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+    margin: 30px 10px 10px;
+  }
+}

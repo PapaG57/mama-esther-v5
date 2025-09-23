@@ -1,0 +1,135 @@
+.acutality-section {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.news-carousel {
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(180deg, #fff, #f8f8f8);
+  color: #333;
+}
+
+.news-carousel .news-title {
+  font-size: 1rem; /* ou essaye 1.1rem ou 0.95rem selon ton goût */
+  line-height: 1.2;
+  padding: 8px 6px;
+  margin: 0;
+  color: #082a7b;
+  text-align: center;
+  text-shadow: none;
+  text-transform: none;
+  background-color: rgba(255, 255, 255, 0.85); /* Optionnel : lisibilité */
+  border-radius: 4px;
+}
+
+.news-visual {
+  position: relative;
+  height: 180px; /* adapte à ta taille d’image */
+  overflow: hidden;
+}
+
+.news-carousel h2 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news-carousel p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Track contenant les éléments */
+.news-carousel-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70vw;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative; /* Pour que les flous se positionnent dessus */
+}
+
+/* Flou latéral correctement positionné aux extrémités visibles */
+.news-carousel-track::before,
+.news-carousel-track::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.news-carousel-track::before {
+  left: 0;
+  background: linear-gradient(to right, #f8f8f8 0%, transparent 100%);
+}
+
+.news-carousel-track::after {
+  right: 0;
+  background: linear-gradient(to left, #f8f8f8 0%, transparent 100%);
+}
+
+/* Cartes d'actualité */
+.news-item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  text-decoration: none;
+  animation: scroll 10s linear infinite;
+}
+
+.news-item:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.news-carousel-track.paused .news-item {
+  animation-play-state: paused;
+}
+
+.news-item img {
+  width: 180px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Titre sous chaque carte */
+.news-title {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* Animation fluide du carrousel */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.actuality-button-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}

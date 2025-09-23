@@ -1,0 +1,49 @@
+.top-bar {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  padding: 10px 20px;
+}
+
+.top-bar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  gap: 15px;
+  font-size: 17px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #323333;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #007a5e;
+}
+
+.flag-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}

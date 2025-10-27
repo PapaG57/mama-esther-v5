@@ -87,6 +87,12 @@ async function sendConfirmationEmail(email) {
     console.log("📄 Réponse SMTP :", info.response);
   } catch (err) {
     console.error("❌ Envoi mail échoué :", err);
+    if (err.response) {
+  console.error("📄 Réponse SMTP :", err.response);
+}
+if (err.code) {
+  console.error("📛 Code erreur :", err.code);
+}
     throw err;
   }
 }

@@ -9,6 +9,7 @@ import donRouter from "./routes/Don.js";
 import donationRoutes from "./routes/donations.js";
 
 dotenv.config();
+console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
 const app = express();
 app.use(
   cors({

@@ -28,7 +28,7 @@ const DonationCounter = () => {
           >
             {Number.isFinite(total) ? total.toLocaleString() : "0"}
           </span>{" "}
-          dons reçus 🙏
+          € de dons reçus 🙏
         </h2>
         <p className="counter-text">Merci pour votre générosité 💚</p>
       </div>

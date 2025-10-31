@@ -63,6 +63,9 @@ function Footer() {
               <li>
                 <Link to="/mentions-legales">Mentions Légales</Link>
               </li>
+              <li>
+                <Link to="/lien-mort">lien mort ou problème sur le site ?</Link>
+              </li>
             </ul>
           </div>
 

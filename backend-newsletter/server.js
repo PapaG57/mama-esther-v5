@@ -31,6 +31,8 @@ app.get("/", (req, res) => {
   res.send("🟢 Serveur minimal opérationnel !");
 });
 
+console.log("🧪 Tentative de connexion à MongoDB...");
+
 // Connexion MongoDB + démarrage Express
 mongoose
   .connect(process.env.MONGO_URI, { dbName: "newsletter_db" })

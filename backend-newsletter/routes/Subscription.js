@@ -7,6 +7,8 @@ const router = Router();
 router.post("/", async (req, res) => {
   const { email, extraField } = req.body;
 
+  console.log("📥 Requête reçue pour :", req.body.email);
+
   // Vérification anti-bot
   if (extraField && extraField.trim() !== "") {
     return res.status(400).json({ message: "Bot détecté" });

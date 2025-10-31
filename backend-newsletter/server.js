@@ -6,7 +6,8 @@ import subscriptionRouter from "./routes/Subscription.js";
 import contactRouter from "./routes/Contact.js";
 import unsubscribeRouter from "./routes/unsubscribe.js";
 import donRouter from "./routes/Don.js";
-import donationRoutes from "./routes/donations.js";
+import donationRoutes from "./routes/Donations.js";
+import helloassoRoutes from "./routes/helloasso.js";
 
 dotenv.config();
 console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
@@ -25,6 +26,7 @@ app.use("/api/contact", contactRouter);
 app.use("/api/unsubscribe", unsubscribeRouter);
 app.use("/api/don", donRouter);
 app.use("/api/donations", donationRoutes);
+app.use("/api", helloassoRoutes);
 
 // Route racine
 app.get("/", (req, res) => {

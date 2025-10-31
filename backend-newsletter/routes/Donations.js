@@ -10,12 +10,21 @@ router.post("/", creerDon);
 // Nouvelle route pour compter les dons
 router.get("/count", async (req, res) => {
   try {
-    const total = await Donation.countDocuments();
-    res.json({ totalDons: total });
+    const result = await Donation.aggregate([
+      {
+        $group: {
+          _id: null,
+          total: { $sum: "$montant" },
+        },
+      },
+    ]);
+
+    const total = result[0]?.total || 0;
+    res.json({ total });
   } catch (error) {
-    console.error("Erreur lors du comptage des dons :", error);
+    console.error("Erreur lors du calcul du montant total :", error);
     res.status(500).json({
-      message: "Erreur serveur lors du comptage des dons",
+      message: "Erreur serveur lors du calcul du montant total",
       erreur: error.message,
     });
   }

@@ -35,6 +35,8 @@ function App() {
         <Route path="*" element={<Page404 />} />
         {/* Page de dons */}
         <Route path="/don" element={<Don />} />
+        {/* Page lien mort */}
+        <Route path="/lien-mort" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

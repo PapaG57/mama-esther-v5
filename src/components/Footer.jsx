@@ -46,19 +46,13 @@ function Footer() {
                 <Link to="/don">Dons</Link>
               </li>
               <li>
-                <Link to="/travaux">Sponsor</Link>
+                <Link to="/travaux">Sponsor - Partenaires</Link>
               </li>
               <li>
-                <Link to="/travaux">Collecte de fonds</Link>
+                <Link to="/travaux">Collecte de fonds - matériels</Link>
               </li>
               <li>
-                <Link to="/travaux">Volontariat</Link>
-              </li>
-              <li>
-                <Link to="/travaux">Emploi</Link>
-              </li>
-              <li>
-                <Link to="/travaux">Partenaires</Link>
+                <Link to="/travaux">Volontariat - Emploi</Link>
               </li>
               <li>
                 <Link to="/mentions-legales">Mentions Légales</Link>

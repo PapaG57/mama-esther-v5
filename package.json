@@ -18,6 +18,7 @@
     "axios": "^1.13.1",
     "bootstrap": "^5.3.6",
     "canvas-confetti": "^1.9.3",
+    "chart.js": "^4.5.1",
     "cheerio": "^1.1.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -26,7 +27,9 @@
     "flag-icons": "^7.5.0",
     "mongoose": "^8.16.1",
     "open": "^10.1.2",
+    "papaparse": "^5.5.3",
     "react": "^19.1.0",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2"
   },

@@ -1,36 +1,119 @@
 import React, { useEffect, useState } from "react";
 import "./DonationCounter.css";
 import logoMama from "/assets/logos/logoMama.png";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const DonationCounter = () => {
-  const [total, setTotal] = useState(null);
+  const [totalCumulé, setTotalCumulé] = useState(null); // total depuis le premier don
+  const [totalAnnuel, setTotalAnnuel] = useState(null); // total de l'année en cours
+  const [monthlyData, setMonthlyData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/donations/count") // ✅ URL backend
+    // récupération du total cumulé
+    fetch("http://localhost:5000/api/donations/count")
       .then((res) => res.json())
-      .then((data) => {
-        console.log("📦 Données reçues du backend :", data);
-        setTotal(data.total);
-      })
+      .then((data) => setTotalCumulé(data.total))
+      .catch((err) => console.error("Erreur chargement total cumulé", err));
 
-      .catch((err) => console.error("Erreur chargement compteur", err));
+    // récupération du total annuel
+    fetch("http://localhost:5000/api/donations/annee")
+      .then((res) => res.json())
+      .then((data) => setTotalAnnuel(data.total))
+      .catch((err) => console.error("Erreur chargement total annuel", err));
+
+    // récupération des dons mensuels
+    fetch("http://localhost:5000/api/donations/mois")
+      .then((res) => res.json())
+      .then((data) => setMonthlyData(data.donsParMois))
+      .catch((err) => console.error("Erreur chargement graphique", err));
   }, []);
+
+  // ouverture du PDF dans un onglet
+  const handleDownloadPDF = () => {
+    const url = "http://localhost:5000/api/donations/mois/pdf";
+    window.open(url, "_blank");
+  };
+
+  const chartData = {
+    labels: monthlyData.map((d) => `M${d.mois}`),
+    datasets: [
+      {
+        label: "Dons mensuels (€)",
+        data: monthlyData.map((d) => d.total),
+        backgroundColor: "#007a3d", // vert drapeau Cameroun
+        borderRadius: 5,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { stepSize: 50 },
+      },
+    },
+  };
 
   return (
     <section className="donation-counter">
       <div className="counter-content">
         <img src={logoMama} alt="Logo Mama Esther" className="logo" />
+
+        {/* total cumulé depuis le premier don */}
         <h2 className="counter-title">
+          <span className="counter-label">Soutien reçu depuis notre création :</span>{" "}
           <span
             className={`counter-number ${
-              typeof total === "number" && total === 0 ? "zero" : "positive"
+              typeof totalCumulé === "number" && totalCumulé === 0 ? "zero" : "positive"
             }`}
           >
-            {Number.isFinite(total) ? total.toLocaleString() : "0"}
-          </span>{" "}
-          € de dons reçus 🙏
+            {Number.isFinite(totalCumulé) ? totalCumulé.toLocaleString() : "0"} €
+          </span>
         </h2>
+
+        {/* compteur annuel */}
+        <h2 className="counter-title">
+          <span className="counter-label">Dons reçus en {new Date().getFullYear()} :</span>{" "}
+          <span
+            className={`counter-number ${
+              typeof totalAnnuel === "number" && totalAnnuel === 0 ? "zero" : "positive"
+            }`}
+          >
+            {Number.isFinite(totalAnnuel) ? totalAnnuel.toLocaleString() : "0"} €
+          </span>
+        </h2>
+
         <p className="counter-text">Merci pour votre générosité 💚</p>
+
+        <div className="divLine">
+          <hr className="line" />
+          <h1 className="counter-title">📄Voir le fichier au format PDF</h1>
+        </div>
+
+        <div className="download-buttons">
+          <button onClick={handleDownloadPDF} title="Ouvre un onglet avec le fichier PDF">
+            créer le fichier PDF
+          </button>
+        </div>
+
+        <div className="chart-container">
+          <Bar data={chartData} options={chartOptions} />
+        </div>
       </div>
     </section>
   );

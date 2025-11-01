@@ -17,11 +17,18 @@
   max-width: none;
 }
 
+.counter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .counter-title {
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -34,14 +41,14 @@
 }
 
 /* Couleurs spécifiques */
-/* 💙 Zéro en bleu */
+/* Zéro en bleu */
 .counter-number.zero {
   color: #007bff;
 }
 
-/* 💚 Chiffres > 0 en vert */
+/* Chiffres > 0 en vert */
 .counter-number.positive {
-  color: #00a651;
+  color: #007a3d; /* vert drapeau Cameroun */
 }
 
 .counter-label {
@@ -66,12 +73,61 @@
 
 .counter-text {
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 2rem;
   margin-top: 1.5rem;
   display: block;
 }
 
 .logo {
-  max-width: 120px;
+  max-width: 150px;
   height: auto;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-buttons button {
+  background-color: #ffffff;
+  color: #e60026; /* rouge drapeau Cameroun */
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 10px 20px #333, 0 6px 6px #0003;
+}
+
+.download-buttons button:hover {
+  background-color: #ffcc00; /* jaune drapeau Cameroun */
+  color: #007a3d; /* vert drapeau Cameroun */
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.divLine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.line {
+  border: solid 1px #000000;
+  width: 80%;
+  height: 20px;
+  background: #ffffff;
+  margin: 2rem 0;
 }

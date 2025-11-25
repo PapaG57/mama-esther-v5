@@ -366,6 +366,27 @@
   color: #fff;
 }
 
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  flex: 1;
+  padding-right: 40px; /* espace pour l'icône */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #007a5e; /* vert drapeau Cameroun */
+  cursor: pointer;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .flag-icon {

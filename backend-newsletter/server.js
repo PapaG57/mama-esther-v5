@@ -8,9 +8,10 @@ import unsubscribeRouter from "./routes/unsubscribe.js";
 import donRouter from "./routes/Don.js";
 import donationRoutes from "./routes/Donations.js";
 import helloassoRoutes from "./routes/helloasso.js";
+import adminRoutes from "./routes/admin.js";
 
 dotenv.config();
-console.log("🔍 MONGO_URI =", process.env.MONGO_URI);
+
 const app = express();
 app.use(
   cors({
@@ -27,6 +28,7 @@ app.use("/api/unsubscribe", unsubscribeRouter);
 app.use("/api/don", donRouter);
 app.use("/api/donations", donationRoutes);
 app.use("/api", helloassoRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Route racine
 app.get("/", (req, res) => {

@@ -9,14 +9,20 @@ import {
   faInstagram,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./footer.css";
 
 function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
-
-  const handleCloseAdminModal = () => setShowAdminModal(false);
+  const handleCloseAdminModal = () => {
+  setShowAdminModal(false);
+  setIdentifiant("");
+  setMotDePasse("");
+  setMotDePasseVisible(false);
+};
+  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
@@ -158,13 +164,25 @@ function Footer() {
                   onChange={(e) => setIdentifiant(e.target.value)}
                   required
                 />
-                <input
-                  type="password"
-                  placeholder="Mot de passe"
-                  value={motDePasse}
-                  onChange={(e) => setMotDePasse(e.target.value)}
-                  required
-                />
+
+                <div className="password-field">
+                  <input
+                    type={motDePasseVisible ? "text" : "password"}
+                    placeholder="Mot de passe"
+                    value={motDePasse}
+                    onChange={(e) => setMotDePasse(e.target.value)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="toggle-password"
+                    onClick={() => setMotDePasseVisible((prev) => !prev)}
+                    aria-label="Afficher ou masquer le mot de passe"
+                  >
+                    <FontAwesomeIcon icon={motDePasseVisible ? faEyeSlash : faEye} />
+                  </button>
+                </div>
+
                 <div className="admin-modal-buttons">
                   <button type="submit">Se connecter</button>
                   <button type="button" onClick={handleCloseAdminModal}>Annuler</button>

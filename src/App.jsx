@@ -13,30 +13,24 @@ import MentionsLegales from "./pages/MentionsLegales";
 import Don from "./pages/Don";
 
 import Footer from "./components/Footer";
+import { testAdminDons } from "./testAdminDons";
 
 function App() {
   return (
     <Router>
-      <ScrollToTop />{" "}
-      {/* Force le retour en haut à chaque changement de route */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/actualities" element={<Actuality />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/newsletters" element={<NewsletterCarousel />} />
-        {/* autres routes */}
         <Route path="/travaux" element={<TravauxEnCours />} />
-        {/* Page de désinscription */}
         <Route path="/unsubscribe" element={<Unsubscribe />} />
-        {/* Page Mentions Légales */}
         <Route path="/mentions-legales" element={<MentionsLegales />} />
-        {/* 404 */}
-        <Route path="*" element={<Page404 />} />
-        {/* Page de dons */}
         <Route path="/don" element={<Don />} />
-        {/* Page lien mort */}
         <Route path="/lien-mort" element={<Contact />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
     </Router>

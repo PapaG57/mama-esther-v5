@@ -11,9 +11,8 @@ import TravauxEnCours from "./pages/TravauxEnCours";
 import Unsubscribe from "./pages/Unsubscribe";
 import MentionsLegales from "./pages/MentionsLegales";
 import Don from "./pages/Don";
-
 import Footer from "./components/Footer";
-import { testAdminDons } from "./testAdminDons";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -31,6 +30,7 @@ function App() {
         <Route path="/don" element={<Don />} />
         <Route path="/lien-mort" element={<Contact />} />
         <Route path="*" element={<Page404 />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </Router>

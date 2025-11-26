@@ -1,11 +1,12 @@
-import { Router } from "express";
-const router = Router();
-
+import express from "express";
 import { hash as _hash, compare as _compare } from "bcrypt";
 import jwt from "jsonwebtoken";
-const { sign } = jwt;
 import Admin from "../models/Admin.js";
+import Donation from "../models/Donation.js";
 import verifyAdmin from "../middlewares/verifyAdmin.js";
+
+const { sign } = jwt;
+const router = express.Router();
 
 // 🔐 Route pour créer un compte administrateur
 router.post("/register", async (req, res) => {
@@ -60,9 +61,35 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// ➕ Route pour ajouter un don manuel
+router.post("/manual-donation", verifyAdmin, async (req, res) => {
+  try {
+    const { nomDonateur, montant, message, source } = req.body;
+
+    const don = new Donation({
+      nomDonateur,
+      montant,
+      message,
+      source,
+    });
+
+    await don.save();
+    res.status(201).json({ message: "Don manuel ajouté avec succès" });
+  } catch (err) {
+    console.error("Erreur ajout don manuel :", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
+
 // 🔒 Route protégée : accès aux dons
 router.get("/dons", verifyAdmin, async (req, res) => {
-  res.json({ message: "Accès autorisé aux dons", admin: req.admin });
+  try {
+    const dons = await Donation.find().sort({ date: -1 });
+    res.json(dons);
+  } catch (err) {
+    console.error("Erreur récupération dons :", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
 });
 
 export default router;

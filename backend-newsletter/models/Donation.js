@@ -1,11 +1,28 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
-const donationSchema = new mongoose.Schema({
-  nomDonateur: { type: String, required: true },
-  montant: { type: Number, required: true },
-  message: { type: String },
-  date: { type: Date, default: Date.now },
+const donationSchema = new Schema({
+  nomDonateur: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  montant: {
+    type: Number,
+    required: true,
+  },
+  message: {
+    type: String,
+    trim: true,
+  },
+  source: {
+    type: String,
+    required: true, // tu peux mettre false si tu veux le rendre facultatif
+    trim: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const Donation = mongoose.model("Donation", donationSchema);
-export default Donation;
+export default model("Donation", donationSchema);

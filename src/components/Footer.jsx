@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMobileAlt, faEnvelopeOpenText, faAt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMobileAlt,
+  faEnvelopeOpenText,
+  faAt,
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faWhatsapp,
@@ -9,20 +15,21 @@ import {
   faInstagram,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./footer.css";
 
 function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
-  const handleCloseAdminModal = () => {
-  setShowAdminModal(false);
-  setIdentifiant("");
-  setMotDePasse("");
-  setMotDePasseVisible(false);
-};
   const [motDePasseVisible, setMotDePasseVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCloseAdminModal = () => {
+    setShowAdminModal(false);
+    setIdentifiant("");
+    setMotDePasse("");
+    setMotDePasseVisible(false);
+  };
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
@@ -35,12 +42,16 @@ function Footer() {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("adminToken", data.token);
-          window.location.href = "/admin/dons";
+          handleCloseAdminModal();
+          navigate("/admin"); // ✅ redirection vers la route React existante
         } else {
-          alert("Identifiants incorrects");
+          alert(data.error || "Identifiants incorrects");
         }
       })
-      .catch((err) => console.error("Erreur de connexion admin", err));
+      .catch((err) => {
+        console.error("Erreur de connexion admin", err);
+        alert("Erreur réseau");
+      });
   };
 
   return (
@@ -71,12 +82,24 @@ function Footer() {
           <div className="footer-services">
             <h3>Services</h3>
             <ul className="footer-list">
-              <li><Link to="/don">Dons</Link></li>
-              <li><Link to="/travaux">Sponsor - Partenaires</Link></li>
-              <li><Link to="/travaux">Collecte de fonds - matériels</Link></li>
-              <li><Link to="/travaux">Volontariat - Emploi</Link></li>
-              <li><Link to="/mentions-legales">Mentions Légales</Link></li>
-              <li><Link to="/lien-mort">lien mort ou problème sur le site ?</Link></li>
+              <li>
+                <Link to="/don">Dons</Link>
+              </li>
+              <li>
+                <Link to="/travaux">Sponsor - Partenaires</Link>
+              </li>
+              <li>
+                <Link to="/travaux">Collecte de fonds - matériels</Link>
+              </li>
+              <li>
+                <Link to="/travaux">Volontariat - Emploi</Link>
+              </li>
+              <li>
+                <Link to="/mentions-legales">Mentions Légales</Link>
+              </li>
+              <li>
+                <Link to="/lien-mort">lien mort ou problème sur le site ?</Link>
+              </li>
             </ul>
           </div>
 
@@ -85,11 +108,17 @@ function Footer() {
             <h3>Contacts</h3>
 
             <div className="footer-card">
-              <FontAwesomeIcon icon={faEnvelopeOpenText} className="footer-icon" />
+              <FontAwesomeIcon
+                icon={faEnvelopeOpenText}
+                className="footer-icon"
+              />
               <div className="footer-text">
-                <strong>Association Mama-Esther</strong><br />
-                1, Rue des Troènes<br />
-                57700 HAYANGE St-NICOLAS EN FORÊT<br />
+                <strong>Association Mama-Esther</strong>
+                <br />
+                1, Rue des Troènes
+                <br />
+                57700 HAYANGE St-NICOLAS EN FORÊT
+                <br />
                 🇫🇷 FRANCE
               </div>
             </div>
@@ -97,7 +126,8 @@ function Footer() {
             <div className="footer-card">
               <FontAwesomeIcon icon={faMobileAlt} className="footer-icon" />
               <div className="footer-text">
-                +33 6 86 74 29 11 - mobile de la Présidente<br />
+                +33 6 86 74 29 11 - mobile de la Présidente
+                <br />
                 +33 6 45 65 65 17 - mobile du vice-président
               </div>
             </div>
@@ -117,12 +147,42 @@ function Footer() {
         <div className="flag-container">
           <p>Nous agissons dans ces pays :</p>
           <div className="flag-icons">
-            <img className="flag-icon" src="/assets/flags/FR.svg" alt="France" title="France" />
-            <img className="flag-icon" src="/assets/flags/CM.svg" alt="Cameroun" title="Cameroun" />
-            <img className="flag-icon" src="/assets/flags/RCA.svg" alt="Centrafrique" title="Centrafrique" />
-            <img className="flag-icon" src="/assets/flags/LU.svg" alt="Luxembourg" title="Luxembourg" />
-            <img className="flag-icon flag-blur" src="/assets/flags/BE.svg" alt="Belgique" title="Bientôt en Belgique" />
-            <img className="flag-icon flag-blur" src="/assets/flags/DE.svg" alt="Allemagne" title="Bientôt en Allemagne" />
+            <img
+              className="flag-icon"
+              src="/assets/flags/FR.svg"
+              alt="France"
+              title="France"
+            />
+            <img
+              className="flag-icon"
+              src="/assets/flags/CM.svg"
+              alt="Cameroun"
+              title="Cameroun"
+            />
+            <img
+              className="flag-icon"
+              src="/assets/flags/RCA.svg"
+              alt="Centrafrique"
+              title="Centrafrique"
+            />
+            <img
+              className="flag-icon"
+              src="/assets/flags/LU.svg"
+              alt="Luxembourg"
+              title="Luxembourg"
+            />
+            <img
+              className="flag-icon flag-blur"
+              src="/assets/flags/BE.svg"
+              alt="Belgique"
+              title="Bientôt en Belgique"
+            />
+            <img
+              className="flag-icon flag-blur"
+              src="/assets/flags/DE.svg"
+              alt="Allemagne"
+              title="Bientôt en Allemagne"
+            />
           </div>
         </div>
 
@@ -131,7 +191,11 @@ function Footer() {
           <p>
             © {new Date().getFullYear()} Mama Esther. Tous droits réservés |
             Créé par FG Développement
-            <a href="https://www.fgdeveloppement.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.fgdeveloppement.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 src="/assets/logos/footer-logoFGDEV.png"
                 alt="logo de la société FG Développement"
@@ -179,13 +243,17 @@ function Footer() {
                     onClick={() => setMotDePasseVisible((prev) => !prev)}
                     aria-label="Afficher ou masquer le mot de passe"
                   >
-                    <FontAwesomeIcon icon={motDePasseVisible ? faEyeSlash : faEye} />
+                    <FontAwesomeIcon
+                      icon={motDePasseVisible ? faEyeSlash : faEye}
+                    />
                   </button>
                 </div>
 
                 <div className="admin-modal-buttons">
                   <button type="submit">Se connecter</button>
-                  <button type="button" onClick={handleCloseAdminModal}>Annuler</button>
+                  <button type="button" onClick={handleCloseAdminModal}>
+                    Annuler
+                  </button>
                 </div>
               </form>
             </div>

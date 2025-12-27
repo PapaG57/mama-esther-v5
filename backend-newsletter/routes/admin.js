@@ -92,4 +92,19 @@ router.get("/dons", verifyAdmin, async (req, res) => {
   }
 });
 
+// 🔥 Route DELETE pour supprimer un don
+router.delete("/dons/:id", async (req, res) => {
+  console.log("ID reçu pour suppression:", req.params.id);
+  try {
+    const don = await Donation.findByIdAndDelete(req.params.id);
+    if (!don) {
+      return res.status(404).json({ error: "Don introuvable" });
+    }
+    res.status(204).send(); // ou res.json({ message: "Don supprimé" });
+  } catch (err) {
+    console.error("Erreur suppression:", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
+
 export default router;

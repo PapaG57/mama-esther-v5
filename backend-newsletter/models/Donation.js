@@ -10,13 +10,17 @@ const donationSchema = new Schema({
     type: Number,
     required: true,
   },
-  message: {
+  source: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  commentaires: {
     type: String,
     trim: true,
   },
-  source: {
+  admin: {
     type: String,
-    required: true, // tu peux mettre false si tu veux le rendre facultatif
     trim: true,
   },
   date: {

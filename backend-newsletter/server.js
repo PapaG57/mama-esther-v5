@@ -31,7 +31,7 @@ app.use("/api/contact", contactRouter);
 app.use("/api/unsubscribe", unsubscribeRouter);
 app.use("/api/don", donRouter);
 app.use("/api/donations", donationRoutes);
-app.use("/api/helloasso", helloassoRoutes); // plus clair que /api
+app.use("/api/helloasso", helloassoRoutes);
 app.use("/api/admin", adminRoutes);
 
 // 🌍 Route racine

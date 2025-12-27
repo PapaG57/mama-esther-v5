@@ -12,7 +12,8 @@ import Unsubscribe from "./pages/Unsubscribe";
 import MentionsLegales from "./pages/MentionsLegales";
 import Don from "./pages/Don";
 import Footer from "./components/Footer";
-import Admin from "./pages/Admin";
+import Admin from "./pages/admin";
+import AdminAccessGate from "./components/AdminAccessGate";
 
 function App() {
   return (
@@ -29,8 +30,8 @@ function App() {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/don" element={<Don />} />
         <Route path="/lien-mort" element={<Contact />} />
+        <Route path="/admin" element={<AdminAccessGate><Admin /></AdminAccessGate>} />
         <Route path="*" element={<Page404 />} />
-        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </Router>

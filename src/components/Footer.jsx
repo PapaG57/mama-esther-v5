@@ -5,8 +5,6 @@ import {
   faMobileAlt,
   faEnvelopeOpenText,
   faAt,
-  faEye,
-  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -16,43 +14,44 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import "./footer.css";
+import PasswordField from "../components/PasswordField";
 
 function Footer() {
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
-  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleCloseAdminModal = () => {
     setShowAdminModal(false);
     setIdentifiant("");
     setMotDePasse("");
-    setMotDePasseVisible(false);
   };
 
-  const handleAdminLogin = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:5000/api/admin/login", {
+  const handleAdminLogin = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("http://localhost:5000/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ identifiant, motDePasse }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("adminToken", data.token);
-          handleCloseAdminModal();
-          navigate("/admin"); // ✅ redirection vers la route React existante
-        } else {
-          alert(data.error || "Identifiants incorrects");
-        }
-      })
-      .catch((err) => {
-        console.error("Erreur de connexion admin", err);
-        alert("Erreur réseau");
-      });
-  };
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.token) {
+      localStorage.setItem("adminToken", data.token);
+      navigate("/admin", { state: { viaAdminButton: true } });
+      setShowAdminModal(false);
+    } else {
+      alert(data.error || "Identifiants incorrects");
+    }
+  } catch (err) {
+    console.error("Erreur de connexion admin :", err);
+    alert("Erreur réseau");
+  }
+};
 
   return (
     <footer className="footer">
@@ -106,7 +105,6 @@ function Footer() {
           {/* Contacts */}
           <div className="footer-contact">
             <h3>Contacts</h3>
-
             <div className="footer-card">
               <FontAwesomeIcon
                 icon={faEnvelopeOpenText}
@@ -122,7 +120,6 @@ function Footer() {
                 🇫🇷 FRANCE
               </div>
             </div>
-
             <div className="footer-card">
               <FontAwesomeIcon icon={faMobileAlt} className="footer-icon" />
               <div className="footer-text">
@@ -131,7 +128,6 @@ function Footer() {
                 +33 6 45 65 65 17 - mobile du vice-président
               </div>
             </div>
-
             <div className="footer-card">
               <FontAwesomeIcon icon={faAt} className="footer-icon" />
               <div className="footer-text">
@@ -189,8 +185,7 @@ function Footer() {
         {/* Copyright */}
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} Mama Esther. Tous droits réservés |
-            Créé par FG Développement
+            © {new Date().getFullYear()} Mama Esther. Tous droits réservés | Créé par FG Développement
             <a
               href="https://www.fgdeveloppement.com/"
               target="_blank"
@@ -223,31 +218,19 @@ function Footer() {
               <form onSubmit={handleAdminLogin}>
                 <input
                   type="text"
+                  className="input-standard"
                   placeholder="Identifiant"
                   value={identifiant}
                   onChange={(e) => setIdentifiant(e.target.value)}
                   required
                 />
 
-                <div className="password-field">
-                  <input
-                    type={motDePasseVisible ? "text" : "password"}
-                    placeholder="Mot de passe"
-                    value={motDePasse}
-                    onChange={(e) => setMotDePasse(e.target.value)}
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="toggle-password"
-                    onClick={() => setMotDePasseVisible((prev) => !prev)}
-                    aria-label="Afficher ou masquer le mot de passe"
-                  >
-                    <FontAwesomeIcon
-                      icon={motDePasseVisible ? faEyeSlash : faEye}
-                    />
-                  </button>
-                </div>
+                <PasswordField
+                  value={motDePasse}
+                  onChange={(e) => setMotDePasse(e.target.value)}
+                  placeholder="Mot de passe"
+                  required
+                />
 
                 <div className="admin-modal-buttons">
                   <button type="submit">Se connecter</button>

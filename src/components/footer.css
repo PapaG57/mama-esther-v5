@@ -305,7 +305,7 @@
 }
 
 .admin-access-button:hover {
-  background-color: #fcd116;  /* jaune drapeau Cameroun */
+  background-color: #fcd116; /* jaune drapeau Cameroun */
   color: #ce1126; /* rouge drapeau Cameroun */
 }
 
@@ -357,34 +357,13 @@
 }
 
 .admin-modal-buttons button[type="submit"] {
-  background-color: #007a5e;  /* vert drapeau Cameroun */
+  background-color: #007a5e; /* vert drapeau Cameroun */
   color: #fff;
 }
 
 .admin-modal-buttons button[type="button"] {
-  background-color: #ce1126;  /* rouge drapeau Cameroun */
+  background-color: #ce1126; /* rouge drapeau Cameroun */
   color: #fff;
-}
-
-.password-field {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.password-field input {
-  flex: 1;
-  padding-right: 40px; /* espace pour l'icône */
-}
-
-.toggle-password {
-  position: absolute;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #007a5e; /* vert drapeau Cameroun */
-  cursor: pointer;
 }
 
 /* Responsive */

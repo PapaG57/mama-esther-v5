@@ -47,3 +47,54 @@
   height: 40px;
   margin-left: 10px;
 }
+
+@media (max-width: 768px) {
+  .top-bar-container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .contact-info {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .social-icons {
+    gap: 8px;
+    padding: 4px 6px;
+  }
+
+  .social-icon {
+    font-size: 20px;
+  }
+
+  .flag-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-info {
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .social-icon {
+    font-size: 18px;
+  }
+
+  .flag-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .top-bar {
+    padding: 6px 10px;
+  }
+}

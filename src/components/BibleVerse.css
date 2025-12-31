@@ -65,3 +65,43 @@
     filter: blur(0);
   }
 }
+/* --- Responsive Bible Verse --- */
+
+/* Mobile ≤ 768px */
+@media (max-width: 768px) {
+  .bible-card {
+    width: 90%;
+    aspect-ratio: unset; /* On enlève le carré forcé */
+    padding: 16px;
+  }
+
+  .bible-verse {
+    font-size: 1rem; /* Réduction du texte */
+    padding: 20px 16px;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 20px auto;
+  }
+
+  .bible-verse::before {
+    font-size: 1.6rem;
+    top: -12px;
+    left: -6px;
+  }
+
+  .bible-verse-strong {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile très petit ≤ 420px */
+@media (max-width: 420px) {
+  .bible-verse {
+    font-size: 0.9rem; /* Encore plus lisible */
+    padding: 16px 12px;
+  }
+
+  .bible-verse-strong {
+    font-size: 0.8rem;
+  }
+}

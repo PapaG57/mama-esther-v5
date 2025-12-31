@@ -1,5 +1,5 @@
 // src/components/Navbar.jsx
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useScrollNavbar from "../utils/navbar";
 import { useNavigate } from "react-router-dom";
@@ -8,29 +8,42 @@ import "./navbar.css";
 export default function Navbar() {
   const navbarRef = useRef(null);
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useScrollNavbar(navbarRef);
 
-  // smooth scroll intégré directement
   const scrollToSection = (event, sectionId) => {
     event.preventDefault();
     const target = document.querySelector(sectionId);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false); // ferme le menu après clic
     }
   };
 
   return (
     <nav className="custom-navbar" ref={navbarRef}>
       <div className="custom-navbar-container">
-        {/* Logo (scroll vers #header) */}
+
+        {/* Logo */}
         <img
           className="custom-navbar-logo"
           src="/assets/logos/logo-long.png"
           alt="Logo Association"
         />
 
-        {/* Liens de navigation */}
-        <ul className="custom-nav-list">
+        {/* Hamburger */}
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Liens */}
+        <ul className={`custom-nav-list ${menuOpen ? "open" : ""}`}>
           <li>
             <a
               className="custom-nav-link"
@@ -68,14 +81,21 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <Link className="custom-nav-link" to="/contact">
+            <Link className="custom-nav-link" to="/contact" onClick={() => setMenuOpen(false)}>
               contact
             </Link>
           </li>
+
+          {/* Bouton Don dans le menu mobile */}
+          <li className="mobile-don">
+            <button className="don-button" onClick={() => { setMenuOpen(false); navigate("/don"); }}>
+              Faire un Don
+            </button>
+          </li>
         </ul>
 
-        {/* Bouton Don (scroll vers #donate) */}
-        <button className="don-button" onClick={() => navigate("/don")}>
+        {/* Bouton Don desktop */}
+        <button className="don-button desktop-don" onClick={() => navigate("/don")}>
           Faire un Don
         </button>
       </div>

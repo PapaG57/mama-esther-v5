@@ -1,3 +1,4 @@
+/* NAVBAR PRINCIPALE */
 .custom-navbar {
   position: fixed;
   top: 70px;
@@ -9,12 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #007a5e; /* vert comme le drapeau du Cameroun */
-  border: 1px solid #fcd116; /* jaune comme le drapeau du Cameroun */
+  background: #007a5e;
+  border: 1px solid #fcd116;
   border-radius: 10px;
-  box-shadow: 0 10px 20px #333, 0 6px 6px #0003;
+  box-shadow: 0 10px 20px #333333, 0 6px 6px #00000033;
   transition: top 0.4s ease, background-color 0.3s ease;
-  will-change: top;
 }
 
 .custom-navbar.scrolled {
@@ -30,13 +30,15 @@
   padding: 0 20px;
 }
 
+/* LOGO */
 .custom-navbar-logo {
   width: 250px;
   border-radius: 10px;
-  border: 1px solid #fcd116; /* jaune comme le drapeau du Cameroun */
-  box-shadow: 0 10px 20px #333, 0 6px 6px #0003;
+  border: 1px solid #fcd116;
+  box-shadow: 0 10px 20px #333333, 0 6px 6px #000003;
 }
 
+/* LISTE DES LIENS */
 .custom-nav-list {
   display: flex;
   gap: 30px;
@@ -45,34 +47,146 @@
 }
 
 .custom-nav-link {
-  color: #fcd116; /* jaune comme le drapeau du Cameroun */
+  color: #fcd116;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s;
-  text-shadow: 0 10px 20px #333, 0 6px 6px #0003;
+  text-shadow: 0 10px 20px #333333, 0 6px 6px #0003;
 }
 
 .custom-nav-link:hover {
-  color: #ce1126; /* rouge comme le drapeau du Cameroun */
+  color: #ce1126;
 }
 
+/* BOUTON DON */
 .don-button {
-  /* padding: 10px 20px; */
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   background: #ffffff;
-  color: #fcd116; /* jaune comme le drapeau du Cameroun */
-  border: 1px solid #fcd116; /* jaune comme le drapeau du Cameroun */
+  color: #fcd116;
+  border: 1px solid #fcd116;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
 }
 
 .don-button:hover {
-  background: #007a5e; /* vert comme le drapeau du Cameroun */
-  color: #ce1126; /* rouge comme le drapeau du Cameroun */
-  border: 1px solid #fcd116; /* jaune comme le drapeau du Cameroun */
+  background: #007a5e;
+  color: #ce1126;
+}
+
+/* --- HAMBURGER --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 3000;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #fcd116;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animation hamburger */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- RESPONSIVE --- */
+
+/* TABLETTES */
+@media (max-width: 992px) {
+  .custom-navbar-logo {
+    width: 180px;
+  }
+}
+
+/* MOBILES */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .desktop-don {
+    display: none;
+  }
+
+  .custom-nav-list {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    background: #007a5e;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: none;
+  }
+
+  .custom-nav-list.open {
+    display: flex;
+  }
+
+  .custom-navbar-logo {
+    width: 150px;
+  }
+
+  .custom-nav-link {
+    font-size: 16px;
+  }
+
+  .mobile-don {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .don-button {
+    width: 80%;
+    padding: 10px 0;
+  }
+}
+
+/* PETITS SMARTPHONES (370px) */
+@media (max-width: 420px) {
+  .custom-navbar {
+    width: 98%;
+    height: 60px;
+    top: 130px;
+  }
+
+  .custom-navbar-logo {
+    width: 150px;
+  }
+
+  .custom-nav-link {
+    font-size: 14px;
+    text-shadow: none;
+  }
+
+  .don-button {
+    width: 90%;
+    font-size: 14px;
+  }
 }

@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(127, 245, 220, 0.3);
+  background: #7ff5dc4d;
 }
 
 .header-container {
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  color: #fff;
+  color: #ffffff;
 }
 
 .header-text-block {
@@ -67,12 +67,61 @@
 }
 
 @media (max-width: 768px) {
+  .header-main {
+    height: auto; /* On enlève le 100vh */
+    padding: 40px 0;
+  }
+
   .header-container {
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .header-text-block {
     text-align: center;
   }
+
+  .header-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .header-title {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+
+  .header-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
   .bible-card {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .header-title {
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+  }
+
+  .header-text {
+    font-size: 0.95rem;
+  }
+
+  .header-container {
+    padding: 0 12px;
   }
 }

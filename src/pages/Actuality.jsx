@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHandPointLeft } from "@fortawesome/free-solid-svg-icons";
+import { faHandPointLeft } from "@fortawesome/free-solid-svg-icons";
 import Divider from "../components/Divider";
 import CamerounButton from "../components/CamerounButton";
 import Registration from "../components/Registration";

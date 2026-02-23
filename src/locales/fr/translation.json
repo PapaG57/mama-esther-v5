@@ -1,6 +1,17 @@
 {
   "actuality": {
-    "title": "Actualités",
-    "description": "Découvrez les dernières nouvelles de Mama Esther"
+    "title": "Nos actualités en images",
+
+    "subscribeTitle": "Inscrivez-vous",
+    "subscribeText": "Inscrivez-vous à notre newsletter pour rester informé des dernières nouvelles et événements de l'association.",
+    "subscribeButton": "Je m'inscris",
+
+    "newsletterTitle": "Newsletter",
+    "newsletterText": "Les liens pour lire les newsletters sont à la fin de cette page. Cliquez sur les logos au format PDF 😉 !",
+
+    "pdfTitle": "Les temps forts de l’association",
+    "pdfText": "Retrouvez ici nos newsletters passées. Vous pouvez les consulter en version web ou télécharger le PDF directement.",
+
+    "back": "Retour"
   }
 }

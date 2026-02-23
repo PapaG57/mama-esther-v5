@@ -1,6 +1,17 @@
 {
   "actuality": {
-    "title": "News",
-    "description": "Discover the latest updates from Mama Esther"
+    "title": "Our news in pictures",
+
+    "subscribeTitle": "Subscribe",
+    "subscribeText": "Subscribe to our newsletter to stay informed about the latest news and events of the association.",
+    "subscribeButton": "Sign up",
+
+    "newsletterTitle": "Newsletter",
+    "newsletterText": "The links to read the newsletters are at the end of this page. Click on the PDF icons 😉!",
+
+    "pdfTitle": "Highlights of the association",
+    "pdfText": "Find here our past newsletters. You can view them online or download the PDF directly.",
+
+    "back": "Back"
   }
 }

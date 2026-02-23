@@ -7,9 +7,12 @@ import Divider from "../components/Divider";
 import CamerounButton from "../components/CamerounButton";
 import Registration from "../components/Registration";
 import NewsletterCarousel from "../components/NewsletterCarousel";
+import { useTranslation } from "react-i18next";
 import "../styles/actuality.css";
 
 export default function Actuality() {
+  const { t } = useTranslation();
+
   const newsData = [
     {
       id: 1,
@@ -39,7 +42,6 @@ export default function Actuality() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Pour scroller vers une ancre comme #news2 si présente dans l'URL
   useEffect(() => {
     const anchor = location.hash?.replace("#", "");
     if (anchor) {
@@ -48,7 +50,7 @@ export default function Actuality() {
         if (el) {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-      }, 100); // Laisse le DOM se charger
+      }, 100);
     }
   }, [location]);
 
@@ -83,7 +85,9 @@ export default function Actuality() {
           alt="Bannière Actualités"
           className="actuality-banner"
         />
-        <h1 className="actuality-title-overlay">Nos actualités en images</h1>
+        <h1 className="actuality-title-overlay">
+          {t("actuality.title")}   {/* ← TRADUCTION */}
+        </h1>
       </div>
 
       <Divider />
@@ -116,23 +120,17 @@ export default function Actuality() {
         {/* Bloc jaune droite */}
         <aside className="aside-inline">
           <div className="aside-card-text">
-            <h2>inscrivez-vous</h2>
-            <p>
-              Inscrivez-vous à notre newsletter pour rester informé des
-              dernières nouvelles et événements de l'association.
-            </p>
+            <h2>{t("actuality.subscribeTitle")}</h2>
+            <p>{t("actuality.subscribeText")}</p>
             <br />
             <CamerounButton onClick={() => setShowModal(true)}>
-              je m'inscris
+              {t("actuality.subscribeButton")}
             </CamerounButton>
           </div>
 
           <div className="aside-card-text">
-            <h2>newsletter</h2>
-            <p>
-              Les liens pour lire les newsletter sont à la fin de cette page.
-              Cliquer sur les logos format PDF 😉!
-            </p>
+            <h2>{t("actuality.newsletterTitle")}</h2>
+            <p>{t("actuality.newsletterText")}</p>
           </div>
         </aside>
       </div>
@@ -165,25 +163,22 @@ export default function Actuality() {
 
       {/* Newsletters en pdf */}
       <section id="pdf" className="newsletter-section">
-        <h2>Les temps forts de l’association</h2>
-        <p>
-          Retrouvez ici nos newsletters passées. Vous pouvez les consulter en
-          version web ou télécharger le PDF directement.
-        </p>
+        <h2>{t("actuality.pdfTitle")}</h2>
+        <p>{t("actuality.pdfText")}</p>
 
         <NewsletterCarousel />
       </section>
 
       <Registration isOpen={showModal} onClose={() => setShowModal(false)} />
 
-      {/* Bouton retour fixé en bas à droite */}
+      {/* Bouton retour */}
       <div className="fixed-bottom-right">
         <CamerounButton onClick={() => navigate(-1)}>
           <FontAwesomeIcon
             icon={faHandPointLeft}
             style={{ marginRight: "8px" }}
           />
-          Retour
+          {t("actuality.back")}
         </CamerounButton>
       </div>
     </main>

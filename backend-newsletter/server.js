@@ -3,6 +3,10 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 
+// 🔧 Fix DNS pour MongoDB Atlas (Windows + Node)
+import dns from "node:dns/promises";
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
+
 // Import des routeurs
 import subscriptionRouter from "./routes/Subscription.js";
 import contactRouter from "./routes/Contact.js";
@@ -21,11 +25,11 @@ app.use(
   cors({
     origin: process.env.FRONT_URL || "http://localhost:5173", // configurable via .env
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 
-// 📌 Montage des routeurs
+// Montage des routeurs
 app.use("/api/subscribe", subscriptionRouter);
 app.use("/api/contact", contactRouter);
 app.use("/api/unsubscribe", unsubscribeRouter);
@@ -34,18 +38,18 @@ app.use("/api/donations", donationRoutes);
 app.use("/api/helloasso", helloassoRoutes);
 app.use("/api/admin", adminRoutes);
 
-// 🌍 Route racine
+// Route racine
 app.get("/", (req, res) => {
   res.send("🟢 Serveur opérationnel !");
 });
 
-// 🛑 Middleware global de gestion des erreurs
+// Middleware global de gestion des erreurs
 app.use((err, req, res, next) => {
   console.error("❌ Erreur serveur :", err);
   res.status(500).json({ error: "Erreur interne du serveur" });
 });
 
-// 🔌 Connexion MongoDB + démarrage serveur
+// Connexion MongoDB + démarrage serveur
 console.log("🧪 Tentative de connexion à MongoDB...");
 mongoose
   .connect(process.env.MONGO_URI, { dbName: "newsletter_db" })

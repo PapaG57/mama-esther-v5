@@ -15,7 +15,7 @@ export default function Actuality() {
       id: 1,
       image: "/assets/actualities/actuality2.png",
       date: "2024-09-01",
-      title: "Signature des documents en vue de l'agrément",
+      title: "Signature des documents pour l'agrément",
       description: `"C'est un jour mémorable pour l'association Mama Esther. Aujourd'hui, la création de l'association a été officiellement reconnue par le tribunal de Thionville en Moselle, marquant le début d'un nouveau chapitre dans la mission de cette organisation philanthropique.\n\n Les membres de l'association et les sympathisants attendaient avec impatience cette nouvelle depuis des mois. Lorsque les documents officiels sont arrivés par courrier, une onde de joie et de soulagement a parcouru l'équipe. La présidente de l'association, Esther Gérard, a tenu à annoncer la bonne nouvelle à tous les membres et bénévoles. \n\nNous avons travaillé sans relâche pour atteindre ce moment,déclara Esther Gérard, visiblement émue. Recevoir ces documents officiels est une reconnaissance de notre engagement et de nos efforts. C'est le début d'une aventure pleine de promesses pour les enfants que nous soutenons. \n\nLa signature des documents par le tribunal de Thionville symbolise bien plus qu'une simple formalité juridique. C'est le fruit d'années de travail acharné, de dévouement et de soutien inconditionnel de la part de nombreux bénévoles et sympathisants. Chaque membre de l'association a contribué à sa manière à cette réalisation. \n\nLa réception des documents officiels marque le début d'un nouveau voyage pour l'association Mama Esther, un voyage empreint de compassion, de détermination et d'espoir. Chaque membre de l'association est désormais prêt à se retrousser les manches et à transformer cette vision en réalité, offrant un avenir meilleur aux enfants et aux personnes vulnérables. \n\nle Webmaster"`,
     },
     {
@@ -39,7 +39,7 @@ export default function Actuality() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // 🔍 Pour scroller vers une ancre comme #news2 si présente dans l'URL
+  // Pour scroller vers une ancre comme #news2 si présente dans l'URL
   useEffect(() => {
     const anchor = location.hash?.replace("#", "");
     if (anchor) {
@@ -48,7 +48,7 @@ export default function Actuality() {
         if (el) {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-      }, 100); // ⏱️ Laisse le DOM se charger
+      }, 100); // Laisse le DOM se charger
     }
   }, [location]);
 

@@ -1,4 +1,11 @@
 {
+  "topbar": {
+    "englishVersion": "Version anglaise",
+    "frenchVersion": "Version française",
+    "contactEmail": "Contactez-nous",
+    "followUs": "Suivez-nous"
+  },
+
   "actuality": {
     "title": "Nos actualités en images",
 

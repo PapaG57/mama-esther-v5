@@ -73,5 +73,3 @@ function ActualitySection() {
 }
 
 export default ActualitySection;
-
-export default ActualitySection;

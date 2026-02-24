@@ -122,5 +122,3 @@ const DonationCounter = () => {
 };
 
 export default DonationCounter;
-
-export default DonationCounter;

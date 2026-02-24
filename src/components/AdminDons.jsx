@@ -65,7 +65,6 @@ const AdminDons = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        {/* Campagne placeholder can reuse source if needed, or I can add a specific key */}
         <input
           type="text"
           placeholder="Campagne (facultatif)"
@@ -112,7 +111,5 @@ const AdminDons = () => {
     </section>
   );
 };
-
-export default AdminDons;
 
 export default AdminDons;

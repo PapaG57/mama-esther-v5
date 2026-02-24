@@ -3,9 +3,11 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useScrollNavbar from "../utils/navbar";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./navbar.css";
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const navbarRef = useRef(null);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +19,7 @@ export default function Navbar() {
     const target = document.querySelector(sectionId);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false); // ferme le menu après clic
+      setMenuOpen(false);
     }
   };
 
@@ -50,53 +52,70 @@ export default function Navbar() {
               href="#root"
               onClick={(e) => scrollToSection(e, "#root")}
             >
-              accueil
+              {t("navbar.home")}
             </a>
           </li>
+
           <li>
             <a
               className="custom-nav-link"
               href="#aboutSection"
               onClick={(e) => scrollToSection(e, "#aboutSection")}
             >
-              à propos
+              {t("navbar.about")}
             </a>
           </li>
+
           <li>
             <a
               className="custom-nav-link"
               href="#engagement"
               onClick={(e) => scrollToSection(e, "#engagement")}
             >
-              engagement
+              {t("navbar.commitment")}
             </a>
           </li>
+
           <li>
             <a
               className="custom-nav-link"
               href="#actualitySection"
               onClick={(e) => scrollToSection(e, "#actualitySection")}
             >
-              actualités
+              {t("navbar.news")}
             </a>
           </li>
+
           <li>
-            <Link className="custom-nav-link" to="/contact" onClick={() => setMenuOpen(false)}>
-              contact
+            <Link
+              className="custom-nav-link"
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t("navbar.contact")}
             </Link>
           </li>
 
           {/* Bouton Don dans le menu mobile */}
           <li className="mobile-don">
-            <button className="don-button" onClick={() => { setMenuOpen(false); navigate("/don"); }}>
-              Faire un Don
+            <button
+              className="don-button"
+              onClick={() => {
+                setMenuOpen(false);
+                navigate("/don");
+              }}
+            >
+              {t("navbar.donate")}
             </button>
           </li>
         </ul>
 
         {/* Bouton Don desktop */}
-        <button className="don-button desktop-don" onClick={() => navigate("/don")}>
-          Faire un Don
+        <button
+          className="don-button desktop-don"
+          onClick={() => navigate("/don")}
+        >
+          {t("navbar.donate")}
         </button>
       </div>
     </nav>

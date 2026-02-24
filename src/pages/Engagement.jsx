@@ -2,12 +2,12 @@ import React from "react";
 import "../styles/engagement.css";
 import Divider from "../components/Divider";
 
-function Home() {
+function Engagement() {
   return (
-    <main id="engagement" className="home-container">
+    <section id="engagement" className="home-container">
       <Divider /> {/* ligne de séparation */}
       {/* Engagement Area Section */}
-      <section id="Engagement" className="engagement-area">
+      <section id="EngagementSection" className="engagement-area">
         {/* Titre centré */}
         <div className="section-title">
           <h3>Engagements de l'association</h3>
@@ -109,8 +109,8 @@ function Home() {
           </article>
         </div>
       </section>
-    </main>
+    </section>
   );
 }
 
-export default Home;
+export default Engagement;

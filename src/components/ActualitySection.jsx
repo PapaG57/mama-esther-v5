@@ -30,7 +30,7 @@ function ActualitySection() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section id="actualitySection" className="news-carousel acutality-section">
+    <section id="actualitySection" className="news-carousel actuality-section">
       <Divider /> {/* ligne de séparation */}
       <h2>📰 Nos dernières actualités</h2>
       <p>

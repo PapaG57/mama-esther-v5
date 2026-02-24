@@ -10,10 +10,12 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const DonationCounter = () => {
+  const { t } = useTranslation();
   const [totalCumulé, setTotalCumulé] = useState(null); // total depuis le premier don
   const [totalAnnuel, setTotalAnnuel] = useState(null); // total de l'année en cours
   const [monthlyData, setMonthlyData] = useState([]);
@@ -48,7 +50,7 @@ const DonationCounter = () => {
     labels: monthlyData.map((d) => `M${d.mois}`),
     datasets: [
       {
-        label: "Dons mensuels (€)",
+        label: t("donationCounter.monthlyLabel"),
         data: monthlyData.map((d) => d.total),
         backgroundColor: "#007a3d", // vert drapeau Cameroun
         borderRadius: 5,
@@ -76,7 +78,7 @@ const DonationCounter = () => {
 
         {/* total cumulé depuis le premier don */}
         <h2 className="counter-title">
-          <span className="counter-label">Soutien reçu depuis notre création :</span>{" "}
+          <span className="counter-label">{t("donationCounter.cumulatedSupport")}</span>{" "}
           <span
             className={`counter-number ${
               typeof totalCumulé === "number" && totalCumulé === 0 ? "zero" : "positive"
@@ -88,7 +90,7 @@ const DonationCounter = () => {
 
         {/* compteur annuel */}
         <h2 className="counter-title">
-          <span className="counter-label">Dons reçus en {new Date().getFullYear()} :</span>{" "}
+          <span className="counter-label">{t("donationCounter.annualDons", { year: new Date().getFullYear() })}</span>{" "}
           <span
             className={`counter-number ${
               typeof totalAnnuel === "number" && totalAnnuel === 0 ? "zero" : "positive"
@@ -98,16 +100,16 @@ const DonationCounter = () => {
           </span>
         </h2>
 
-        <p className="counter-text">Merci pour votre générosité 💚</p>
+        <p className="counter-text">{t("donationCounter.thanks")}</p>
 
         <div className="divLine">
           <hr className="line" />
-          <h1 className="counter-title">📄Voir le fichier au format PDF</h1>
+          <h1 className="counter-title">{t("donationCounter.seePdf")}</h1>
         </div>
 
         <div className="download-buttons">
-          <button onClick={handleDownloadPDF} title="Ouvre un onglet avec le fichier PDF">
-            créer le fichier PDF
+          <button onClick={handleDownloadPDF} title={t("donationCounter.createPdf")}>
+            {t("donationCounter.createPdf")}
           </button>
         </div>
 
@@ -118,5 +120,7 @@ const DonationCounter = () => {
     </section>
   );
 };
+
+export default DonationCounter;
 
 export default DonationCounter;

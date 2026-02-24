@@ -5,8 +5,10 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import CamerounButton from "../components/CamerounButton";
 import { faHandPointLeft } from "@fortawesome/free-solid-svg-icons";
 import "../styles/travaux.css";
+import { useTranslation } from "react-i18next";
 
 export default function TravauxEnCours() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <main className="travaux">
@@ -16,10 +18,9 @@ export default function TravauxEnCours() {
           alt="Mama Esther en chantier"
           className="travaux-banner"
         />
-        <h1 className="travaux-title">Page en construction</h1>
+        <h1 className="travaux-title">{t("construction.title")}</h1>
         <p className="travaux-subtitle">
-          La Présidente veille sur chaque pierre qu’on pose — même les pages pas
-          encore finies 💚
+          {t("construction.subtitle")}
         </p>
         <div className="travaux-button-group">
           <CamerounButton onClick={() => navigate(-1)} className="about-button">
@@ -27,12 +28,12 @@ export default function TravauxEnCours() {
               icon={faHandPointLeft}
               style={{ marginRight: "8px" }}
             />
-            Retour
+            {t("construction.back")}
           </CamerounButton>
 
           <CamerounButton to="/contact#contact-form" className="about-button">
             <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: "8px" }} />
-            Nous écrire
+            {t("construction.writeUs")}
           </CamerounButton>
         </div>
       </section>

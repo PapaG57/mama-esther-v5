@@ -1,8 +1,11 @@
 import React from "react";
 import "../styles/engagement.css";
 import Divider from "../components/Divider";
+import { useTranslation } from "react-i18next";
 
 function Engagement() {
+  const { t } = useTranslation();
+
   return (
     <section id="engagement" className="home-container">
       <Divider /> {/* ligne de séparation */}
@@ -10,7 +13,7 @@ function Engagement() {
       <section id="EngagementSection" className="engagement-area">
         {/* Titre centré */}
         <div className="section-title">
-          <h3>Engagements de l'association</h3>
+          <h3>{t("engagement.title")}</h3>
         </div>
 
         {/* Liste des engagements */}
@@ -24,24 +27,12 @@ function Engagement() {
               />
             </div>
             <div className="desc">
-              <h4>Comptabilité transparente</h4>
+              <h4>{t("engagement.transparency.title")}</h4>
               <p className="home-card-text">
-                L'association Mama Esther veille à maintenir une comptabilité
-                rigoureuse et transparente. Nous utilisons des systèmes de
-                gestion financière avancés pour assurer que toutes les
-                transactions sont enregistrées avec précision. Chaque don et
-                chaque dépense sont minutieusement suivis et audités
-                régulièrement pour garantir une utilisation éthique et efficace
-                des ressources. Notre engagement envers une comptabilité sans
-                faille reflète notre dévouement à la transparence et à la
-                responsabilité envers nos donateurs et bénéficiaires. En
-                garantissant une gestion financière rigoureuse, nous renforçons
-                la confiance de nos donateurs et partenaires et assurons que
-                chaque contribution est utilisée pour maximiser l'impact de nos
-                actions.
+                {t("engagement.transparency.text")}
               </p>
               <a href="/contact" className="home-link">
-                Vous avez des questions ? Cliquez ici
+                {t("engagement.questions")}
               </a>
             </div>
           </article>
@@ -55,24 +46,12 @@ function Engagement() {
               />
             </div>
             <div className="desc">
-              <h4>Soutien aux enfants mais aussi ceux dans le besoin</h4>
+              <h4>{t("engagement.support.title")}</h4>
               <p className="home-card-text">
-                L'association Mama Esther s'engage à apporter un soutien global
-                à la communauté, en commençant par les enfants mais sans s'y
-                limiter. Nous offrons des services incluant : le soutien
-                scolaire, les soins médicaux et l'accompagnement moral, pour
-                assurer leur bien-être. Mais, cela ne s'arrête pas là. Nous
-                étendons nos efforts aux adultes en difficulté, fournissant des
-                formations professionnelles et un accès à des ressources
-                essentielles. En adoptant une approche holistique, nous visons à
-                renforcer l'ensemble de la communauté, créant ainsi un
-                environnement où chacun peut prospérer. Notre objectif est de
-                bâtir un avenir meilleur pour tous, pour les plus jeunes tout en
-                soutenant les adultes qui jouent un rôle crucial dans leur
-                épanouissement.
+                {t("engagement.support.text")}
               </p>
               <a href="/contact" className="home-link">
-                Vous avez des questions ? Cliquez ici
+                {t("engagement.questions")}
               </a>
             </div>
           </article>
@@ -86,24 +65,12 @@ function Engagement() {
               />
             </div>
             <div className="desc">
-              <h4>Dévouement sans attente</h4>
+              <h4>{t("engagement.dedication.title")}</h4>
               <p className="home-card-text">
-                L'association Mama Esther repose sur l'engagement indéfectible
-                de ses bénévoles, dont le volontariat désintéressé est la clé de
-                notre succès. Chaque jour, ils offrent de leur temps et de leur
-                énergie sans attendre de contrepartie, animés par le désir de
-                faire une différence dans la vie des plus vulnérables. Leur
-                dévouement va bien au-delà des simples tâches, car ils apportent
-                soutien, espoir et réconfort à ceux qui en ont le plus besoin.
-                Ce volontariat, guidé par des valeurs de solidarité et de
-                compassion, est essentiel pour mener à bien nos missions. Grâce
-                à ces héros du quotidien, nous sommes en mesure de réaliser des
-                projets ambitieux et d'apporter une aide précieuse à notre
-                communauté. Leur altruisme et leur générosité témoignent de leur
-                esprit véritable.
+                {t("engagement.dedication.text")}
               </p>
               <a href="/contact" className="home-link">
-                Vous avez des questions ? Cliquez ici
+                {t("engagement.questions")}
               </a>
             </div>
           </article>
@@ -112,5 +79,7 @@ function Engagement() {
     </section>
   );
 }
+
+export default Engagement;
 
 export default Engagement;

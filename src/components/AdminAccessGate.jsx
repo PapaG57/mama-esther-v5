@@ -1,7 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function AdminAccessGate({ children }) {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,14 +22,13 @@ export default function AdminAccessGate({ children }) {
   return (
     <div style={styles.overlay} aria-modal="true" role="dialog">
       <div style={styles.modal}>
-        <h2 style={styles.title}>Accès refusé</h2>
+        <h2 style={styles.title}>{t("admin.accessGate.denied")}</h2>
         <p style={styles.text}>
-          L’entrée par la barre d’adresse est interdite.  
-          Utilisez le bouton réservé aux administrateurs.
+          {t("admin.accessGate.deniedText")}
         </p>
 
         <button style={styles.button} onClick={() => navigate(-1)}>
-          Retour
+          {t("admin.accessGate.back")}
         </button>
       </div>
     </div>

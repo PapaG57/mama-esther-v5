@@ -1,9 +1,12 @@
 import React from "react";
 import "../styles/newsList.css"; // crée ce fichier si tu veux ajouter du style
+import { useTranslation } from "react-i18next";
 
 export default function NewsList({ data }) {
+  const { t } = useTranslation();
+
   if (!data || data.length === 0) {
-    return <p>Aucune newsletter disponible pour le moment.</p>;
+    return <p>{t("actuality.noNews")}</p>;
   }
 
   return (
@@ -22,11 +25,11 @@ export default function NewsList({ data }) {
             href={n.pdfPath}
             target="_blank"
             rel="noopener noreferrer"
-            title={`Ouvrir le PDF de ${n.title}`}
+            title={t("actuality.openPdf", { title: n.title })}
             className="pdf-icon-link"
           >
             <i className="fa-solid fa-file-pdf fa-2x pdf-icon-awesome" />
-            <span className="visually-hidden">Télécharger le PDF</span>
+            <span className="visually-hidden">{t("actuality.downloadPdf")}</span>
           </a>
         </li>
       ))}

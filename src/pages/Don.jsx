@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointLeft } from "@fortawesome/free-solid-svg-icons";
 import CamerounButton from "../components/CamerounButton";
 import "../styles/don.css";
+import { useTranslation } from "react-i18next";
 
 export default function Don() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <section className="don-section">
@@ -23,14 +25,13 @@ export default function Don() {
           src="https://www.helloasso.com/associations/association-mama-esther/formulaires/1/widget"
           frameBorder="0"
           className="don-widget"
-          title="Formulaire de don"
+          title={t("don.iframeTitle")}
         ></iframe>
 
         {/* Bloc émotionnel */}
         <div className="don-emotion">
           <blockquote>
-            “C’est dans les petites attentions que nous bâtissons les plus
-            grands espoirs.”
+            {t("don.quote")}
           </blockquote>
           <img
             src="/assets/don/logoMama.png"
@@ -46,7 +47,7 @@ export default function Don() {
             icon={faHandPointLeft}
             style={{ marginRight: "8px" }}
           />
-          Retour
+          {t("don.back")}
         </CamerounButton>
       </div>
     </section>

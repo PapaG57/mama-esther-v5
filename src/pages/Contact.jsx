@@ -10,8 +10,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import HandSpinner from "../components/HandSpinner.jsx"; // Import du spinner
 import "../styles/contact.css";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [sending, setSending] = useState(false); // Ajout loading spinner
   const [showModal, setShowModal] = useState(false);
   const formRef = useRef(null);
@@ -60,10 +62,10 @@ export default function Contact() {
       if (response.ok) {
         setShowModal(true);
       } else {
-        alert("❌ Une erreur est survenue. Veuillez réessayer.");
+        alert(t("contact.form.submitError"));
       }
     } catch {
-      alert("❌ Erreur réseau. Vérifiez votre connexion.");
+      alert(t("contact.form.networkError"));
     } finally {
       setSending(false);
     }
@@ -79,7 +81,7 @@ export default function Contact() {
   return (
     <section className="contact-section">
       <div className="contact-container">
-        <h2 className="contact-title">CONTACTEZ-NOUS</h2>
+        <h2 className="contact-title">{t("contact.title")}</h2>
 
         <div className="floating-contact fixed-bottom-right">
           <CamerounButton onClick={() => navigate(-1)} className="about-button">
@@ -87,7 +89,7 @@ export default function Contact() {
               icon={faHandPointLeft}
               style={{ marginRight: "8px" }}
             />
-            Retour
+            {t("contact.back")}
           </CamerounButton>
         </div>
 
@@ -112,7 +114,7 @@ export default function Contact() {
                     icon={faMapMarkerAlt}
                     className="info-icon"
                   />
-                  <h3>ADRESSE</h3>
+                  <h3>{t("contact.addressTitle")}</h3>
                 </div>
                 <p>📍 1, Rue des Trôenes</p>
                 <p>🌳 HAYANGE St-NICOLAS EN FORÊT 57700</p>
@@ -122,19 +124,19 @@ export default function Contact() {
               <div className="info-card">
                 <div className="info-header">
                   <FontAwesomeIcon icon={faMobileAlt} className="info-icon" />
-                  <h3>TÉLÉPHONE</h3>
+                  <h3>{t("contact.phoneTitle")}</h3>
                 </div>
                 <p>
-                  📞 +33 6 86 74 29 11 — <strong>Présidente</strong>
+                  📞 +33 6 86 74 29 11 — <strong>{t("contact.president")}</strong>
                 </p>
                 <p>
-                  📞 +33 6 45 65 65 17 — <strong>Vice-président</strong>
+                  📞 +33 6 45 65 65 17 — <strong>{t("contact.vicePresident")}</strong>
                 </p>
                 <p>
-                  <em>📅 7j/7 de 9h à 19h</em>
+                  <em>📅 {t("contact.availability")}</em>
                 </p>
                 <p>
-                  <em>📨 Pour les urgences, laissez-nous un message.</em>
+                  <em>📨 {t("contact.urgency")}</em>
                 </p>
               </div>
             </div>
@@ -143,29 +145,29 @@ export default function Contact() {
 
         <div className="contact-block contact-form" id="contact-form">
           <h3>
-            <FontAwesomeIcon icon={faEnvelope} /> NOUS ÉCRIRE
+            <FontAwesomeIcon icon={faEnvelope} /> {t("contact.writeUs")}
           </h3>
           <form ref={formRef} onSubmit={handleSubmit}>
             {/* Honeypot anti-spam */}
             <input type="text" name="_gotcha" style={{ display: "none" }} />
 
             <div className="form-group">
-              <label htmlFor="name">Nom & Prénom</label>
+              <label htmlFor="name">{t("contact.form.name")}</label>
               <input type="text" name="name" id="name" required />
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Votre e-mail</label>
+              <label htmlFor="email">{t("contact.form.email")}</label>
               <input type="email" name="_replyto" id="email" required />
             </div>
 
             <div className="form-group">
-              <label htmlFor="subject">Objet</label>
+              <label htmlFor="subject">{t("contact.form.subject")}</label>
               <input type="text" name="subject" id="subject" />
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">{t("contact.form.message")}</label>
               <textarea
                 name="message"
                 id="message"
@@ -186,7 +188,7 @@ export default function Contact() {
                   }}
                   className={showEmojiAlert ? "shake-checkbox" : ""}
                 />
-                <span>Je suis un humain (veuillez cocher cette case)</span>
+                <span>{t("contact.form.humanCheck")}</span>
               </label>
             </div>
 
@@ -194,7 +196,7 @@ export default function Contact() {
             {showEmojiAlert && (
               <div className="emoji-alert">
                 🙈{" "}
-                <span>Non non non... vous avez oublié de cocher la case !</span>
+                <span>{t("contact.form.errorCheck")}</span>
               </div>
             )}
 
@@ -207,11 +209,11 @@ export default function Contact() {
               >
                 {sending ? (
                   <span className="sending-content">
-                    Envoi en cours…
+                    {t("contact.form.sending")}
                     <HandSpinner />
                   </span>
                 ) : (
-                  "Envoyer"
+                  t("contact.form.send")
                 )}
               </button>
             </div>
@@ -219,7 +221,7 @@ export default function Contact() {
         </div>
 
         <div className="contact-button-wrapper">
-          <CamerounButton to="/don">Faire un don 💚</CamerounButton>
+          <CamerounButton to="/don">{t("contact.form.donate")}</CamerounButton>
         </div>
       </div>
 
@@ -233,12 +235,11 @@ export default function Contact() {
                 alt="Mama Esther"
                 className="modal-esther-photo"
               />
-              <h3>💌 Merci pour votre message !</h3>
+              <h3>{t("contact.form.successTitle")}</h3>
             </div>
 
             <p>
-              Toute l'équipe se mobilise pour vous répondre le plus rapidement
-              possible.
+              {t("contact.form.successText")}
             </p>
 
             <div className="modal-signatures">
@@ -255,7 +256,7 @@ export default function Contact() {
             </div>
 
             <button onClick={handleCloseModal} className="modal-close-button">
-              Fermer
+              {t("contact.form.close")}
             </button>
           </div>
         </div>

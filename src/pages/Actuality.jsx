@@ -11,28 +11,28 @@ import { useTranslation } from "react-i18next";
 import "../styles/actuality.css";
 
 export default function Actuality() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const newsData = [
     {
       id: 1,
       image: "/assets/actualities/actuality2.png",
       date: "2024-09-01",
-      title: "Signature des documents pour l'agrément",
-      description: `"C'est un jour mémorable pour l'association Mama Esther. Aujourd'hui, la création de l'association a été officiellement reconnue par le tribunal de Thionville en Moselle, marquant le début d'un nouveau chapitre dans la mission de cette organisation philanthropique.\n\n Les membres de l'association et les sympathisants attendaient avec impatience cette nouvelle depuis des mois. Lorsque les documents officiels sont arrivés par courrier, une onde de joie et de soulagement a parcouru l'équipe. La présidente de l'association, Esther Gérard, a tenu à annoncer la bonne nouvelle à tous les membres et bénévoles. \n\nNous avons travaillé sans relâche pour atteindre ce moment,déclara Esther Gérard, visiblement émue. Recevoir ces documents officiels est une reconnaissance de notre engagement et de nos efforts. C'est le début d'une aventure pleine de promesses pour les enfants que nous soutenons. \n\nLa signature des documents par le tribunal de Thionville symbolise bien plus qu'une simple formalité juridique. C'est le fruit d'années de travail acharné, de dévouement et de soutien inconditionnel de la part de nombreux bénévoles et sympathisants. Chaque membre de l'association a contribué à sa manière à cette réalisation. \n\nLa réception des documents officiels marque le début d'un nouveau voyage pour l'association Mama Esther, un voyage empreint de compassion, de détermination et d'espoir. Chaque membre de l'association est désormais prêt à se retrousser les manches et à transformer cette vision en réalité, offrant un avenir meilleur aux enfants et aux personnes vulnérables. \n\nle Webmaster"`,
+      titleKey: "actuality.articles.article1.title",
+      descKey: "actuality.articles.article1.content",
     },
     {
       id: 2,
       image: "/assets/actualities/actuality1.png",
-      date: "20 octobre 2024",
-      title: "Visite du terrain de l'association",
-      description: `"Le soleil brillait doucement sur le vaste terrain, soulignant l'enthousiasme et l'espoir qui imprégnaient l'air. Aujourd'hui, une étape cruciale dans le projet de l'association Mama Esther allait prendre forme. La présidente de l'association, Madame Esther GERARD, était sur place pour visiter le terrain destiné à accueillir le futur bâtiment de l'orphelinat, un projet qui promet de transformer de nombreuses vies. Le terrain, actuellement une étendue de terre vaste et ouverte, était en passe de devenir un havre pour les enfants dans le besoin. L'association Mama Esther, connue pour son engagement envers le bien-être des enfants orphelins et les personnes vulnérables, avait travaillé sans relâche pour commencer la construction de ce nouvel établissement. \n\nTout en marchant à travers le terrain, la présidente prit le temps de discuter avec les membres de la communauté locale, écoutant leurs idées et leurs suggestions avec une attention bienveillante. 'Ce projet n'est pas seulement celui de l'association 'Mama Esther' déclara-t-elle. Il appartient à chacun de nous. Ensemble, nous bâtissons un avenir meilleur pour ces enfants, en leur offrant non seulement un toit, mais aussi un foyer où ils pourront s'épanouir. \n\nLa présidente de l'association 'Mama Esther' quitta le terrain avec le cœur rempli d'espoir et d'enthousiasme, prête à continuer de travailler sans relâche pour que ce rêve devienne réalité. La visite d'aujourd'hui était bien plus qu'une simple inspection ; elle symbolisait la concrétisation d'une vision, portée par une communauté unie par un même objectif : offrir un foyer sûr et aimant aux enfants qui en ont le plus besoin. \n\nLe Webmaster"`,
+      date: "2024-10-20",
+      titleKey: "actuality.articles.article2.title",
+      descKey: "actuality.articles.article2.content",
     },
     {
       id: 3,
       image: "/assets/actualities/actuality3.png",
-      date: "1er avril 2025",
-      title: "Premier coup de pelle !",
+      date: "2025-04-01",
+      titleKey: "actuality.articles.article3.title",
     },
   ];
 
@@ -65,15 +65,19 @@ export default function Actuality() {
   const formatDateParts = (dateString) => {
     if (!dateString) return { day: "", month: "", year: "" };
     const date = new Date(dateString);
+    const lang = i18n.language === "fr" ? "fr-FR" : "en-GB";
     const options = { day: "numeric", month: "long", year: "numeric" };
-    const [day, month, year] = date
-      .toLocaleDateString("fr-FR", options)
-      .replace(",", "")
-      .split(" ");
+    const formatted = date.toLocaleDateString(lang, options).replace(",", "");
+    const parts = formatted.split(" ");
+    
+    let day = parts[0];
+    if (i18n.language === "fr" && day === "1") day = "1er";
+    else if (i18n.language !== "fr") day = day.padStart(2, "0");
+
     return {
-      day: day === "1" ? "1er" : day.padStart(2, "0"),
-      month,
-      year,
+      day: day,
+      month: parts[1],
+      year: parts[2],
     };
   };
 
@@ -86,7 +90,7 @@ export default function Actuality() {
           className="actuality-banner"
         />
         <h1 className="actuality-title-overlay">
-          {t("actuality.title")}   {/* ← TRADUCTION */}
+          {t("actuality.title")}
         </h1>
       </div>
 
@@ -99,16 +103,16 @@ export default function Actuality() {
             return (
               <div key={news.id} id={`news${news.id}`} className="news-card">
                 <div className="news-image-wrapper">
-                  <img src={news.image} alt={news.title} />
+                  <img src={news.image} alt={t(news.titleKey)} />
                   <div className="news-date-box">
                     <div className="news-day">{day}</div>
                     <div className="news-month">{month}</div>
                     <div className="news-year">{year}</div>
                   </div>
-                  <h3 className="news-title">{news.title}</h3>
+                  <h3 className="news-title">{t(news.titleKey)}</h3>
                 </div>
                 <div className="news-description">
-                  {(news.description || "").split("\n\n").map((para, index) => (
+                  {(news.descKey ? t(news.descKey) : "").split("\n\n").map((para, index) => (
                     <p key={index}>{para}</p>
                   ))}
                 </div>
@@ -143,7 +147,7 @@ export default function Actuality() {
           &lsaquo;
         </button>
         <span>
-          Page {page} sur {totalPages}
+          {t("actuality.pagination", { current: page, total: totalPages })}
         </span>
         <button
           onClick={() => goToPage(page + 1)}

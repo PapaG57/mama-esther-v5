@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/unsubscribe.css";
+import { useTranslation } from "react-i18next";
 
 export default function Unsubscribe() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -10,7 +12,7 @@ export default function Unsubscribe() {
   // Fonction appelée lorsqu’on clique sur “Oui, je me désinscris”
   const handleUnsubscribe = async () => {
     if (!email) {
-      alert("📭 Veuillez entrer votre email.");
+      alert(t("unsubscribe.alertEmail"));
       return;
     }
 
@@ -26,11 +28,11 @@ export default function Unsubscribe() {
       if (response.ok) {
         setShowModal(true); // Affichage de la modale de confirmation
       } else {
-        alert("⚠️ Une erreur est survenue lors de la désinscription.");
+        alert(t("unsubscribe.alertError"));
       }
     } catch (error) {
       console.error(error);
-      alert("🚫 Échec de la requête.");
+      alert(t("unsubscribe.alertFail"));
     }
   };
 
@@ -48,11 +50,10 @@ export default function Unsubscribe() {
           className="unsubscribe-image"
         />
 
-        <h1>Oh non… On est triste de vous voir partir...</h1>
+        <h1>{t("unsubscribe.title")}</h1>
 
         <p>
-          Vous ne recevrez plus notre newsletter. Mais sachez que vous serez
-          toujours le ou la bienvenue pour nous retrouver à tout moment 💚
+          {t("unsubscribe.subtitle")}
         </p>
 
         {/* Champ pour saisir l’email */}
@@ -60,14 +61,14 @@ export default function Unsubscribe() {
           htmlFor="email-input"
           style={{ fontWeight: "bold", marginBottom: "8px" }}
         >
-          Entrez votre adresse email :
+          {t("unsubscribe.emailLabel")}
         </label>
         <input
           id="email-input"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="ex. prenom.nom@exemple.com"
+          placeholder={t("unsubscribe.placeholder")}
           required
           className="unsubscribe-input"
         />
@@ -75,10 +76,10 @@ export default function Unsubscribe() {
         {/* Boutons d’action */}
         <div className="unsubscribe-buttons">
           <button onClick={handleUnsubscribe} className="about-button">
-            Oui, je me désinscris
+            {t("unsubscribe.buttonYes")}
           </button>
           <button onClick={() => navigate("/")} className="about-button">
-            Rester sur le site
+            {t("unsubscribe.buttonStay")}
           </button>
         </div>
       </div>
@@ -92,9 +93,9 @@ export default function Unsubscribe() {
               alt="Succès"
               className="success-modal-icon"
             />
-            <h2>Votre désinscription a bien été enregistrée !</h2>
+            <h2>{t("unsubscribe.successModal")}</h2>
             <button onClick={handleModalClose} className="success-modal-button">
-              Retour à l’accueil
+              {t("unsubscribe.backHome")}
             </button>
           </div>
         </div>

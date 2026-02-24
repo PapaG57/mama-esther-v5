@@ -1,8 +1,10 @@
 import React from "react";
 import "./header.css";
 import BibleVerse from "../components/BibleVerse";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+  const { t } = useTranslation();
   return (
     <header>
       <div className="header-wrapper">
@@ -12,23 +14,22 @@ function Header() {
           <div className="header-container">
             <div className="header-text-block">
               <h2 className="header-subtitle">
-                Soyez les bienvenus dans notre association
+                {t("header.welcome")}
               </h2>
 
               <h1 className="header-title">
-                Aidez-nous à donner une chance aux orphelins
+                {t("header.title")}
               </h1>
 
               <p className="header-text">
-                Nous avons beaucoup de projets pour l’avenir des enfants et des
-                personnes en difficulté.
+                {t("header.subtitle")}
               </p>
             </div>
 
             <div className="bible-card">
               <BibleVerse
-                text="... Je vous le dis en vérité, toutes les fois que vous avez fait ces choses à l’un de ces plus petits de mes frères, c’est à moi que vous les avez faites."
-                reference="Matthieu 25 v. 40 (Bible Segond 1910)"
+                text="bibleVerses.matthew25_40.text"
+                reference="bibleVerses.matthew25_40.ref"
               />
             </div>
           </div>
@@ -37,5 +38,7 @@ function Header() {
     </header>
   );
 }
+
+export default Header;
 
 export default Header;

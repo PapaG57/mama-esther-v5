@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEraser } from "@fortawesome/free-solid-svg-icons";
 import confetti from "canvas-confetti"; // Ajout confetti
 import HandSpinner from "../components/HandSpinner"; // Import du spinner
+import { useTranslation } from "react-i18next";
 
 export default function Registration({ isOpen, onClose }) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState(null); // 'success', 'error', 'duplicate'
   const [closing, setClosing] = useState(false);
@@ -90,13 +92,13 @@ export default function Registration({ isOpen, onClose }) {
         <button className="registration-close" onClick={handleClose}>
           &times;
         </button>
-        <h2>Inscription à la newsletter</h2>
-        <p>Recevez nos actus par email :</p>
+        <h2>{t("registration.title")}</h2>
+        <p>{t("registration.subtitle")}</p>
 
         <form onSubmit={handleSubmit}>
           <input
             type="email"
-            placeholder="Votre adresse email"
+            placeholder={t("registration.placeholder")}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -126,7 +128,7 @@ export default function Registration({ isOpen, onClose }) {
                   }}
                   className={showEmojiAlert ? "shake-checkbox" : ""}
                 />
-                <span>Je suis un humain (veuillez cocher cette case)</span>
+                <span>{t("registration.humanCheck")}</span>
               </label>
             </div>
           </div>
@@ -134,7 +136,7 @@ export default function Registration({ isOpen, onClose }) {
           {showEmojiAlert && (
             <div className="emoji-alert">
               🙈{" "}
-              <span>Non non non... vous avez oublié de cocher la case !</span>
+              <span>{t("registration.errorCheck")}</span>
             </div>
           )}
           {/* Alerte duplication d’adresse avec bouton "Effacer" */}
@@ -142,11 +144,10 @@ export default function Registration({ isOpen, onClose }) {
             <div className="emoji-alert">
               📨{" "}
               <span>
-                Cette adresse est déjà inscrite. Merci d’en utiliser une autre
-                🙏
+                {t("registration.duplicateAlert")}
               </span>
               <button className="btn-clear-email" onClick={clearEmail}>
-                <FontAwesomeIcon icon={faEraser} /> Effacer le formulaire
+                <FontAwesomeIcon icon={faEraser} /> {t("registration.clearButton")}
               </button>
             </div>
           )}
@@ -160,11 +161,11 @@ export default function Registration({ isOpen, onClose }) {
             >
               {sending ? (
                 <div className="loading-content">
-                  <span>Envoi en cours…</span>
+                  <span>{t("registration.sending")}</span>
                   <HandSpinner />
                 </div>
               ) : (
-                "Envoyer"
+                t("registration.send")
               )}
             </button>
           </div>
@@ -174,15 +175,15 @@ export default function Registration({ isOpen, onClose }) {
           <>
             {/* Animation de feux d'artifice */}
             <div id="confetti-target"></div>
-            <p className="form-feedback success">✅ Inscription réussie !</p>
+            <p className="form-feedback success">{t("registration.success")}</p>
           </>
         )}
         {status === "error" && (
-          <p className="form-feedback error">❌ Une erreur est survenue.</p>
+          <p className="form-feedback error">{t("registration.error")}</p>
         )}
 
         <button className="btn-fermer" onClick={handleClose}>
-          Fermer
+          {t("registration.close")}
         </button>
       </div>
     </div>

@@ -2,14 +2,16 @@ import React, { useState, useRef } from "react";
 import { newsletters } from "../data/newsletters";
 import VerifiedLink from "./VerifiedLink"; // Bouton lien intelligent
 import "./NewsletterCarousel.css";
-
-// Extrait tous les tags uniques présents dans les newsletters
-const allTags = [...new Set(newsletters.flatMap((nl) => nl.tags))];
+import { useTranslation } from "react-i18next";
 
 // Composant principal du carrousel
 function NewsletterCarousel() {
+  const { t } = useTranslation();
   const [selectedTag, setSelectedTag] = useState("all"); // Tag sélectionné
   const carouselRef = useRef(null); // Référence du carrousel
+
+  // Extrait tous les tags uniques présents dans les newsletters
+  const allTags = [...new Set(newsletters.flatMap((nl) => nl.tags))];
 
   // Filtrage des newsletters selon le tag sélectionné
   const filteredNewsletters =
@@ -39,15 +41,15 @@ function NewsletterCarousel() {
           onClick={() => setSelectedTag("all")}
           className={selectedTag === "all" ? "active" : ""}
         >
-          Tous
+          {t("newsletters.filterAll")}
         </button>
-        {allTags.map((tag) => (
+        {allTags.map((tagKey) => (
           <button
-            key={tag}
-            onClick={() => setSelectedTag(tag)}
-            className={selectedTag === tag ? "active" : ""}
+            key={tagKey}
+            onClick={() => setSelectedTag(tagKey)}
+            className={selectedTag === tagKey ? "active" : ""}
           >
-            {tag}
+            {t(tagKey)}
           </button>
         ))}
       </div>
@@ -61,10 +63,10 @@ function NewsletterCarousel() {
         <div className="carousel-track-news" ref={carouselRef}>
           {filteredNewsletters.map((nl) => (
             <div className="card-news" key={nl.id}>
-              <img src={nl.coverImage} alt={`Couverture ${nl.title}`} />
+              <img src={nl.coverImage} alt={`Couverture ${t(nl.titleKey)}`} />
               <div className="card-content-news">
-                <h3>{nl.title}</h3>
-                <p>{nl.summary}</p>
+                <h3>{t(nl.titleKey)}</h3>
+                <p>{t(nl.summaryKey)}</p>
 
                 <div className="spacer"></div>
 
@@ -72,18 +74,18 @@ function NewsletterCarousel() {
                   <div className="links-footer">
                     {/* 🌐 Lien vérifié vers la version en ligne */}
                     <VerifiedLink href={nl.htmlPath}>
-                      🌐 Voir en ligne
+                      {t("newsletters.viewOnline")}
                     </VerifiedLink>{" "}
                     • {/* 📄 Lien vers le PDF */}
                     <a href={nl.pdfPath} target="_blank" rel="noreferrer">
-                      📄 voir en PDF
+                      {t("newsletters.viewPdf")}
                     </a>
                   </div>
 
                   {/* Tags associés */}
                   <div className="tags-footer">
-                    {nl.tags.map((tag) => (
-                      <span key={tag}>#{tag}</span>
+                    {nl.tags.map((tagKey) => (
+                      <span key={tagKey}>#{t(tagKey)}</span>
                     ))}
                   </div>
                 </div>

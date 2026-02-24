@@ -6,6 +6,7 @@ import "../styles/admin.css";
 import CamerounButton from "../components/CamerounButton";
 import PasswordField from "../components/PasswordField";
 import confetti from "canvas-confetti";
+import { useTranslation } from "react-i18next";
 
 function evaluatePasswordStrength(password) {
   const len = password.length;
@@ -20,6 +21,7 @@ function evaluatePasswordStrength(password) {
 }
 
 export default function Admin() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   // 🔒 Protection de la page : vérifie le token dès le montage
@@ -64,19 +66,19 @@ export default function Admin() {
     setMessage("");
 
     if (motDePasse !== confirmationMotDePasse) {
-      setMessage("Les mots de passe ne correspondent pas.");
+      setMessage(t("admin.messages.passwordsNoMatch"));
       return;
     }
 
     if (motDePasse.length < 8 || motDePasse.length > 30) {
-      setMessage("Le mot de passe doit contenir entre 8 et 30 caractères.");
+      setMessage(t("admin.messages.passwordLength"));
       return;
     }
 
     const strength = evaluatePasswordStrength(motDePasse);
     setPasswordStrength(strength);
     if (strength === "faible") {
-      setMessage("Mot de passe trop faible.");
+      setMessage(t("admin.messages.passwordWeak"));
       return;
     }
 
@@ -93,7 +95,7 @@ export default function Admin() {
       });
 
       const result = await res.json();
-      setMessage(result.message || result.error || "Création effectuée");
+      setMessage(result.message || result.error || t("admin.messages.creationSuccess"));
 
       if (res.ok) {
         localStorage.setItem("adminName", identifiant);
@@ -105,37 +107,9 @@ export default function Admin() {
         setPasswordStrength("");
       }
     } catch {
-      setMessage("Erreur réseau");
+      setMessage(t("admin.messages.networkError"));
     }
   };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setMessage("");
-
-    try {
-      const res = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ identifiant, motDePasse }),
-      });
-
-      const result = await res.json();
-
-      if (res.ok) {
-        localStorage.setItem("adminToken", result.token);
-        localStorage.setItem("adminName", result.identifiant);
-
-        setMessage("Connexion réussie !");
-        navigate("/admin");
-      } else {
-        setMessage(result.error || "Identifiant ou mot de passe incorrect");
-      }
-    } catch (err) {
-      setMessage("Erreur réseau");
-    }
-  };
-
 
   const demanderConfirmationSuppression = (don) => {
     setDonASupprimer(don);
@@ -168,11 +142,11 @@ export default function Admin() {
       if (!res.ok) {
         setDonFeedback(result.error || `Erreur serveur (${res.status})`);
       } else {
-        setDonFeedback(result.message || "Don supprimé avec succès");
+        setDonFeedback(result.message || t("admin.messages.donDeleted"));
         fetchDons();
       }
     } catch {
-      setDonFeedback("Erreur réseau");
+      setDonFeedback(t("admin.messages.networkError"));
     } finally {
       setDonASupprimer(null);
       setShowConfirmModal(false);
@@ -211,24 +185,24 @@ export default function Admin() {
         // 🔒 Modale sécurisée uniquement
         <div className="admin-modal-overlay" onClick={() => navigate("/")}>
           <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>🔒 Accès sécurisé</h2>
-            <p>Cette page est réservée aux administrateurs.</p>
+            <h2>{t("admin.accessGate.secureAccess")}</h2>
+            <p>{t("admin.accessGate.secureText")}</p>
             <div className="admin-modal-buttons">
-              <button onClick={() => navigate("/")}>Retour à l’accueil</button>
+              <button onClick={() => navigate("/")}>{t("admin.accessGate.back")}</button>
             </div>
           </div>
         </div>
       ) : (
         <>
-          <h1>🔐 Espace Administrateur</h1>
+          <h1>{t("admin.dashboard.title")}</h1>
 
           {/* Formulaire connexion admin */}
           <form onSubmit={handleAdminSubmit}>
-            <h2>Ajouter un administrateur</h2>
+            <h2>{t("admin.dashboard.addAdminTitle")}</h2>
             <input
               type="text"
               className="input-standard"
-              placeholder="Prénom - nom"
+              placeholder={t("admin.forms.idPlaceholder")}
               value={identifiant}
               onChange={(e) => setIdentifiant(e.target.value)}
               required
@@ -236,34 +210,31 @@ export default function Admin() {
             <PasswordField
               value={motDePasse}
               onChange={(e) => setMotDePasse(e.target.value)}
-              label="Mot de passe"
-              placeholder="***************"
+              label={t("admin.forms.password")}
+              placeholder={t("admin.forms.passwordPlaceholder")}
               required
             />
             {passwordStrength && (
               <p className={strengthClass}>
                 {passwordStrength === "faible"
-                  ? "Mot de passe faible"
+                  ? t("admin.messages.strengthFaible")
                   : passwordStrength === "moyen"
-                  ? "Mot de passe moyen"
-                  : "Mot de passe fort"}
+                  ? t("admin.messages.strengthMoyen")
+                  : t("admin.messages.strengthFort")}
               </p>
             )}
             <PasswordField
               value={confirmationMotDePasse}
               onChange={(e) => setConfirmationMotDePasse(e.target.value)}
-              label="Confirmer le mot de passe"
-              placeholder="***************"
+              label={t("admin.forms.confirmPassword")}
+              placeholder={t("admin.forms.passwordPlaceholder")}
               required
             />
             {message && <p className="msg-red-bold">{message}</p>}
             <p className="msg-green-bold">
-              Le mot de passe doit contenir entre 8 et 30 caractères, au moins
-              une majuscule, une minuscule, un chiffre et un caractère spécial.
-              Il est considéré fort seulement s’il dépasse 10 caractères et
-              contient au moins un de chaque type.
+              {t("admin.messages.passwordInfo")}
             </p>
-            <button type="submit">Créer</button>
+            <button type="submit">{t("admin.forms.submitCreate")}</button>
           </form>
 
           {/* 🎉 Modale succès */}
@@ -276,10 +247,10 @@ export default function Admin() {
                 className="admin-modal success-modal"
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2>🎉 Nouvel administrateur créé avec succès !</h2>
-                <p>Votre nouvel administrateur est maintenant actif.</p>
+                <h2>{t("admin.modals.successTitle")}</h2>
+                <p>{t("admin.modals.successText")}</p>
                 <button onClick={() => setShowSuccessModal(false)}>
-                  Fermer
+                  {t("admin.modals.close")}
                 </button>
               </div>
             </div>
@@ -308,7 +279,7 @@ export default function Admin() {
                 });
 
                 const result = await res.json();
-                setDonFeedback(result.message || result.error || "Don ajouté");
+                setDonFeedback(result.message || result.error || t("admin.messages.donAdded"));
                 setNomDonateur("");
                 setMontant("");
                 setCommentaires("");
@@ -316,14 +287,14 @@ export default function Admin() {
                 setSourcePrecise("");
                 fetchDons();
               } catch (err) {
-                setDonFeedback("Erreur réseau");
+                setDonFeedback(t("admin.messages.networkError"));
               }
             }}>
-            <h2>💰 Ajouter un don manuel</h2>
+            <h2>{t("admin.dashboard.addDonationTitle")}</h2>
             <input
               type="text"
               className="input-standard"
-              placeholder="Nom du donateur"
+              placeholder={t("admin.forms.donatorName")}
               value={nomDonateur}
               onChange={(e) => setNomDonateur(e.target.value)}
               required
@@ -331,7 +302,7 @@ export default function Admin() {
             <input
               type="number"
               className="input-standard"
-              placeholder="Montant (€)"
+              placeholder={t("admin.forms.amount")}
               value={montant}
               onChange={(e) => setMontant(e.target.value)}
               required
@@ -343,18 +314,18 @@ export default function Admin() {
               onChange={(e) => setSource(e.target.value)}
               required
             >
-              <option value="">-- Sélectionner une source --</option>
-              <option value="chèque">Chèque</option>
-              <option value="virement">Virement</option>
-              <option value="espèces">Espèces</option>
-              <option value="autres">Autres (préciser)</option>
+              <option value="">{t("admin.forms.source")}</option>
+              <option value="chèque">{t("admin.forms.sourceCheque")}</option>
+              <option value="virement">{t("admin.forms.sourceTransfer")}</option>
+              <option value="espèces">{t("admin.forms.sourceCash")}</option>
+              <option value="autres">{t("admin.forms.sourceOther")}</option>
             </select>
 
             {source === "autres" && (
               <input
                 type="text"
                 className="input-standard"
-                placeholder="Précisez la source"
+                placeholder={t("admin.forms.sourceOtherPlaceholder")}
                 value={sourcePrecise}
                 onChange={(e) => setSourcePrecise(e.target.value)}
                 required
@@ -363,29 +334,29 @@ export default function Admin() {
 
             <textarea
               className="input-standard"
-              placeholder="Commentaires (facultatif)"
+              placeholder={t("admin.forms.comments")}
               value={commentaires}
               onChange={(e) => setCommentaires(e.target.value)}
             />
-            <button type="submit">Ajouter le don</button>
+            <button type="submit">{t("admin.forms.submitAddDon")}</button>
             {donFeedback && <p>{donFeedback}</p>}
           </form>
 
           {/* Liste des dons */}
-          <h2>📋 Liste des dons</h2>
+          <h2>{t("admin.dashboard.donationListTitle")}</h2>
           {dons.length === 0 ? (
-            <p>Aucun don enregistré pour le moment.</p>
+            <p>{t("admin.dashboard.noDonations")}</p>
           ) : (
             <table>
               <thead>
                 <tr>
-                  <th>Nom du donateur</th>
-                  <th>Montant (€)</th>
-                  <th>Source</th>
-                  <th>Date</th>
-                  <th>Commentaires</th>
-                  <th>Ajouté par</th>
-                  <th>Action</th>
+                  <th>{t("admin.table.name")}</th>
+                  <th>{t("admin.table.amount")}</th>
+                  <th>{t("admin.table.source")}</th>
+                  <th>{t("admin.table.date")}</th>
+                  <th>{t("admin.table.comments")}</th>
+                  <th>{t("admin.table.addedBy")}</th>
+                  <th>{t("admin.table.action")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -407,7 +378,7 @@ export default function Admin() {
                       <button
                         onClick={() => demanderConfirmationSuppression(don)}
                       >
-                        Supprimer
+                        {t("admin.table.delete")}
                       </button>
                     </td>
                   </tr>
@@ -420,14 +391,13 @@ export default function Admin() {
           {showConfirmModal && (
             <div className="admin-modal-overlay" onClick={annulerSuppression}>
               <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-                <h2>Confirmation de suppression</h2>
+                <h2>{t("admin.modals.confirmDeleteTitle")}</h2>
                 <p>
-                  Vous vous apprêtez à supprimer cette ligne de don. Confirmer
-                  la suppression.
+                  {t("admin.modals.confirmDeleteText")}
                 </p>
                 <div className="admin-modal-buttons">
-                  <button onClick={confirmerSuppression}>Confirmer</button>
-                  <button onClick={annulerSuppression}>Annuler</button>
+                  <button onClick={confirmerSuppression}>{t("admin.modals.confirm")}</button>
+                  <button onClick={annulerSuppression}>{t("admin.modals.cancel")}</button>
                 </div>
               </div>
             </div>
@@ -443,7 +413,7 @@ export default function Admin() {
                 icon={faHandPointLeft}
                 style={{ marginRight: "8px" }}
               />
-              Retour
+              {t("admin.accessGate.back")}
             </CamerounButton>
           </div>
         </>

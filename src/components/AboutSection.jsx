@@ -2,33 +2,30 @@ import React from "react";
 import "./about-section.css";
 import CamerounButton from "./CamerounButton";
 import Divider from "./Divider";
+import { useTranslation } from "react-i18next";
 
 export default function AboutSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="aboutSection" className="about-container">
       <Divider /> {/* ligne de séparation */}
-      <h2 className="about-title green-box">Qui sommes-nous ?</h2>
+      <h2 className="about-title green-box">{t("aboutSection.title")}</h2>
       {/* Bloc principal */}
       <div className="about-content">
         <div className="about-text">
           <p className="about-description">
-            L’Association Mama Esther œuvre pour le bien-être des orphelins et
-            des personnes en difficulté. Notre mission est de venir en aide aux
-            plus vulnérables : enfants sans soutien, personnes âgées isolées,
-            individus en situation de handicap, familles démunies.
+            {t("aboutSection.description1")}
           </p>
 
           <p className="about-description">
-            Grâce à l’engagement de nos membres et bénévoles, nous mettons en
-            place des actions solidaires, des accompagnements personnalisés et
-            des projets de soutien humain et matériel. Ensemble, nous
-            travaillons pour un monde plus juste et bienveillant.
+            {t("aboutSection.description2")}
           </p>
           <br />
           <br />
 
           {/* Lien vers la page de présentation */}
-          <CamerounButton to="/about">mieux nous connaître</CamerounButton>
+          <CamerounButton to="/about">{t("aboutSection.button")}</CamerounButton>
         </div>
         <div className="about-image">
           <img

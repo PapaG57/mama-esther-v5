@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./AdminDons.css";
+import { useTranslation } from "react-i18next";
 
 const AdminDons = () => {
+  const { t } = useTranslation();
   const [nomDonateur, setNomDonateur] = useState("");
   const [montant, setMontant] = useState("");
   const [message, setMessage] = useState("");
@@ -27,7 +29,7 @@ const AdminDons = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("Don manuel ajouté !");
+        alert(t("admin.messages.donAdded"));
         setNomDonateur("");
         setMontant("");
         setMessage("");
@@ -39,50 +41,51 @@ const AdminDons = () => {
 
   return (
     <section className="admin-dons">
-      <h1>Ajout de dons manuels</h1>
+      <h1>{t("admin.dashboard.addDonationTitle")}</h1>
 
       {/* Formulaire d'ajout */}
       <form className="don-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Nom du donateur"
+          placeholder={t("admin.forms.donatorName")}
           value={nomDonateur}
           onChange={(e) => setNomDonateur(e.target.value)}
           required
         />
         <input
           type="number"
-          placeholder="Montant (€)"
+          placeholder={t("admin.forms.amount")}
           value={montant}
           onChange={(e) => setMontant(e.target.value)}
           required
         />
         <input
           type="text"
-          placeholder="Message (facultatif)"
+          placeholder={t("admin.forms.comments")}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
+        {/* Campagne placeholder can reuse source if needed, or I can add a specific key */}
         <input
           type="text"
           placeholder="Campagne (facultatif)"
           value={campagne}
           onChange={(e) => setCampagne(e.target.value)}
         />
-        <button type="submit">Ajouter le don</button>
+        <button type="submit">{t("admin.forms.submitAddDon")}</button>
       </form>
 
       {/* Tableau des dons manuels */}
       <div className="don-table">
-        <h2>Dons manuels enregistrés</h2>
+        <h2>{t("admin.dashboard.donationListTitle")}</h2>
         <table>
           <thead>
             <tr>
-              <th>Nom</th>
-              <th>Montant</th>
-              <th>Message</th>
+              <th>{t("admin.table.name")}</th>
+              <th>{t("admin.table.amount")}</th>
+              <th>{t("admin.table.comments")}</th>
               <th>Campagne</th>
-              <th>Fichier</th>
+              <th>{t("admin.table.action")}</th>
             </tr>
           </thead>
           <tbody>
@@ -98,7 +101,7 @@ const AdminDons = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    📄 Voir le fichier
+                    {t("admin.table.viewFile")}
                   </a>
                 </td>
               </tr>
@@ -109,5 +112,7 @@ const AdminDons = () => {
     </section>
   );
 };
+
+export default AdminDons;
 
 export default AdminDons;

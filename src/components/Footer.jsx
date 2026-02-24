@@ -15,8 +15,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./footer.css";
 import PasswordField from "../components/PasswordField";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { t } = useTranslation();
   const [showAdminModal, setShowAdminModal] = useState(false);
   const [identifiant, setIdentifiant] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
@@ -65,8 +67,7 @@ function Footer() {
               className="logo"
             />
             <p className="slogan">
-              "L'amour d'une mère au service des enfants et de tous ceux qui ont
-              besoin d'aide et d'assistance."
+              {t("footer.slogan")}
             </p>
             <div className="social-icons">
               <FontAwesomeIcon icon={faFacebookF} className="social-icon" />
@@ -79,32 +80,32 @@ function Footer() {
 
           {/* Services */}
           <div className="footer-services">
-            <h3>Services</h3>
+            <h3>{t("footer.servicesTitle")}</h3>
             <ul className="footer-list">
               <li>
-                <Link to="/don">Dons</Link>
+                <Link to="/don">{t("footer.serviceDon")}</Link>
               </li>
               <li>
-                <Link to="/travaux">Sponsor - Partenaires</Link>
+                <Link to="/travaux">{t("footer.serviceSponsor")}</Link>
               </li>
               <li>
-                <Link to="/travaux">Collecte de fonds - matériels</Link>
+                <Link to="/travaux">{t("footer.serviceFundraising")}</Link>
               </li>
               <li>
-                <Link to="/travaux">Volontariat - Emploi</Link>
+                <Link to="/travaux">{t("footer.serviceVolunteer")}</Link>
               </li>
               <li>
-                <Link to="/mentions-legales">Mentions Légales</Link>
+                <Link to="/mentions-legales">{t("footer.serviceLegal")}</Link>
               </li>
               <li>
-                <Link to="/lien-mort">lien mort ou problème sur le site ?</Link>
+                <Link to="/lien-mort">{t("footer.serviceIssue")}</Link>
               </li>
             </ul>
           </div>
 
           {/* Contacts */}
           <div className="footer-contact">
-            <h3>Contacts</h3>
+            <h3>{t("footer.contactsTitle")}</h3>
             <div className="footer-card">
               <FontAwesomeIcon
                 icon={faEnvelopeOpenText}
@@ -123,16 +124,16 @@ function Footer() {
             <div className="footer-card">
               <FontAwesomeIcon icon={faMobileAlt} className="footer-icon" />
               <div className="footer-text">
-                +33 6 86 74 29 11 - mobile de la Présidente
+                {t("footer.contactPresident")}
                 <br />
-                +33 6 45 65 65 17 - mobile du vice-président
+                {t("footer.contactVicePresident")}
               </div>
             </div>
             <div className="footer-card">
               <FontAwesomeIcon icon={faAt} className="footer-icon" />
               <div className="footer-text">
                 <Link to="/contact#contact-form" className="footer-link">
-                  👉 Cliquez ici pour nous écrire
+                  {t("footer.contactWriteUs")}
                 </Link>
               </div>
             </div>
@@ -141,7 +142,7 @@ function Footer() {
 
         {/* Flags */}
         <div className="flag-container">
-          <p>Nous agissons dans ces pays :</p>
+          <p>{t("footer.actionCountries")}</p>
           <div className="flag-icons">
             <img
               className="flag-icon"
@@ -171,13 +172,13 @@ function Footer() {
               className="flag-icon flag-blur"
               src="/assets/flags/BE.svg"
               alt="Belgique"
-              title="Bientôt en Belgique"
+              title={t("footer.belgiumComing")}
             />
             <img
               className="flag-icon flag-blur"
               src="/assets/flags/DE.svg"
               alt="Allemagne"
-              title="Bientôt en Allemagne"
+              title={t("footer.germanyComing")}
             />
           </div>
         </div>
@@ -185,7 +186,7 @@ function Footer() {
         {/* Copyright */}
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} Mama Esther. Tous droits réservés | Créé par FG Développement
+            {t("footer.copyright", { year: new Date().getFullYear() })}
             <a
               href="https://www.fgdeveloppement.com/"
               target="_blank"
@@ -206,7 +207,7 @@ function Footer() {
             className="admin-access-button"
             onClick={() => setShowAdminModal(true)}
           >
-            🔐 Réservé aux administrateurs
+            {t("footer.adminAccess")}
           </button>
         </div>
 
@@ -214,12 +215,12 @@ function Footer() {
         {showAdminModal && (
           <div className="admin-modal-overlay" onClick={handleCloseAdminModal}>
             <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-              <h2>Connexion administrateur</h2>
+              <h2>{t("footer.adminModalTitle")}</h2>
               <form onSubmit={handleAdminLogin}>
                 <input
                   type="text"
                   className="input-standard"
-                  placeholder="Identifiant"
+                  placeholder={t("footer.adminPlaceholderId")}
                   value={identifiant}
                   onChange={(e) => setIdentifiant(e.target.value)}
                   required
@@ -228,14 +229,14 @@ function Footer() {
                 <PasswordField
                   value={motDePasse}
                   onChange={(e) => setMotDePasse(e.target.value)}
-                  placeholder="Mot de passe"
+                  placeholder={t("footer.adminPlaceholderPassword")}
                   required
                 />
 
                 <div className="admin-modal-buttons">
-                  <button type="submit">Se connecter</button>
+                  <button type="submit">{t("footer.adminLogin")}</button>
                   <button type="button" onClick={handleCloseAdminModal}>
-                    Annuler
+                    {t("footer.adminCancel")}
                   </button>
                 </div>
               </form>
@@ -246,5 +247,7 @@ function Footer() {
     </footer>
   );
 }
+
+export default Footer;
 
 export default Footer;

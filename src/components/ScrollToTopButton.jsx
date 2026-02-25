@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CamerounButton from "./CamerounButton";
+import { useTranslation } from "react-i18next";
 
 // Bouton flottant qui remonte la page
 export default function ScrollToTopButton() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   // Affiche le bouton après un certain scroll
@@ -29,7 +31,7 @@ export default function ScrollToTopButton() {
   // Bouton stylisé avec CamerounButton
   return (
     <CamerounButton onClick={scrollToTop} className="scroll-top-button">
-      ⬆️ Haut
+      ⬆️ {t("topbar.backToTop")}
     </CamerounButton>
   );
 }
